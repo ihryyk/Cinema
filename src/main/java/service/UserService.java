@@ -1,11 +1,7 @@
 package service;
 
-import exception.DaoOperationException;
 import exception.ServiceException;
 import model.entity.User;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public interface UserService {
     public User findByPasswordAndEmail(String password, String Email) throws ServiceException;
@@ -14,4 +10,7 @@ public interface UserService {
     public User findByPhoneNumber(String phoneNumber) throws ServiceException;
     public void update(User user) throws ServiceException;
     public void save(User user) throws ServiceException;
+    public void updateEmail(String email, Long userId) throws ServiceException;
+    public void updatePhoneNumber(String phoneNumber, Long userId) throws ServiceException;
+    public void updateContactInformation(User user) throws ServiceException;
 }

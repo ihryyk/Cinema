@@ -22,15 +22,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<c:if test="${not empty sessionScope.popUps}">
+<c:if test="${not empty sessionScope.popUpsSuccess}">
     <script>
         Swal.fire({
-            icon: 'ok',
-            title: "Exception",
-            text: '${sessionScope.popUps}'
+            icon: 'success',
+            title: "Success",
+            text: '${sessionScope.popUpsSuccess}'
         })
     </script>
-    ${sessionScope.remove("popUps")}
+    ${sessionScope.remove("popUpsSuccess")}
 </c:if>
 <c:if test="${not empty sessionScope.user}">
     ${sessionScope.user.firstName}  ${sessionScope.user.lastName}
@@ -52,6 +52,9 @@
         <input type="submit" value="search" class="btn_submit"/>
     </form>
 </div>
+<a href=${pageContext.request.contextPath}/cinema>
+    ENG
+</a>
 <jsp:useBean id="movies" scope="request" type="java.util.List"/>
 <c:forEach var="movie" items="${movies}">
     <p>Original name: ${movie.originalName}</p>

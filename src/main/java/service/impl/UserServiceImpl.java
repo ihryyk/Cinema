@@ -29,7 +29,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(long id) throws ServiceException {
-        return null;
+        try {
+            return userDao.findById(id);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
     }
 
     @Override
@@ -52,7 +56,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(User user) throws ServiceException {
-
+        ArgumentValidator.checkForNull(user,"Not allow for a null user in add at userService class");
+        try {
+            userDao.update(user);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
     }
 
     @Override
@@ -60,6 +69,33 @@ public class UserServiceImpl implements UserService {
         ArgumentValidator.checkForNull(user,"Not allow for a null user in add at userService class");
         try {
             userDao.save(user);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
+    }
+
+    @Override
+    public void updateEmail(String email, Long userId) throws ServiceException {
+        try {
+           userDao.updateEmail(email, userId);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
+    }
+
+    @Override
+    public void updatePhoneNumber(String phoneNumber, Long userId) throws ServiceException {
+        try {
+            userDao.updatePhoneNumber(phoneNumber, userId);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
+    }
+
+    @Override
+    public void updateContactInformation(User user) throws ServiceException {
+        try {
+            userDao.updateContactInformation(user);
         } catch (DaoOperationException e) {
             throw new ServiceException("message",e);
         }

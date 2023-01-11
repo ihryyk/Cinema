@@ -23,7 +23,7 @@
 <p>Price: ${requestScope.session.price}</p>
 <p>Place: Row: ${requestScope.seat.row} - Number: ${requestScope.seat.number}</p>
 <form action="${pageContext.request.contextPath}/cinema/user/ticket" method="post">
-    <input type="hidden" required name="seatId" value="${seat.id}"/>
+    <input type="hidden" required name="seatId" value="${requestScope.seat.id}"/>
     <input type="hidden" required name="sessionId" value="${requestScope.session.id}"/>
     <input type="submit" value="Accept"/>
 </form>

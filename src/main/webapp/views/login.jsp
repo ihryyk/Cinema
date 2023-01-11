@@ -22,15 +22,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<c:if test="${not empty sessionScope.popUps}">
+<c:if test="${not empty sessionScope.popUpsError}">
     <script>
         Swal.fire({
             icon: 'error',
             title: "Exception",
-            text: '${sessionScope.popUps}'
+            text: '${sessionScope.popUpsError}'
         })
     </script>
-    ${sessionScope.remove("popUps")}
+    ${sessionScope.remove("popUpsError")}
 </c:if>
 <form action="/cinema/login" method="post">
     <table>

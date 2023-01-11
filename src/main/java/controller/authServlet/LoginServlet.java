@@ -33,14 +33,14 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("user", userService.findByPasswordAndEmail(password,email));
                     response.sendRedirect("/cinema");
                 }else {
-                    request.getSession().setAttribute("popUps", "User with this email and password does not exist");
+                    request.getSession().setAttribute("popUpsError", "User with this email and password does not exist");
                     response.sendRedirect("/cinema/login");
                 }
             } catch (ServiceException e) {
                 throw new RuntimeException(e);
             }
         }else {
-            request.getSession().setAttribute("popUps", "You have entered invalid data");
+            request.getSession().setAttribute("popUpsError", "You have entered invalid data");
             response.sendRedirect("/cinema/login");
         }
     }

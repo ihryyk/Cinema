@@ -31,21 +31,22 @@ public class RegistrationServlet extends HttpServlet {
                 && Validator.isValidPassword(user.getPassword()) && Validator.isValidName(user.getFirstName()) && Validator.isValidName(user.getLastName())){
             try {
                 if (userService.findByEmail(user.getEmailAddress())!=null){
-                    request.getSession().setAttribute("popUps", "A user with this email already exists");
+                    request.getSession().setAttribute("popUpsError", "A user with this email already exists");
                     response.sendRedirect("/cinema/registration");
                 }else if (userService.findByPhoneNumber(user.getPhoneNumber())!=null){
-                    request.getSession().setAttribute("popUps", "A user with this phone number already exists");
+                    request.getSession().setAttribute("popUpsError", "A user with this phone number already exists");
                     response.sendRedirect("/cinema/registration");
                 }else {
                     userService.save(user);
                     request.getSession().setAttribute("user", userService.findByPasswordAndEmail(user.getPassword(),user.getEmailAddress()));
+                    request.getSession().setAttribute("popUpsSuccess", "You are registered");
                     response.sendRedirect("/cinema");
                 }
             } catch (ServiceException e) {
                 response.sendRedirect("/cinema/error");
             }
         }else {
-            request.getSession().setAttribute("popUps", "You have entered invalid data");
+            request.getSession().setAttribute("popUpsError", "You have entered invalid data");
             response.sendRedirect("/cinema/registration");
         }
     }

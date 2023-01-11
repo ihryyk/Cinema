@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Library</title>
+    <title>Title</title>
     <meta charset="utf-8">
     <title>Insert title here</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,15 +24,15 @@
 </head>
 
 <body>
-<c:if test="${not empty sessionScope.popUps}">
+<c:if test="${not empty sessionScope.popUpsError}">
     <script>
         Swal.fire({
             icon: 'error',
             title: "Exception",
-            text: '${sessionScope.popUps}'
+            text: '${sessionScope.popUpsError}'
         })
     </script>
-    ${sessionScope.remove("popUps")}
+    ${sessionScope.remove("popUpsError")}
 </c:if>
 <div>
     <h1>Registration form</h1>

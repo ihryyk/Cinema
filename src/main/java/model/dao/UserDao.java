@@ -10,4 +10,7 @@ public interface UserDao {
     public User findByPhoneNumber(String phoneNumber) throws DaoOperationException;
     public void update(User user) throws DaoOperationException;
     public void save(User user) throws DaoOperationException;
+    public void updateEmail(String email, Long userId) throws DaoOperationException;
+    public void updatePhoneNumber(String phoneNumber, Long userId) throws DaoOperationException;
+    public void updateContactInformation(User user) throws DaoOperationException;
 }
