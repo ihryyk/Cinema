@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class Movie {
     private String originalName;
     private Timestamp releaseDate;
     private short availableAge;
-    private List<MovieDescription> movieDescriptionList;
+    private List<MovieDescription> movieDescriptionList = new ArrayList<>();
     private boolean deleted;
     private InputStream poster;
     private String base64ImagePoster;

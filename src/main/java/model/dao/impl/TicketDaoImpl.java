@@ -27,8 +27,11 @@ public class TicketDaoImpl implements TicketDao {
             pr.setLong(2,languageId);
             rs = pr.executeQuery();
             List<Ticket> tickets = new ArrayList<>();
+            Ticket ticket = null;
             while (rs.next()){
-                tickets.add(EntityInitialization.ticketInitialization(rs));
+               ticket = EntityInitialization.ticketInitialization(rs);
+               ticket.getPurchasedSeat().getSession().getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+               tickets.add(ticket);
             }
             return tickets;
         }catch (SQLException e){

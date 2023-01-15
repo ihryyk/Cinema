@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <p>Name: ${sessionScope.user.firstName} ${sessionScope.user.lastName}</p>
 <p>Phone number: ${sessionScope.user.phoneNumber}</p>
 <p>Movie: ${requestScope.session.movie.movieDescriptionList.get(0).title}</p>

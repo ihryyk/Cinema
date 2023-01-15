@@ -24,10 +24,6 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             switch (request.getPathInfo()) {
-                case ("/seat"):
-                    getSeats(request);
-                    request.getRequestDispatcher("/views/seat.jsp").forward(request, response);
-                    break;
                 case ("/ticket"):
                     ticketFormation(request);
                     request.getRequestDispatcher("/views/ticket.jsp").forward(request, response);
@@ -38,9 +34,10 @@ public class UserServlet extends HttpServlet {
                     break;
                 case ("/profile"):
                     request.getRequestDispatcher("/views/profile.jsp").forward(request, response);
+                    break;
             }
         }catch (ServiceException | ServletException e){
-            throw new RuntimeException(e);
+            response.sendRedirect("/cinema/error");
         }
     }
 
@@ -64,7 +61,7 @@ public class UserServlet extends HttpServlet {
                     break;
             }
         }catch (ServiceException e){
-            throw new RuntimeException(e);
+            response.sendRedirect("/cinema/error");
         }
     }
     private void updateEmail(HttpServletRequest request, HttpServletResponse response ) throws IOException, ServiceException {
@@ -145,10 +142,5 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("seat", seatService.findById(seatId));
     }
 
-    private void getSeats(HttpServletRequest request) throws ServiceException {
-        Long sessionId = Long.valueOf(request.getParameter("sessionId"));
-        List<Seat> seats = seatService.findAllFreeSeatForSession(sessionId);
-        request.setAttribute("seats", seats);
-        request.setAttribute("session",sessionService.findById(sessionId,1L));
-    }
+
 }

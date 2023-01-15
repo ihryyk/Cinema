@@ -1,6 +1,5 @@
 package service;
 
-import exception.DaoOperationException;
 import exception.ServiceException;
 import model.entity.Seat;
 
@@ -11,4 +10,7 @@ public interface SeatService {
     public void remove(Long id) throws ServiceException;
     public List<Seat> findAllFreeSeatForSession(Long sessionId) throws ServiceException;
     public Seat findById(Long id) throws ServiceException;
+
+    public List<Seat> findAllBusySeatForSession(Long sessionId)throws ServiceException;
+    public Long countOccupiedSeatsInTheAllSession(Long sessionId) throws ServiceException;
 }

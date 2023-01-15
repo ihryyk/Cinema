@@ -14,12 +14,20 @@ public class SessionServiceImpl implements SessionService {
 
     @Override
     public void save(Session session) throws ServiceException {
-
+        try {
+           sessionDao.save(session);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
     }
 
     @Override
     public void update(Session session) throws ServiceException {
-
+        try {
+            sessionDao.update(session);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
     }
 
     @Override

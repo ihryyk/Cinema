@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS sessions
     CONSTRAINT FK_session_movie FOREIGN KEY (movie_id) REFERENCES movies
 );
 
-CREATE TYPE FORMAT AS ENUM ('LUX', '3D', '2D');
+CREATE TYPE FORMAT AS ENUM ('LUX', 'D3', 'D2');
 
 
 

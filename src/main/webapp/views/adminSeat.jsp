@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ihorb
-  Date: 10.01.2023
-  Time: 15:56
+  Date: 13.01.2023
+  Time: 2:27
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,18 +19,15 @@
 <p>Format: ${requestScope.session.format}</p>
 <p>Available seats: ${requestScope.session.availableSeats} </p>
 <p>Price: ${requestScope.session.price}</p>
-<jsp:useBean id="seats" scope="request" type="java.util.List"/>
-<c:forEach var="seat" items="${seats}">
-    <c:if test="${not empty sessionScope.user}">
-        <form action="${pageContext.request.contextPath}/cinema/user/ticket" method="get">
-            <input type="hidden" required name="seatId" value="${seat.id}"/>
-            <input type="hidden" required name="sessionId" value="${requestScope.session.id}"/>
-            <input type="submit" value="${seat.row}/${seat.number}"/>
-        </form>
-    </c:if>
-    <c:if test="${empty sessionScope.user}">
+<jsp:useBean id="busySeats" scope="request" type="java.util.List"/>
+<c:forEach var="seat" items="${busySeats}">
+<%--        червоним--%>
+    <p>${seat.row}/${seat.number}</p>
+</c:forEach>
+<jsp:useBean id="freeSeats" scope="request" type="java.util.List"/>
+<c:forEach var="seat" items="${freeSeats}">
+        <%--       зеленим--%>
         <p>${seat.row}/${seat.number}</p>
-    </c:if>
 </c:forEach>
 </body>
 </html>

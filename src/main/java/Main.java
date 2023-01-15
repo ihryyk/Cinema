@@ -1,7 +1,9 @@
 import exception.DaoOperationException;
+import model.enums.MovieFormat;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException, DaoOperationException {
@@ -43,5 +45,6 @@ public class Main {
 ////        System.out.println( us.passwordEncrypting("greng2016"));
 //        UserDaoImpl userDao = new UserDaoImpl();
 //       System.out.println(userDao.findByEmail("ihor@gmail.com"));
+
     }
 }

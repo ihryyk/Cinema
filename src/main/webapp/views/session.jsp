@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ihorb
@@ -12,6 +13,7 @@
     <title>Title</title>
 </head>
 <body>
+<c:if test="${fn:length(requestScope.sessions)>0}">
 <div>
     <form action="${pageContext.request.contextPath}/cinema/movie/session" method="get">
         <input type="radio" id="contactChoice2" name="groupBy" value="start_time">
@@ -36,10 +38,14 @@
     <p>Format: ${session.format}</p>
     <p>Available seats: ${session.availableSeats} </p>
     <p>Price: ${session.price}</p>
-    <form action="${pageContext.request.contextPath}/cinema/user/seat" method="get">
+    <form action="${pageContext.request.contextPath}/cinema/movie/session/seat" method="get">
         <input type="hidden" required name="sessionId" value="${session.id}"/>
         <input type="submit" value="Seats"/>
     </form>
 </c:forEach>
+</c:if>
+<c:if test="${fn:length(requestScope.sessions)==0}">
+    <p>There are no sessions yet</p>
+</c:if>
 </body>
 </html>

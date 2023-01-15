@@ -7,12 +7,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.entity.User;
+import model.enums.UserRole;
 import service.ServiceFactory;
 import service.UserService;
 
 import java.io.IOException;
 @WebServlet("/cinema/login")
-public class LoginServlet extends HttpServlet {
+public class LogInServlet extends HttpServlet {
     private final UserService userService = ServiceFactory.getUserService();
 
     @Override
@@ -30,8 +32,13 @@ public class LoginServlet extends HttpServlet {
         if (Validator.isValidEmail(email) && Validator.isValidPassword(password)){
             try {
                 if(userService.findByPasswordAndEmail(password,email)!=null){
-                    request.getSession().setAttribute("user", userService.findByPasswordAndEmail(password,email));
+                    User user = userService.findByPasswordAndEmail(password,email);
+                    request.getSession().setAttribute("user", user);
+                    if (user.getRole()==UserRole.USER){
                     response.sendRedirect("/cinema");
+                    }else {
+                        response.sendRedirect("/cinema/admin");
+                    }
                 }else {
                     request.getSession().setAttribute("popUpsError", "User with this email and password does not exist");
                     response.sendRedirect("/cinema/login");

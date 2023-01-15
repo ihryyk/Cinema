@@ -17,7 +17,7 @@
 <%--        <input type="file" name="poster"/>--%>
 <%--        <input type="submit" value="Upload"/>--%>
 <%--    </form>--%>
-    <form action="/cinema/admin/saveMovie" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/cinema/admin/addMovie" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Original name</td>
@@ -28,12 +28,16 @@
                 <td><input type="datetime-local" required name="releaseDate"/></td>
             </tr>
             <tr>
+                <td>Available age"</td>
+                <td><input type="number" required name="availableAge"/></td>
+            </tr>
+            availableAge"
+            <tr>
                 <td>Poster</td>
                 <td><input type="file" name="poster"/></td>
             </tr>
             <jsp:useBean id="languages" scope="request" type="java.util.List"/>
             <c:forEach var="language" items="${languages}">
-                private String director;
                 <tr>
                     <td>${language.name} title</td>
                     <td><input type="Text" required name="${language.name}Title"/></td>

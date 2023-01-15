@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ihorb
@@ -12,7 +13,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<c:if test="${fn:length(requestScope.tickets)>0}">
 <jsp:useBean id="tickets" scope="request" type="java.util.List"/>
 <c:forEach var="ticket" items="${tickets}">
     <p>Movie: ${ticket.purchasedSeat.session.movie.movieDescriptionList.get(0).title}</p>
@@ -24,6 +25,13 @@
     <p>Available seats: ${ticket.purchasedSeat.session.availableSeats} </p>
     <p>Price: ${ticket.purchasedSeat.session.price}</p>
     <p>Place: Row: ${ticket.purchasedSeat.seat.row} - Number: ${ticket.purchasedSeat.seat.number}</p>
+    <c:if test="${ticket.purchasedSeat.session.movie.deleted==true}">
+        CANCELED
+    </c:if>
 </c:forEach>
+</c:if>
+<c:if test="${fn:length(requestScope.sessions)==0}">
+    <p>There are no sessions yet</p>
+</c:if>
 </body>
 </html>

@@ -1,18 +1,14 @@
 package model.dao.impl;
 
-import model.dao.util.DataSource;
-import model.dao.SessionDao;
 import exception.DaoOperationException;
-import model.dao.util.DaoUtil;
+import model.dao.SessionDao;
+import model.dao.util.DataSource;
 import model.dao.util.DataSourceUtil;
 import model.dao.util.EntityInitialization;
 import model.entity.Session;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +18,6 @@ public class SessionDaoImpl implements SessionDao {
     private static final String INSERT_SESSION = "INSERT INTO sessions(movie_id, start_time, end_time, available_seats, format, price) VALUES (?, ?, ?, ?, ?, ?);";
     private static final String UPDATE_SESSION = "UPDATE sessions SET movie_id=?, start_time=?, end_time=?, available_seats=?, format=?, price=? WHERE id_session = ?;";
     private static final String DELETE_SESSION = "DELETE FROM sessions WHERE id_session = ?;";
-    private static final String ORDER_SESSION_BY_MOVIE_TITLE = "SELECT  * FROM  sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on sessions.movie_id = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE md.language_id = ? ORDER BY md.movie_id;";
     private static final String ORDER_SESSION_BY = "SELECT  * FROM  sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on sessions.movie_id = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE md.language_id = ? AND md.movie_id = ? ORDER BY ";
     private static final String SELECT_SESSION_BY_MOVIE_ID = "SELECT  * FROM  sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on sessions.movie_id = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE md.language_id = ? AND m.id_movie =?;";
     private static final String SELECT_SESSION_BY_ID = "SELECT * FROM sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on m.id_movie = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE  id_session=? and language_id=?;";
@@ -34,8 +29,8 @@ public class SessionDaoImpl implements SessionDao {
             pr.setLong(1,session.getMovie().getId());
             pr.setTimestamp(2,session.getStartTime());
             pr.setTimestamp(3,session.getEndTime());
-            pr.setInt(3,session.getAvailableSeats());
-            pr.setString(5, session.getFormat().name());
+            pr.setInt(4,session.getAvailableSeats());
+            pr.setObject(5, session.getFormat().toString(), Types.OTHER);
             pr.setBigDecimal(6,session.getPrice());
             int rowsAffected = pr.executeUpdate();
             if (rowsAffected == 0){
@@ -54,8 +49,8 @@ public class SessionDaoImpl implements SessionDao {
             pr.setLong(1,session.getMovie().getId());
             pr.setTimestamp(2,session.getStartTime());
             pr.setTimestamp(3,session.getEndTime());
-            pr.setInt(3,session.getAvailableSeats());
-            pr.setString(5, session.getFormat().name());
+            pr.setInt(4,session.getAvailableSeats());
+            pr.setObject(5, session.getFormat().toString(), Types.OTHER);
             pr.setBigDecimal(6,session.getPrice());
             pr.setLong(7,session.getId());
             int rowsAffected = pr.executeUpdate();
@@ -90,7 +85,9 @@ public class SessionDaoImpl implements SessionDao {
             pr.setLong(2,languageId);
             rs = pr.executeQuery();
             if (rs.next()){
-               return EntityInitialization.sessionInitialization(rs);
+                Session session =  EntityInitialization.sessionInitialization(rs);
+                session.getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+                return session;
             }else {
                 throw new DaoOperationException(String.format("Session with id = %d dose not exist",id));
             }
@@ -111,7 +108,9 @@ public class SessionDaoImpl implements SessionDao {
             rs = pr.executeQuery();
             List<Session> sessions = new ArrayList<>();
             while (rs.next()){
-                sessions.add(EntityInitialization.sessionInitialization(rs));
+                Session session =  EntityInitialization.sessionInitialization(rs);
+                session.getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+                sessions.add(session);
             }
             return sessions;
         }catch (SQLException e){
@@ -136,7 +135,9 @@ public class SessionDaoImpl implements SessionDao {
             rs = pr.executeQuery();
             List<Session> sessions = new ArrayList<>();
             while (rs.next()){
-                sessions.add(EntityInitialization.sessionInitialization(rs));
+                Session session =  EntityInitialization.sessionInitialization(rs);
+                session.getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+                sessions.add(session);
             }
             return sessions;
         }catch (SQLException | IOException e){

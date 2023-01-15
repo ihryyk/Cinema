@@ -39,4 +39,22 @@ public class SeatServiceImpl implements SeatService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Seat> findAllBusySeatForSession(Long sessionId) throws ServiceException {
+        try {
+            return seatDao.findAllBusySeatForSession(sessionId);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
+    }
+
+    @Override
+    public Long countOccupiedSeatsInTheAllSession(Long sessionId) throws ServiceException {
+        try {
+            return seatDao.countOccupiedSeatsInTheSession(sessionId);
+        } catch (DaoOperationException e) {
+            throw new ServiceException("message",e);
+        }
+    }
 }

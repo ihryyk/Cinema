@@ -4,6 +4,7 @@ import model.entity.*;
 import model.enums.MovieFormat;
 import model.enums.UserRole;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +35,6 @@ public class EntityInitialization {
         movie.setAvailableAge(resultSet.getShort("available_age"));
         movie.setDeleted(resultSet.getBoolean("deleted"));
         movie.setPoster(resultSet.getBinaryStream("poster"));
-        movie.setMovieDescriptionList(Collections.singletonList(movieDescriptionInitialization(resultSet)));
         if (movie.getPoster()!=null){
             movie.setBase64ImagePoster(Base64.getEncoder().encodeToString(movie.getPoster().readAllBytes()));
         }
@@ -52,7 +52,6 @@ public class EntityInitialization {
         MovieDescription movieDescription = new MovieDescription();
         movieDescription.setTitle(resultSet.getString("title"));
         movieDescription.setDirector(resultSet.getString("director"));
-        movieDescription.setLanguage(languageInitialization(resultSet));
         return movieDescription;
     }
 

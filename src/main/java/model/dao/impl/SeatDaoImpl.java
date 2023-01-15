@@ -23,8 +23,10 @@ public class SeatDaoImpl implements SeatDao {
     private static final String INSERT_SEAT = "INSERT INTO seats(row, number) VALUES (?, ?);";
     private static final String DELETE_SEAT = "DELETE FROM seats WHERE id_seat=?;";
 
-    private static final String SELECT_ALL_FREE_SEATS_FOR_SESSION = "SELECT * FROM seats left join  purchased_seats ps on seats.id_seat = ps.seat_id where id_purchased_seat IS NULL OR session_id!=?;";
+    private static final String SELECT_ALL_FREE_SEATS_FOR_SESSION = "SELECT * FROM seats left join  purchased_seats ps on seats.id_seat = ps.seat_id where id_purchased_seat IS NULL OR session_id!=? ORDER BY row;";
+    private static final String SELECT_ALL_BUSY_SEATS_FOR_SESSION = "SELECT * FROM seats left join  purchased_seats ps on seats.id_seat = ps.seat_id where session_id= ? ORDER BY row;";
     private static final String SELECT_SEAT_BY_ID = "SELECT * FROM seats WHERE id_seat=?;";
+    private static final String SELECT_NUMBER_BUSY_SEATS_IN_SESSION = "SELECT COUNT(*) FROM purchased_seats inner join sessions s on s.id_session = purchased_seats.session_id WHERE movie_id = ?";
     @Override
     public void save(Seat seat) throws DaoOperationException {
         Objects.requireNonNull(seat);
@@ -65,7 +67,7 @@ public class SeatDaoImpl implements SeatDao {
             }
             return seats;
         }catch (SQLException e){
-            throw new DaoOperationException(String.format("Error finding seats for session where id = %d",sessionId), e);
+            throw new DaoOperationException(String.format("Error finding free seats for session where id = %d",sessionId), e);
         } finally{
             DataSourceUtil.closeResultSet(rs);
         }
@@ -86,6 +88,44 @@ public class SeatDaoImpl implements SeatDao {
             }
         }catch (SQLException e){
             throw new DaoOperationException(String.format("Error finding seats with id = %d", id), e);
+        } finally{
+            DataSourceUtil.closeResultSet(rs);
+        }
+    }
+
+    @Override
+    public List<Seat> findAllBusySeatForSession(Long sessionId) throws DaoOperationException {
+        ResultSet rs = null;
+        try(Connection connection = DataSource.getInstance().getConnection();
+            PreparedStatement pr = connection.prepareStatement(SELECT_ALL_FREE_SEATS_FOR_SESSION)){
+            pr.setLong(1,sessionId);
+            rs = pr.executeQuery();
+            List<Seat> seats = new ArrayList<>();
+            while (rs.next()){
+                seats.add(EntityInitialization.seatInitialization(rs));
+            }
+            return seats;
+        }catch (SQLException e){
+            throw new DaoOperationException(String.format("Error finding busy seats for session where id = %d",sessionId), e);
+        } finally{
+            DataSourceUtil.closeResultSet(rs);
+        }
+    }
+
+    @Override
+    public Long countOccupiedSeatsInTheSession(Long sessionId) throws DaoOperationException {
+        ResultSet rs = null;
+        try(Connection connection = DataSource.getInstance().getConnection();
+            PreparedStatement pr = connection.prepareStatement(SELECT_NUMBER_BUSY_SEATS_IN_SESSION)){
+            pr.setLong(1,sessionId);
+            rs = pr.executeQuery();
+            if (rs.next()){
+                return rs.getLong(1);
+            }else {
+                throw new DaoOperationException(String.format("Session with id = %d does not exist", sessionId));
+            }
+        }catch (SQLException e){
+            throw new DaoOperationException(String.format("Error count busy seats with id = %d", sessionId), e);
         } finally{
             DataSourceUtil.closeResultSet(rs);
         }

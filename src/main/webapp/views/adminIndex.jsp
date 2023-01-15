@@ -2,13 +2,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: ihorb
-  Date: 08.01.2023
-  Time: 18:37
+  Date: 12.01.2023
+  Time: 18:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <title>Title</title>
     <title>Title</title>
     <meta charset="utf-8">
     <title>Insert title here</title>
@@ -32,43 +33,22 @@
     </script>
     ${sessionScope.remove("popUpsSuccess")}
 </c:if>
-<c:if test="${not empty sessionScope.user}">
-    ${sessionScope.user.firstName}  ${sessionScope.user.lastName}
-    <a href=${pageContext.request.contextPath}/cinema/user/tickets>
-        Tickets
-    </a>
-    <a href=${pageContext.request.contextPath}/cinema/user/profile>
-       Profile
-    </a>
-    <a href=${pageContext.request.contextPath}/cinema/logout>
-        Log out
-    </a>
-</c:if>
-<c:if test="${empty sessionScope.user}">
-    <a href=${pageContext.request.contextPath}/cinema/login>
-        Log in
-    </a>
-</c:if>
 <div>
-    <form action="${pageContext.request.contextPath}/cinema" method="get">
+    <form action="${pageContext.request.contextPath}/cinema/admin" method="get">
         <input type="text" placeholder="Movie name" required name="movieName">
-        <input type="submit" value="search"/>
+        <input type="submit" value="search" />
     </form>
 </div>
-<a href=${pageContext.request.contextPath}/cinema>
+${sessionScope.user.firstName}  ${sessionScope.user.lastName}
+<a href=${pageContext.request.contextPath}/cinema/admin>
     ENG
 </a>
-<div>
-    <form action="${pageContext.request.contextPath}/cinema/user/getTodayMovies" method="get">
-        <input type="submit" value="today's movies"/>
-    </form>
-</div>
-<div>
-    <form action="${pageContext.request.contextPath}/cinema" method="get">
-        <input type="submit" value="Cinema"/>
-    </form>
-</div>
-
+<a href=${pageContext.request.contextPath}/cinema/admin/addMovie>
+    Add movie
+</a>
+<a href=${pageContext.request.contextPath}/cinema/logout>
+    Log out
+</a>
 <jsp:useBean id="movies" scope="request" type="java.util.List"/>
 <c:forEach var="movie" items="${movies}">
     <p>Original name: ${movie.originalName}</p>
@@ -76,21 +56,22 @@
     <p>Age: ${movie.availableAge}+</p>
     <p>Title: ${movie.movieDescriptionList.get(0).title}</p>
     <p>Director ${movie.movieDescriptionList.get(0).director}</p>
-    <form action="${pageContext.request.contextPath}/cinema/movie/session"  method="get">
+    <form action="${pageContext.request.contextPath}/cinema/admin/session"  method="get">
         <input type="hidden" required name="movieId" value="${movie.id}"/>
         <input type="submit" value="sessions" />
     </form>
-</c:forEach>
-<c:forEach var="i" begin="0" end="${requestScope.count/requestScope.movieOnPage}">
-    <c:if test="${not empty requestScope.movieName}">
-    <a href=${pageContext.request.contextPath}/cinema?page=${i}&movieName=${requestScope.movieName}>
-        <c:out value="${i+1}"/>
-    </a>
+    <form action="${pageContext.request.contextPath}/cinema/admin/updateMovie"  method="get">
+        <input type="hidden" required name="movieId" value="${movie.id}"/>
+        <input type="submit" value="update" />
+    </form>
+    <c:if test="${movie.deleted==false}">
+    <form action="${pageContext.request.contextPath}/cinema/admin/cancelMovie"  method="post">
+        <input type="hidden" required name="movieId" value="${movie.id}"/>
+        <input type="submit" value="cancel" />
+    </form>
     </c:if>
-    <c:if test="${empty requestScope.movieName}">
-        <a href=${pageContext.request.contextPath}/cinema?page=${i}>
-            <c:out value="${i+1}"/>
-        </a>
+    <c:if test="${movie.deleted==true}">
+      CANCELED
     </c:if>
 </c:forEach>
 </body>

@@ -13,6 +13,7 @@ public class DaoFactory {
     private final SessionDao sessionDao = new SessionDaoImpl();
     private final TicketDao ticketDao = new TicketDaoImpl();
     private final LanguageDao languageDao = new LanguageDaoImpl();
+    private final MovieDescriptionDao movieDescriptionDao = new MovieDescriptionDaoImpl();
 
     private DaoFactory(){};
 
@@ -47,4 +48,5 @@ public class DaoFactory {
     }
 
     public static LanguageDao getLanguageDao() {return getInstance().languageDao;}
+    public static MovieDescriptionDao getMovieDescriptionDao(){return getInstance().movieDescriptionDao;}
 }

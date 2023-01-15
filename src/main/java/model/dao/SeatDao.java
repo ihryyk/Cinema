@@ -12,4 +12,6 @@ public interface SeatDao {
 
     public List<Seat> findAllFreeSeatForSession(Long sessionId) throws DaoOperationException;
     public Seat findById(Long id) throws DaoOperationException;
+    public List<Seat> findAllBusySeatForSession(Long sessionId) throws DaoOperationException;
+    public Long countOccupiedSeatsInTheSession (Long sessionId) throws DaoOperationException;
 }
