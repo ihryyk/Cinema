@@ -1,0 +1,142 @@
+.admin_movie_main {
+    display: flex;
+    gap: 30px;
+    padding: 20px 40px;
+}
+
+.admin-movie_wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 20px;
+    width: 700px;
+    min-height: 400px;
+   
+}
+
+.admin-movie_seats {
+    flex-grow: 1;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 20px;
+}
+
+.admin-movie_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    margin-left: 15px;
+}
+
+.admin-movie_img {
+    max-width: 100%;
+}
+
+.admin-movie_text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FEFFFF;
+}
+
+.admin-movie_price {
+    color: #FEFFFF;
+}
+
+.admin-movie_header {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FEFFFF;
+}
+
+.seats_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+    
+}
+
+.admin-movie_seat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.busy_seat {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #ad2419;
+    font-weight: bold;
+}
+
+.available_seat {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3B945E;
+}
+
+.admin_movie_sessions {
+    flex-grow: 1;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 20px;
+    width: 700px;
+    min-height: 400px;
+}
+
+.admin_movie_session {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.admin_movie_btn {
+    margin: 20px 40px;
+}
+
+.sessions_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.session_btns {
+    display: flex;
+    gap: 20px;
+}
+
+.session_btn {
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    height: 40px;
+    transition: 0.3s;
+}
+
+.session_btn:hover,
+.session_btn:focus {
+  box-shadow: inset 130px 0 0 0 #ad2419;
+  color: #FEFFFF;
+}
+
+.session_text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FEFFFF;
+} 
+
+.session_text_no {
+    color: #FEFFFF;
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * Servlet which redirects to error.jsp.
+ */
     @WebServlet("/cinema/error")
     public class ErrorServlet extends HttpServlet {
         @Override

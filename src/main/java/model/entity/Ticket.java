@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-
+/**
+ * Used to store information about ticket.
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

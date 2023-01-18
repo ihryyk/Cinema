@@ -6,6 +6,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * A class that handles connection work
+ *
+ */
 public class DataSource {
     private static final String DB_RESOURCE_BUNDLE = "db";
     private static final String URL = "db.url";

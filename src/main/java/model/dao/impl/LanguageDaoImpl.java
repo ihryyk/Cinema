@@ -7,6 +7,7 @@ import model.dao.util.DataSourceUtil;
 import model.dao.util.EntityInitialization;
 import model.entity.Language;
 import model.entity.Movie;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,9 +16,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implement an interface that defines different activities with language in database.
+ *
+ */
 public class LanguageDaoImpl implements LanguageDao {
     private final static String SELECT_ALL_LANGUAGES = "SELECT * FROM languages";
+    Logger logger = Logger.getLogger(LanguageDaoImpl.class);
 
+    /**
+     * Returns list of language from database
+     *
+     * @return list of language.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Language
+     */
     @Override
     public List<Language> finaAll() throws DaoOperationException {
         ResultSet rs = null;

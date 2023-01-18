@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
-
+/**
+ * Used to store information about seat.
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -9,42 +9,126 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../styles/index.css" />
+	<link rel="stylesheet" href="../styles/addForm.css" />
     <title>Title</title>
+    <style>
+        <%@include file="styles/index.css"%>
+        <%@include file="styles/addForm.css"%>
+    </style>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/cinema/admin/updateMovie" method="post" enctype="multipart/form-data">
-  <table>
-    <tr>
-      <td>Original name</td>
-      <td><input type="text" required name="originalName" value="${requestScope.movie.originalName}"/></td>
-    </tr>
-    <tr>
-      <td>Release date</td>
-      <td><input type="datetime-local" required name="releaseDate" value="${requestScope.movie.releaseDate}"/></td>
-    </tr>
-    <tr>
-      <td>Available age</td>
-      <td><input type="text" required name="availableAge" value="${requestScope.movie.availableAge}"/></td>
-    </tr>
-    <tr>
-      <td>Poster</td>
-      <img src="data:image/png;base64, ${requestScope.movie.base64ImagePoster}" width="240" height="300"/>
-      <td><input type="file" name="poster"/></td>
-    </tr>
-    <td><input type="text" hidden name="oldPoster" value="${requestScope.movie.base64ImagePoster}"/></td>
-    <c:forEach var="movieDescription" items="${requestScope.movie.movieDescriptionList}">
-      <tr>
-        <td>${movieDescription.language.name} title</td>
-        <td><input type="Text" required name="${movieDescription.language.name}Title" value="${movieDescription.title}"/></td>
-      </tr>
-      <tr>
-        <td>${movieDescription.language.name} director</td>
-        <td><input type="Text" required name="${movieDescription.language.name}Director" value="${movieDescription.director}"/></td>
-      </tr>
-    </c:forEach>
-    <input type="hidden" name="movieId" value="${requestScope.movie.id}"/></td>
-  </table>
-  <input type="submit" value="Submit"/>
-</form>
+    <main class="index_main">
+        <div class="add_form_wrapper">
+            <h1 class="add_form_header">Update Movie</h1>
+            <form
+                action="${pageContext.request.contextPath}/cinema/admin/updateMovie"
+                method="post"
+                enctype="multipart/form-data"
+                class="add_form"
+            >
+                <div class="add_form_controllers">
+                    <div class="add_form_controller">
+                        <label for="originalName" class="add_form_label"
+                            >Original name</label
+                        >
+                        <input
+                            type="text"
+                            required
+                            name="originalName"
+                            id="originalName"
+                            value="${requestScope.movie.originalName}"
+                            class="add_form_input"
+                        />
+                    </div>
+                    <div class="add_form_controller">
+                        <label for="releaseDate" class="add_form_label"
+                            >Release date</label
+                        >
+                        <input
+                            type="datetime-local"
+                            required
+                            name="releaseDate"
+                            id="releaseDate"
+                            value="${requestScope.movie.releaseDate}"
+                            class="add_form_input"
+                        />
+                    </div>
+                    <div class="add_form_controller">
+                        <label for="availableAge" class="add_form_label"
+                            >Available age</label
+                        >
+                        <input
+                            type="text"
+                            required
+                            name="availableAge"
+                            id="availableAge"
+                            value="${requestScope.movie.availableAge}"
+                            class="add_form_input"
+                        />
+                    </div>
+                    
+                    <c:forEach var="movieDescription" items="${requestScope.movie.movieDescriptionList}">
+                    <div class="add_form_controller">
+                        <label
+                            for="${movieDescription.language.name}Title"
+                            class="add_form_label"
+                            >${movieDescription.language.name} title</label
+                        >
+                        <input
+                            type="Text"
+                            required
+                            name="${movieDescription.language.name}Title"
+                            id="${movieDescription.language.name}Title"
+                            value="${movieDescription.title}"
+                            class="add_form_input"
+                        />
+                    </div>
+                    <div class="add_form_controller">
+                        <label
+                            for="${movieDescription.language.name}Director"
+                            class="add_form_label"
+                            >${movieDescription.language.name} director</label
+                        >
+                        <input
+                            type="Text"
+                            required
+                            name="${movieDescription.language.name}Director"
+                            id="${movieDescription.language.name}Director"
+                            value="${movieDescription.director}"
+                            class="add_form_input"
+                        />
+                    </div>
+                    </c:forEach>
+                    <div class="add_form_controller-poster">
+                        <div class="add_form_controlle">
+                            <label for="poster" class="add_form_label">Poster</label>
+                            <input
+                                type="file"
+                                name="poster"
+                                id="poster"
+                                class="add_form_input-file"
+                            />
+                            <label for="poster" class="poster_btn">Select file</label>
+                            <input
+                                type="text"
+                                hidden
+                                name="oldPoster"
+                                value="${requestScope.movie.base64ImagePoster}"
+                            />
+                        </div>
+                        <img
+                            src="data:image/png;base64, ${requestScope.movie.base64ImagePoster}"
+                            width="240"
+                            height="300"
+                            class="update_img"
+                        />
+                    </div>
+                    <input type="hidden" name="movieId" value="${requestScope.movie.id}"/></td>
+                </div>
+                <input type="submit" value="Submit" class="add_form_submit" />
+            </form>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,7 +1,7 @@
 package controller.authServlet;
 
 import controller.validator.Validator;
-import exception.ServiceException;
+import exception.DaoOperationException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,13 +15,16 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/**
+ * Servlet for user registration in the system.
+ */
 @WebServlet("/cinema/registration")
 public class RegistrationServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/views/registration.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/views/registration.jsp").forward(request, response);
     }
 
     @Override
@@ -42,7 +45,7 @@ public class RegistrationServlet extends HttpServlet {
                     request.getSession().setAttribute("popUpsSuccess", "You are registered");
                     response.sendRedirect("/cinema");
                 }
-            } catch (ServiceException e) {
+            } catch (DaoOperationException e) {
                 response.sendRedirect("/cinema/error");
             }
         }else {
@@ -51,6 +54,11 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Get information about user from request.
+     * @param request  {@link HttpServletRequest}.
+     * @return user which contains the information of user for registration
+     */
     private User getUserFromView(HttpServletRequest request){
         String password = request.getParameter("password");
         String email = request.getParameter("email");

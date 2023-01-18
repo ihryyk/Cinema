@@ -16,52 +16,97 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<%--    <link rel="stylesheet" type="text/css" href="styles/index.css">--%>
-<%--    <style>--%>
-<%--        <%@include file="styles/index.css"%>--%>
-<%--    </style>--%>
+    <link rel="stylesheet" href="../styles/auth.css" />
+	<link rel="stylesheet" href="../styles/index.css" />
+    <style>
+        <%@include file="styles/index.css"%>
+        <%@include file="styles/auth.css"%>
+    </style>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-<c:if test="${not empty sessionScope.popUpsError}">
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: "Exception",
-            text: '${sessionScope.popUpsError}'
-        })
-    </script>
-    ${sessionScope.remove("popUpsError")}
-</c:if>
-<div>
-    <h1>Registration form</h1>
-    <form action="/cinema/registration" method="post">
-        <table>
-            <tr>
-                <td>Email address</td>
-                <td><input type="text" required name="email" /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" required name="password"/></td>
-            </tr>
-            <tr>
-                <td>First name</td>
-                <td><input type="text" required name="firstName"/> </td>
-            </tr>
-            <tr>
-                <td>Last name</td>
-                <td><input type="text" required name="lastName"/></td>
-            </tr>
-            <tr>
-                <td>Phone number</td>
-                <td><input type="text" required name="phoneNumber"/></td>
-            </tr>
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
-</div>
-<a href="/cinema/login">Do you have an account?</a>
+    <c:if test="${not empty sessionScope.popUpsError}">
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: "Exception",
+                text: '${sessionScope.popUpsError}'
+            })
+        </script>
+        ${sessionScope.remove("popUpsError")}
+    </c:if>
+    <div class="auth-wrapper_reg">
+        <h1 class="auth-wrapper_header">Create an account</h1>
+        <form
+            action="/cinema/registration"
+            method="post"
+            class="auth-wrapper__form"
+        >
+            <div class="form_controllers">
+                <div>
+                    <label for="login_email" class="form-label">Email address</label>
+                    <input
+                        type="text"
+                        required
+                        name="email"
+                        id="login_email"
+                        class="form_input"
+                        placeholder="Email"
+                    />
+                </div>
+                <div>
+                    <label for="phone" class="form-label">Phone number</label>
+                    <input
+                        type="text"
+                        required
+                        name="phoneNumber"
+                        placeholder="Phone Number"
+                        id="phone"
+                        class="form_input"
+                    />
+                </div>
+            </div>
+            <div class="form_controllers">
+                <div>
+                    <label for="firstName" class="form-label">First name</label>
+                    <input
+                        type="text"
+                        required
+                        name="phoneNumber"
+                        placeholder="First name"
+                        id="firstName"
+                        class="form_input"
+                    />
+                </div>
+                <div>
+                    <label for="firstName" class="form-label">Last name</label>
+                    <input
+                        type="text"
+                        required
+                        name="lastName"
+                        placeholder="Last name"
+                        id="lastName"
+                        class="form_input"
+                    />
+                </div>
+            </div>
+            <div class="form_block">
+                <label for="login_password" class="form-label">Password</label>
+                <input
+                    type="password"
+                    required
+                    name="password"
+                    id="login_password"
+                    class="form_input"
+                    placeholder="Password"
+                />
+            </div>
+            <input type="submit" value="Submit" class="submit_btn" />
+        </form>
+        <a href="/cinema/login" class="auth-form__link"
+            >Do you have an account?</a
+        >
+    </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package controller;
 
-import exception.ServiceException;
+import exception.DaoOperationException;
+import exception.TransactionException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,14 +15,18 @@ import service.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Functions which are used by admin.
+ *
+ */
 @WebServlet("/cinema/admin/*")
 @MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
+        fileSizeThreshold = 1024 * 1024, // 1 MB
         maxFileSize = 1024 * 1024 * 10,      // 10 MB
         maxRequestSize = 1024 * 1024 * 100   // 100 MB
 )
@@ -46,31 +51,21 @@ public class AdminServlet extends HttpServlet {
                         request.getRequestDispatcher("/views/addMovie.jsp").forward(request, response);
                         break;
                     case ("/updateMovie"):
-                        Movie movie = movieService.findById(Long.valueOf(request.getParameter("movieId")));
-                        request.setAttribute("oldPoster", movie.getPoster());
-                        request.setAttribute("movie", movie);
-                        request.getRequestDispatcher("/views/updateMovie.jsp").forward(request, response);
+                        updateMovieGet(request, response);
                         break;
                     case ("/session"):
-                        Long movieId = Long.valueOf(request.getParameter("movieId"));
-                        request.setAttribute("movieId",movieId);
-                        request.setAttribute("sessions", sessionService.findByMovieId(movieId, 1L));
-                        request.setAttribute("numberSpectators", seatService.countOccupiedSeatsInTheAllSession(movieId));
-                        request.getRequestDispatcher("/views/adminSession.jsp").forward(request, response);
+                        getSession(request, response);
                         break;
                     case ("/addSession"):
                         addSessionDoGet(request,response);
-                        request.getRequestDispatcher("/views/addSession.jsp").forward(request, response);
                         break;
                     case ("/updateSession"):
                         updateSessionGet(request,response);
-                        request.getRequestDispatcher("/views/updateSession.jsp").forward(request, response);
                     case ("/seat"):
-                        getSeats(request);
-                        request.getRequestDispatcher("/views/adminSeat.jsp").forward(request, response);
+                        getSeats(request, response);
                 }
             }
-        }catch (ServiceException e){
+        }catch (DaoOperationException e){
             response.sendRedirect("/cinema/error");
         }
     }
@@ -80,70 +75,169 @@ public class AdminServlet extends HttpServlet {
         try{
             switch (request.getPathInfo()) {
                 case ("/addMovie"):
-                    saveMovie(request);
-                    response.sendRedirect("/cinema/admin");
+                    saveMovie(request, response);
                     break;
                 case ("/updateMovie"):
-                    updateMovie(request);
-                    response.sendRedirect("/cinema/admin");
+                    updateMovie(request, response);
                     break;
                 case ("/addSession"):
-                    addSession(request);
-                    response.sendRedirect("/cinema/admin");
+                    addSession(request, response);
                     break;
                 case ("/updateSession"):
                     updateSession(request,response);
-                    response.sendRedirect("/cinema/admin");
-                case("/cancelMovie"):
+                    break;
+                case ("/cancelMovie"):
                     cancelMovie(request,response);
-                    response.sendRedirect("/cinema/admin");
+                    break;
             }
-        }catch (ServiceException | ServletException| ParseException e){
+        }catch (ServletException|DaoOperationException | TransactionException e){
             response.sendRedirect("/cinema/error");
         }
     }
 
-    private void cancelMovie(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
-        Long movieId = Long.valueOf(request.getParameter("movieId"));
-        movieService.delete(movieId);
+    /**
+     * Adds information about movie in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs.
+     */
+    private void updateMovieGet(HttpServletRequest request ,HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
+        request.setAttribute("languages",languageService.findAll());
+        Movie movie = movieService.findById(Long.valueOf(request.getParameter("movieId")));
+        request.setAttribute("oldPoster", movie.getPoster());
+        request.setAttribute("movie", movie);
+        request.getRequestDispatcher("/views/updateMovie.jsp").forward(request, response);
     }
 
-    private void getSeats(HttpServletRequest request) throws ServiceException {
+    /**
+     * Adds information about session in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs.
+     */
+    private void getSession(HttpServletRequest request ,HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
+        Long movieId = Long.valueOf(request.getParameter("movieId"));
+        request.setAttribute("movieId",movieId);
+        request.setAttribute("sessions", sessionService.findByMovieId(movieId, 1L));
+        request.setAttribute("numberSpectators", seatService.countOccupiedSeatsInTheAllSession(movieId));
+        request.getRequestDispatcher("/views/adminSession.jsp").forward(request, response);
+    }
+
+    /**
+     * Sets the movie's delete status to 'true'.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     */
+    private void cancelMovie(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, IOException {
+        Long movieId = Long.valueOf(request.getParameter("movieId"));
+        movieService.delete(movieId);
+        response.sendRedirect("/cinema/admin");
+    }
+
+    /**
+     * Adds information about seats in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs.
+     */
+    private void getSeats(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
         Long sessionId = Long.valueOf(request.getParameter("sessionId"));
         List<Seat> freeSeats = seatService.findAllFreeSeatForSession(sessionId);
         List<Seat> busySeats = seatService.findAllBusySeatForSession(sessionId);
         request.setAttribute("freeSeats", freeSeats);
         request.setAttribute("busySeats", busySeats);
-        request.setAttribute("session",sessionService.findById(sessionId,1L));
+        request.setAttribute("session",sessionService.findByIdAndLanguageId(sessionId,1L));
+        request.getRequestDispatcher("/views/adminSeat.jsp").forward(request, response);
     }
 
-    private void updateSession(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
+    /**
+     * Updates session information.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     */
+    private void updateSession(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, IOException {
         Session session = getSessionFromJsp(request);
         session.setId(Long.valueOf(request.getParameter("sessionId")));
         sessionService.update(session);
+        request.getSession().setAttribute("popUpsSuccess", "Session successfully updated");
+        response.sendRedirect("/cinema/admin");
     }
 
-    private void updateSessionGet(HttpServletRequest req, HttpServletResponse resp) throws ServiceException {
-        Long movieId = Long.valueOf(req.getParameter("movieId"));
-        req.setAttribute("formats", Arrays.asList(MovieFormat.values()));
-        req.setAttribute("movieId", movieId);
-
-        req.setAttribute("session", sessionService.findById(Long.valueOf(req.getParameter("sessionId")),1L));
-        req.getSession().setAttribute("popUpsSuccess", "Session successfully updated");
+    /**
+     * Adds information about session in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs.
+     */
+    private void updateSessionGet(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
+        Long movieId = Long.valueOf(request.getParameter("movieId"));
+        request.setAttribute("formats", Arrays.asList(MovieFormat.values()));
+        request.setAttribute("movieId", movieId);
+        request.setAttribute("session", sessionService.findByIdAndLanguageId(Long.valueOf(request.getParameter("sessionId")),1L));
+        request.getRequestDispatcher("/views/updateSession.jsp").forward(request, response);
     }
 
-    private void addSessionDoGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long movieId = Long.valueOf(req.getParameter("movieId"));
-        req.setAttribute("movieId", movieId);
-        req.setAttribute("formats", Arrays.asList(MovieFormat.values()));
+    /**
+     * Adds information about session in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs.
+     */
+    private void addSessionDoGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Long movieId = Long.valueOf(request.getParameter("movieId"));
+        request.setAttribute("movieId", movieId);
+        request.setAttribute("formats", Arrays.asList(MovieFormat.values()));
+        request.getRequestDispatcher("/views/addSession.jsp").forward(request, response);
     }
 
-    private void addSession(HttpServletRequest request) throws ServiceException {
+    /**
+     * Save new session.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     */
+    private void addSession(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, IOException {
         Session session = getSessionFromJsp(request);
         sessionService.save(session);
         request.getSession().setAttribute("popUpsSuccess", "Session successfully added");
+        response.sendRedirect("/cinema/admin");
     }
 
+    /**
+     * Get information about session from request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @return session which contains the information of session from request.
+     */
     private Session getSessionFromJsp(HttpServletRequest request){
         Session session = new Session();
         Movie movie = new Movie();
@@ -157,20 +251,50 @@ public class AdminServlet extends HttpServlet {
         return session;
     }
 
-    private void updateMovie(HttpServletRequest request) throws ServletException, ServiceException, IOException {
+    /**
+     * Update movie information.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                          in the DAO
+     * @throws IOException      if I/O error occurs.
+     * @throws ServletException  if Servlet error occurs.
+     * @throws TransactionException if there was an error executing the transaction
+     *                              in the DAO
+     */
+    private void updateMovie(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DaoOperationException, TransactionException {
         Movie movie = getMovieFromJsp(request);
         movie.setId(Long.valueOf(request.getParameter("movieId")));
         if (movie.getPoster().available()==0){
             movie.setPoster(movieService.getPosterByMovieId(movie.getId()));
         }
         movieService.update(movie);
+        response.sendRedirect("/cinema/admin");
     }
 
-    private void saveMovie (HttpServletRequest request) throws ServletException, IOException, ServiceException, ParseException {
+    /**
+     * Save movie.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                          in the DAO
+     * @throws IOException      if I/O error occurs.
+     * @throws ServletException  if Servlet error occurs
+     */
+    private void saveMovie (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DaoOperationException, TransactionException {
         movieService.save(getMovieFromJsp(request));
+        response.sendRedirect("/cinema/admin");
     }
 
-    private Movie getMovieFromJsp (HttpServletRequest request) throws ServiceException, ServletException, IOException {
+    /**
+     * Get information about movie from request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @return movie which contains the information of movie from request.
+     */
+    private Movie getMovieFromJsp (HttpServletRequest request) throws ServletException, IOException, DaoOperationException {
         Movie movie = new Movie();
         movie.setPoster(request.getPart("poster").getInputStream());
         movie.setOriginalName(request.getParameter("originalName"));

@@ -1,0 +1,40 @@
+.error_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error_wrapper p {
+    color: #fefefe;
+    font-size: 40px;
+}
+
+.error_emoji {
+    font-size: 128px;
+}
+
+.error_header {
+    font-size: 56px;
+    color: #fefefe;
+}
+
+.error_link {
+    font-size: 32px;
+    border: 1px solid #fefefe;
+    padding: 15px;
+    display: block;
+    color: #FEFFFF;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.error_link:hover {
+    background-color: #fefefe;
+    color: black;
+}

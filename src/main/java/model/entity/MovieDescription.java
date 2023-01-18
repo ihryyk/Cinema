@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
-
+/**
+ * Used to store information about movie description.
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

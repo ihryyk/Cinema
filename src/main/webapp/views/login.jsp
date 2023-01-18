@@ -15,35 +15,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <%--    <link rel="stylesheet" type="text/css" href="styles/index.css">--%>
-    <%--    <style>--%>
-    <%--        <%@include file="styles/index.css"%>--%>
-    <%--    </style>--%>
+    <link rel="stylesheet" href="../styles/auth.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <style>
+        <%@include file="styles/index.css"%>
+        <%@include file="styles/auth.css"%>
+    </style>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<c:if test="${not empty sessionScope.popUpsError}">
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: "Exception",
-            text: '${sessionScope.popUpsError}'
-        })
-    </script>
-    ${sessionScope.remove("popUpsError")}
-</c:if>
-<form action="/cinema/login" method="post">
-    <table>
-        <tr>
-            <td>Email address</td>
-            <td><input type="text" required name="email"/></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" required name="password"/></td>
-        </tr>
-    </table>
-    <input type="submit" value="Submit"/>
-</form>
+    <c:if test="${not empty sessionScope.popUpsError}">
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: "Exception",
+                text: '${sessionScope.popUpsError}'
+            })
+        </script>
+        ${sessionScope.remove("popUpsError")}
+    </c:if>
+    <div class="auth-wrapper">
+        <h1 class="auth-wrapper_header">Login</h1>
+        <form action="/cinema/login" method="post" class="auth-wrapper__form">
+            <div class="form_block">
+                <label for="login_email" class="form-label">Email address</label>
+                <input type="text" required name="email" id="login_email"  class="form_input" placeholder="Email">
+            </div>
+            <div class="form_block">
+                <label for="login_password" class="form-label">Password</label>
+                <input type="password" required name="password" id="login_password" class="form_input" placeholder="Password"/>
+            </div>
+            <input type="submit" value="Submit" class="submit_btn"/>
+        </form>
+        <a href="/cinema/registration" class="auth-form__link">Dont have an account? Sign up</a>
+	</div>
 </body>
 </html>

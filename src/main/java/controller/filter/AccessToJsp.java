@@ -7,6 +7,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * The filter checks access to a jsp page.
+ *
+ * @see Filter
+ */
 @WebFilter("/*")
 public class AccessToJsp implements Filter {
     @Override

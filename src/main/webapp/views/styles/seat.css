@@ -1,0 +1,83 @@
+.movie_main {
+    display: flex;
+    gap: 30px;
+    padding: 20px 40px;
+}
+
+.movie_header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FEFFFF;
+    text-align: center;
+}
+
+.main_movieWrapper {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 20px;
+    width: 700px;
+    height: 400px;
+}
+
+.movie_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    margin-left: 15px;
+}
+
+.movie_text {
+    word-break: break-all;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FEFFFF;
+}
+
+.movie_img {
+    max-width: 100%;
+}
+
+.movie_seats {
+    flex-grow: 1;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.movie_seat_list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.movie_seat_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie_seat_btn {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B945E;
+    border-radius: 12px;
+    outline: none;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+}
+
+.movie_seat_text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B945E;
+}

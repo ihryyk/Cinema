@@ -1,7 +1,7 @@
 package controller;
 
 import controller.util.StartPosition;
-import exception.ServiceException;
+import exception.DaoOperationException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,8 +15,9 @@ import service.SessionService;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-
+/**
+ * Functions that are on the main page.
+ */
 @WebServlet("/cinema/*")
 public class IndexServlet extends HttpServlet {
     private final MovieService movieService = ServiceFactory.getMovieService();
@@ -28,12 +29,10 @@ public class IndexServlet extends HttpServlet {
             if (request.getPathInfo()!=null){
                 switch (request.getPathInfo()){
                     case ("/movie/session/seat"):
-                        getSeats(request);
-                        request.getRequestDispatcher("/views/seat.jsp").forward(request, response);
+                        getSeats(request, response);
                         break;
                     case ("/movie/session"):
-                        showMovieSession(request);
-                        request.getRequestDispatcher("/views/session.jsp").forward(request, response);
+                        showMovieSession(request, response);
                         break;
                     case ("/movie/showToday"):
                         getTodayMovie(request);
@@ -50,8 +49,8 @@ public class IndexServlet extends HttpServlet {
                 request.setAttribute("movies", movieService.findAllWhichHaveSessionInTheFutureByLanguage(1L,start,StartPosition.AMOUNT_MOVIE_ON_A_PAGE));
             }
             request.getRequestDispatcher("/views/index.jsp").forward(request, response);
-        } catch (ServiceException e) {
-            throw new RuntimeException(e);
+        } catch (DaoOperationException e) {
+            response.sendRedirect("/cinema/error");
         }
     }
 
@@ -59,19 +58,42 @@ public class IndexServlet extends HttpServlet {
 
     }
 
-    private void getSeats(HttpServletRequest request) throws ServiceException {
+    /**
+     * Adds information about seats in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs
+     */
+    private void getSeats(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
         Long sessionId = Long.valueOf(request.getParameter("sessionId"));
         List<Seat> seats = seatService.findAllFreeSeatForSession(sessionId);
         request.setAttribute("seats", seats);
-        request.setAttribute("session",sessionService.findById(sessionId,1L));
+        request.setAttribute("session",sessionService.findByIdAndLanguageId(sessionId,1L));
+        request.getRequestDispatcher("/views/seat.jsp").forward(request, response);
     }
-    private void showMovieSession(HttpServletRequest req) throws ServiceException {
-        Long movieId = Long.valueOf(req.getParameter("movieId"));
-        if (req.getParameter("groupBy")!=null){
-            req.setAttribute("sessions", sessionService.sortBy(req.getParameter("groupBy"),1L,movieId));
+
+    /**
+     * Adds information about session in the request.
+     *
+     * @param request  {@link HttpServletRequest}.
+     * @param response {@link HttpServletResponse}.
+     * @throws DaoOperationException if there was an error executing the query
+     *                               in the DAO
+     * @throws IOException           if I/O error occurs.
+     * @throws ServletException      if Servlet error occurs
+     */
+    private void showMovieSession(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException {
+        Long movieId = Long.valueOf(request.getParameter("movieId"));
+        if (request.getParameter("groupBy")!=null){
+            request.setAttribute("sessions", sessionService.sortBy(request.getParameter("groupBy"),1L,movieId));
         }else {
-            req.setAttribute("sessions", sessionService.findByMovieId(movieId, 1L));
+            request.setAttribute("sessions", sessionService.findByMovieId(movieId, 1L));
         }
-        req.setAttribute("movieId",movieId);
+        request.setAttribute("movieId",movieId);
+        request.getRequestDispatcher("/views/session.jsp").forward(request, response);
     }
 }

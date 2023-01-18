@@ -1,5 +1,6 @@
 package model.dao.util;
 
+import exception.DaoOperationException;
 import model.entity.*;
 import model.enums.MovieFormat;
 import model.enums.UserRole;
@@ -10,8 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Collections;
-
+/**
+ *
+ * A class that initializes with entity information from the result seat
+ *
+ */
 public class EntityInitialization {
+    /**
+     * Returns user which takes information from result seat
+     * @param resultSet - result set which contain information about user
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     */
     public static User userInitialization(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getLong("id_user"));
@@ -27,6 +39,14 @@ public class EntityInitialization {
         return user;
     }
 
+    /**
+     * Returns movie which takes information from result seat
+     * @param resultSet - result set which contain information about movie
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     * @throws IOException      if I/O error occurs.
+     */
     public static Movie movieInitialization(ResultSet resultSet) throws SQLException, IOException {
         Movie movie = new Movie();
         movie.setId(resultSet.getLong("id_movie"));
@@ -41,6 +61,13 @@ public class EntityInitialization {
         return movie;
     }
 
+    /**
+     * Returns language which takes information from result seat
+     * @param resultSet - result set which contain information about language
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     */
     public static Language languageInitialization(ResultSet resultSet) throws SQLException {
         Language language = new Language();
         language.setId(resultSet.getLong("id_language"));
@@ -48,6 +75,13 @@ public class EntityInitialization {
         return language;
     }
 
+    /**
+     * Returns movie description which takes information from result seat
+     * @param resultSet - result set which contain information about movie description
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     */
     public static MovieDescription movieDescriptionInitialization(ResultSet resultSet) throws SQLException {
         MovieDescription movieDescription = new MovieDescription();
         movieDescription.setTitle(resultSet.getString("title"));
@@ -55,6 +89,14 @@ public class EntityInitialization {
         return movieDescription;
     }
 
+    /**
+     * Returns session which takes information from result seat
+     * @param resultSet - result set which contain information about session
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     * @throws IOException      if I/O error occurs.
+     */
     public static Session sessionInitialization(ResultSet resultSet) throws SQLException, IOException {
         Session session = new Session();
         session.setId(resultSet.getLong("id_session"));
@@ -67,6 +109,13 @@ public class EntityInitialization {
         return session;
     }
 
+    /**
+     * Returns seat which takes information from result seat
+     * @param resultSet - result set which contain information about seat
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     */
     public static Seat seatInitialization(ResultSet resultSet) throws SQLException {
             Seat seat = new Seat();
             seat.setId(resultSet.getLong("id_seat"));
@@ -75,12 +124,29 @@ public class EntityInitialization {
             return seat;
     }
 
+    /**
+     * Returns purchased seat which takes information from result seat
+     * @param resultSet - result set which contain information about purchased seat
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     * @throws IOException      if I/O error occurs.
+     */
     public static PurchasedSeat purchasedSeatInitialization(ResultSet resultSet) throws SQLException, IOException {
         PurchasedSeat purchasedSeat = new PurchasedSeat();
         purchasedSeat.setSeat(seatInitialization(resultSet));
         purchasedSeat.setSession(sessionInitialization(resultSet));
         return purchasedSeat;
     }
+
+    /**
+     * Returns ticket which takes information from result seat
+     * @param resultSet - result set which contain information about ticket
+     * @return user which takes information from result seat
+     * @throws SQLException if there was an error executing the query
+     *                      in the database
+     * @throws IOException      if I/O error occurs.
+     */
     public static Ticket ticketInitialization(ResultSet resultSet) throws SQLException, IOException {
      Ticket ticket = new Ticket();
      ticket.setId(resultSet.getLong("id_ticket"));

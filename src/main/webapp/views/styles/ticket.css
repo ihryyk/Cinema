@@ -1,0 +1,38 @@
+.ticket_wrapper {
+    padding: 20px;
+    background-color: #161616;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+
+.ticket_content {
+    color: #FEFFFF;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ticket_btn {
+    border-radius: 8px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    height: 40px;
+    transition: 0.3s;
+}
+
+
+
+.ticket_btn:hover,
+.ticket_btn:focus {
+  box-shadow: inset 130px 0 0 0 #ad2419;
+  color: #FEFFFF;
+}

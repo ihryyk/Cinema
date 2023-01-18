@@ -9,7 +9,10 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
+/**
+ * Used to store information about user.
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

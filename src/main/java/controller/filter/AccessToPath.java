@@ -8,6 +8,11 @@ import model.entity.User;
 
 import java.io.IOException;
 
+/**
+ * The filter checks user access to a specific url-pattern.
+ *
+ * @see Filter
+ */
 @WebFilter({"/cinema/user/*", "/cinema/admin/*"})
 public class AccessToPath implements Filter {
 

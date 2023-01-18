@@ -7,7 +7,10 @@ import model.enums.MovieFormat;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
+/**
+ * Used to store information about session.
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

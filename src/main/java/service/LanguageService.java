@@ -1,10 +1,23 @@
 package service;
 
-import exception.ServiceException;
+import exception.DaoOperationException;
 import model.entity.Language;
 
 import java.util.List;
-
+/**
+ * The interface defines methods for implementing different
+ * activities with language
+ *
+ */
 public interface LanguageService {
-    public List<Language> findAll() throws ServiceException;
+
+    /**
+     * Returns list of language from database
+     *
+     * @return list of language.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Language
+     */
+    public List<Language> findAll() throws DaoOperationException;
 }

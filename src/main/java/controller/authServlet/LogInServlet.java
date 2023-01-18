@@ -1,7 +1,7 @@
 package controller.authServlet;
 
 import controller.validator.Validator;
-import exception.ServiceException;
+import exception.DaoOperationException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,6 +13,10 @@ import service.ServiceFactory;
 import service.UserService;
 
 import java.io.IOException;
+
+/**
+ * Servlet for user login in the system.
+ */
 @WebServlet("/cinema/login")
 public class LogInServlet extends HttpServlet {
     private final UserService userService = ServiceFactory.getUserService();
@@ -43,7 +47,7 @@ public class LogInServlet extends HttpServlet {
                     request.getSession().setAttribute("popUpsError", "User with this email and password does not exist");
                     response.sendRedirect("/cinema/login");
                 }
-            } catch (ServiceException e) {
+            } catch (DaoOperationException e) {
                 throw new RuntimeException(e);
             }
         }else {

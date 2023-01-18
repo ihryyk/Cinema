@@ -8,13 +8,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Util methods for data source
+ *
+ */
 public class DataSourceUtil {
     /**
      * Close ResultSet.
      *
      * @param resultSet - ResultSet.
      *
-//     * @throws DAOException  if there was an error in the closing of
+     * @throws DaoOperationException  if there was an error in the closing of
      * the ResultSet.
      *
      */
@@ -106,5 +110,16 @@ public class DataSourceUtil {
         }
     }
 
+    public static void openTransaction(Connection connection) throws DaoOperationException {
+        if (connection!=null){
+            try {
+                connection.setAutoCommit(false);
+                connection.setTransactionIsolation( Connection.TRANSACTION_READ_COMMITTED);
+            } catch (SQLException e) {
+                throw new DaoOperationException("open transaction failed.", e);
+            }
+
+        }
+    }
 
 }

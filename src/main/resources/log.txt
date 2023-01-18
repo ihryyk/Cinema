@@ -1,0 +1,59 @@
+2023-01-16 20:59:07 INFO  LanguageDaoImpl:162 - Find all movie by language id - 1
+2023-01-17 00:53:12 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-17 00:53:45 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-17 00:53:50 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 00:53:50 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 00:56:50 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 00:57:14 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 00:57:14 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 00:58:13 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 00:58:14 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:00:04 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:01:29 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:04:05 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:04:05 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:05:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:05:45 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:05:45 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:05:49 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:06:37 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:07:01 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:07:01 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:11:01 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:11:01 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:12:18 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:12:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:12:42 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:23:06 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:23:07 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:24:33 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:26:06 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:26:06 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:26:23 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:26:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : Session successfully added
+2023-01-17 01:26:42 INFO  LanguageDaoImpl:168 - Find all movie by language id - 1
+2023-01-17 01:26:42 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : Session successfully added
+2023-01-17 01:28:19 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-17 01:28:26 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-17 01:28:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUps : The ticket is accepted
+2023-01-17 01:30:03 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUps : The ticket is accepted
+2023-01-17 01:30:03 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-18 21:56:35 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-18 21:56:48 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUps : The ticket is accepted
+2023-01-18 21:57:08 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUps : The ticket is accepted
+2023-01-18 21:57:08 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-11 23:14:59.772661, role=USER)
+2023-01-18 21:57:12 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-18 21:57:12 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 21:57:24 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 21:57:50 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 21:59:40 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 21:59:48 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 22:00:26 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-18 22:01:06 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-19 00:23:33 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-19 00:23:33 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-19 00:23:42 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-19 00:23:45 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-19 00:30:29 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-01-19 00:30:29 INFO  LanguageDaoImpl:235 - Find all movie by language id - 1
+2023-01-19 00:31:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
