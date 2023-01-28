@@ -20,4 +20,14 @@ public interface LanguageService {
      * @see Language
      */
     public List<Language> findAll() throws DaoOperationException;
+
+    /**
+     * Returns id of language by language name
+     *
+     * @return id of language
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Language
+     */
+    public Long getIdByName(String name) throws DaoOperationException;
 }

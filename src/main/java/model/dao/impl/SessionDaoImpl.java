@@ -7,15 +7,13 @@ import model.dao.util.DataSource;
 import model.dao.util.DataSourceUtil;
 import model.dao.util.EntityInitialization;
 import model.entity.Movie;
-import model.entity.MovieDescription;
-import model.entity.PurchasedSeat;
 import model.entity.Session;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Implement an interface that defines different activities with session in database.
@@ -23,12 +21,14 @@ import java.util.Objects;
  */
 public class SessionDaoImpl implements SessionDao {
 
-    private static final String INSERT_SESSION = "INSERT INTO sessions(movie_id, start_time, end_time, available_seats, format, price) VALUES (?, ?, ?, ?, ?, ?);";
-    private static final String UPDATE_SESSION = "UPDATE sessions SET movie_id=?, start_time=?, end_time=?, available_seats=?, format=?, price=? WHERE id_session = ?;";
+    private static final String INSERT_SESSION = "INSERT INTO sessions(movie_id, start_time, end_time, format, price, available_seats) VALUES (?, ?, ?, ? , ?, (SELECT COUNT(id_seat) FROM  seats));";
+    private static final String UPDATE_SESSION = "UPDATE sessions SET movie_id=?, start_time=?, end_time=?, format=?, price=? WHERE id_session = ?;";
     private static final String DELETE_SESSION = "DELETE FROM sessions WHERE id_session = ?;";
-    private static final String ORDER_SESSION_BY = "SELECT  * FROM  sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on sessions.movie_id = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE md.language_id = ? AND md.movie_id = ? ORDER BY ";
-    private static final String SELECT_SESSION_BY_MOVIE_ID = "SELECT  * FROM  sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on sessions.movie_id = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE md.language_id = ? AND m.id_movie =?;";
-    private static final String SELECT_SESSION_BY_ID = "SELECT * FROM sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on m.id_movie = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE  id_session=? and language_id=?;";
+    private static final String ORDER_SESSION_BY = "SELECT  * FROM  sessions WHERE movie_id = ? ORDER BY ";
+    private static final String SELECT_SESSION_BY_MOVIE_ID = "SELECT  * FROM  sessions  WHERE movie_id =? and date(start_time) >= date(now())";
+    private static final String SELECT_SESSION_BY_ID = "SELECT * FROM sessions INNER JOIN movies m on m.id_movie = sessions.movie_id INNER JOIN movie_descriptions md on m.id_movie = md.movie_id  WHERE  id_session=? and md.language_id=?;";
+
+    private final static Logger logger = Logger.getLogger(SessionDaoImpl.class);
 
     /**
      * Saves new session in database.
@@ -39,12 +39,13 @@ public class SessionDaoImpl implements SessionDao {
      */
     @Override
     public void save(Session session) throws DaoOperationException {
-        Objects.requireNonNull(session);
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(INSERT_SESSION)){
             fillSessionStatement(session,pr);
             DaoUtil.checkRowAffected(pr);
+            logger.info("Save new session");
         }catch (SQLException e){
+            logger.error(String.format("Error saving session %s,session",session), e);
             throw new DaoOperationException(String.format("Error saving session %s",session), e);
         }
     }
@@ -58,13 +59,14 @@ public class SessionDaoImpl implements SessionDao {
      */
     @Override
     public void update(Session session) throws DaoOperationException {
-        Objects.requireNonNull(session);
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(UPDATE_SESSION)){
             fillSessionStatement(session,pr);
-            pr.setLong(7,session.getId());
+            pr.setLong(6,session.getId());
             DaoUtil.checkRowAffected(pr);
+            logger.info("Update session");
         }catch (SQLException | DaoOperationException e){
+            logger.error(String.format("Error updating session %s,session",session), e);
             throw new DaoOperationException(String.format("Error updating session %s",session), e);
         }
     }
@@ -81,9 +83,8 @@ public class SessionDaoImpl implements SessionDao {
         preparedStatement.setLong(1,session.getMovie().getId());
         preparedStatement.setTimestamp(2,session.getStartTime());
         preparedStatement.setTimestamp(3,session.getEndTime());
-        preparedStatement.setInt(4,session.getAvailableSeats());
-        preparedStatement.setObject(5, session.getFormat().toString(), Types.OTHER);
-        preparedStatement.setBigDecimal(6,session.getPrice());
+        preparedStatement.setObject(4, session.getFormat().toString(), Types.OTHER);
+        preparedStatement.setBigDecimal(5,session.getPrice());
     }
 
     /**
@@ -98,36 +99,42 @@ public class SessionDaoImpl implements SessionDao {
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(DELETE_SESSION)){
             pr.setLong(1,id);
+            logger.info(String.format("Delete session with id = %d", id));
             DaoUtil.checkRowAffected(pr);
         }catch (SQLException | DaoOperationException e){
+            logger.error(String.format("Error updating session with id = %d",id), e);
             throw new DaoOperationException(String.format("Error updating session with id = %d",id), e);
         }
     }
 
     /**
-     * Returns information about session by id and language
+     * Returns information about session by id
      * @param id - id of session
-     * @param languageId - id of language
      * @throws DaoOperationException if there was an error executing the query
      *                      in the database
      * @see Session
      */
     @Override
-    public Session findByIdAndLanguageId(Long id, Long languageId) throws DaoOperationException {
+    public Session findByIdAndLanguage(Long id, long languageId) throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(SELECT_SESSION_BY_ID)){
             pr.setLong(1,id);
-            pr.setLong(2,languageId);
+            pr.setLong(2, languageId);
             rs = pr.executeQuery();
             if (rs.next()){
                 Session session =  EntityInitialization.sessionInitialization(rs);
-                session.getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+                Movie movie = EntityInitialization.movieInitialization(rs);
+                movie.getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(rs));
+                session.setMovie(movie);
+                logger.info(String.format("Find session by id = %d and language id = %d",id,languageId));
                 return session;
             }else {
+                logger.error(String.format("Session with id = %d dose not exist",id));
                 throw new DaoOperationException(String.format("Session with id = %d dose not exist",id));
             }
         }catch (SQLException | IOException e){
+            logger.error(String.format("Error finding session with id = %d",id), e);
             throw new DaoOperationException(String.format("Error finding session with id = %d",id), e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -137,7 +144,6 @@ public class SessionDaoImpl implements SessionDao {
     /**
      * Returns list of sorting of sessions by a certain parameter
      * @param sortBy - parameter by which to sort
-     * @param languageId - id of language
      * @param movieId - id of movie
      * @return list of sorting of sessions by a certain parameter
      * @throws DaoOperationException if there was an error executing the query
@@ -145,24 +151,24 @@ public class SessionDaoImpl implements SessionDao {
      * @see Session
      */
     @Override
-    public List<Session> sortBy(String sortBy,Long languageId, Long movieId) throws DaoOperationException {
+    public List<Session> sortBy(String sortBy, Long movieId) throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(ORDER_SESSION_BY + sortBy)){
-            pr.setLong(1,languageId);
-            pr.setLong(2,movieId);
+            pr.setLong(1,movieId);
             rs = pr.executeQuery();
+            logger.info(String.format("Sort sessions by %s which have movie with id = %d", sortBy, movieId));
             return collectToList(rs);
-        }catch (SQLException e){
-            throw new DaoOperationException("Error sorting session by available seats", e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        }catch (SQLException | IOException e){
+            logger.error(String.format("Error sorting session by %s",sortBy), e);
+            throw new DaoOperationException(String.format("Error sorting session by %s",sortBy), e);
+        }finally{
+            DataSourceUtil.closeResultSet(rs);
         }
     }
 
     /**
-     * Returns list of sessions by movie id and language id
-     * @param languageId - id of language
+     * Returns list of sessions by movie id
      * @param movieId - id of movie
      * @return list of session
      * @throws DaoOperationException if there was an error executing the query
@@ -170,15 +176,16 @@ public class SessionDaoImpl implements SessionDao {
      * @see Session
      */
     @Override
-    public List<Session> findByMovieId(Long movieId, Long languageId) throws DaoOperationException {
+    public List<Session> findByMovie(Long movieId) throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(SELECT_SESSION_BY_MOVIE_ID)){
-            pr.setLong(1,languageId);
-            pr.setLong(2,movieId);
+            pr.setLong(1,movieId);
             rs = pr.executeQuery();
+            logger.info(String.format("Find session by movie id = %d",movieId));
             return collectToList(rs);
         }catch (SQLException | IOException e){
+            logger.error(String.format("Error finding session with movie id = %d",movieId), e);
             throw new DaoOperationException(String.format("Error finding session with movie id = %d",movieId), e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -198,7 +205,6 @@ public class SessionDaoImpl implements SessionDao {
         List<Session> sessions = new ArrayList<>();
         while (resultSet.next()){
             Session session =  EntityInitialization.sessionInitialization(resultSet);
-            session.getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(resultSet));
             sessions.add(session);
         }
         return sessions;

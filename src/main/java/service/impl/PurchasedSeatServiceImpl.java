@@ -1,5 +1,6 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
 import exception.DaoOperationException;
 import exception.TransactionException;
 import model.dao.DaoFactory;
@@ -24,7 +25,10 @@ public class PurchasedSeatServiceImpl implements PurchasedSeatService {
      * @see PurchasedSeat
      */
     @Override
-    public void save(Long sessionId, Long seatId, Long userId) throws DaoOperationException, TransactionException {
-            purchasedSeatDao.save(sessionId,seatId,userId);
+    public synchronized void save(Long sessionId, Long seatId, Long userId) throws DaoOperationException, TransactionException {
+        ArgumentValidator.checkForNull(sessionId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNull(seatId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNull(userId,"An empty id value is not allowed");
+        purchasedSeatDao.save(seatId,sessionId,userId);
     }
 }

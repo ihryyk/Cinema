@@ -8,6 +8,7 @@ import model.dao.util.EntityInitialization;
 import model.entity.MovieDescription;
 import model.entity.Session;
 import model.entity.Ticket;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,9 +23,9 @@ import java.util.List;
  *
  */
 public class TicketDaoImpl implements TicketDao {
-    private static final String SELECT_TICKETS_BY_USER_ID = "SELECT * FROM tickets INNER JOIN purchased_seats ps ON ps.id_purchased_seat = tickets.purchased_seat_id INNER JOIN seats s on s.id_seat = ps.seat_id INNER JOIN sessions s2 on s2.id_session = ps.session_id inner join movies m on m.id_movie = s2.movie_id INNER JOIN movie_descriptions md on m.id_movie = md.movie_id INNER JOIN languages l on l.id_language = md.language_id WHERE user_id = ? AND  language_id = ?;";
+    private static final String SELECT_TICKETS_BY_USER_ID = "SELECT * FROM tickets INNER JOIN purchased_seats ps ON ps.id_purchased_seat = tickets.purchased_seat_id INNER JOIN seats s on s.id_seat = ps.seat_id INNER JOIN sessions s2 on s2.id_session = ps.session_id inner join movies m on m.id_movie = s2.movie_id INNER JOIN movie_descriptions md on m.id_movie = md.movie_id WHERE user_id = ? AND language_id = ?;";
 
-
+    private final static  Logger logger = Logger.getLogger(TicketDaoImpl.class);
     /**
      * Returns list os user's tickets.
      * @param userId - id of user
@@ -35,15 +36,17 @@ public class TicketDaoImpl implements TicketDao {
      * @see Ticket
      */
     @Override
-    public List<Ticket> findByUserId(Long userId, Long languageId) throws DaoOperationException {
+    public List<Ticket> findByUser(Long userId, Long languageId) throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(SELECT_TICKETS_BY_USER_ID)){
             pr.setLong(1,userId);
             pr.setLong(2,languageId);
             rs = pr.executeQuery();
+            logger.info(String.format("Find tickets by user id = %d and language id = %d",userId, languageId));
             return collectToList(rs);
         }catch (SQLException e){
+            logger.error(String.format("Error finding ticket with user id = %d", userId), e);
             throw new DaoOperationException(String.format("Error finding ticket with user id = %d", userId), e);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -63,6 +66,7 @@ public class TicketDaoImpl implements TicketDao {
         List<Ticket> tickets = new ArrayList<>();
         while (resultSet.next()){
             Ticket ticket = EntityInitialization.ticketInitialization(resultSet);
+            ticket.getPurchasedSeat().getSession().setMovie(EntityInitialization.movieInitialization(resultSet));
             ticket.getPurchasedSeat().getSession().getMovie().getMovieDescriptionList().add(EntityInitialization.movieDescriptionInitialization(resultSet));
             tickets.add(ticket);
         }

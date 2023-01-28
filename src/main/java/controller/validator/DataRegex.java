@@ -7,7 +7,7 @@ public class DataRegex {
     public final static String ENG_LANG = "^[a-zA-z '.,-]+$";
     public final static String UKR_LANG = "^[А-Яа-яёЁЇїІіЄєҐґ '.,-]+$";
     public final static String PASSWORD = "^([a-zA-Z0-9@*#]{4,10})$";
-    public final static String NAME = "^[A-Za-z]+$";
+    public final static String NAME = "^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ]+$";
     public final static String NUMBER = "[0-9]+";
     private DataRegex() {
     }

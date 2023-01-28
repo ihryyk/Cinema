@@ -1,12 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ihorb
-  Date: 10.01.2023
-  Time: 19:10
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.pageLanguage}"/>
+<fmt:setBundle basename="message"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,37 +21,37 @@
 				<c:forEach var="ticket" items="${tickets}">
 					<div class="ticket">
 						<p>
-							Movie:
+							<fmt:message key="Movie"/>:
 							${ticket.purchasedSeat.session.movie.movieDescriptionList.get(0).title}
 						</p>
 						<p>
-							Time:
+							<fmt:message key="Time"/>:
 							${ticket.purchasedSeat.session.startTime.getHours()}:${ticket.purchasedSeat.session.startTime.getMinutes()}-
 							${ticket.purchasedSeat.session.endTime.getHours()}:${ticket.purchasedSeat.session.endTime.getMinutes()}
 						</p>
 						<p>
-							Date:
+							<fmt:message key="Date"/>:
 							${ticket.purchasedSeat.session.startTime.toLocalDateTime().getDayOfMonth()}
 							${ticket.purchasedSeat.session.startTime.toLocalDateTime().getMonth()}
 						</p>
-						<p>Format: ${ticket.purchasedSeat.session.format}</p>
+						<p><fmt:message key="Format"/>: ${ticket.purchasedSeat.session.format}</p>
 						<p>
-							Available seats: ${ticket.purchasedSeat.session.availableSeats}
+							<fmt:message key="AvailableSeats"/>: ${ticket.purchasedSeat.session.availableSeats}
 						</p>
-						<p>Price: ${ticket.purchasedSeat.session.price}</p>
+						<p><fmt:message key="Price"/>: ${ticket.purchasedSeat.session.price} <fmt:message key="Money"/></p>
 						<p>
-							Place: Row: ${ticket.purchasedSeat.seat.row} - Number:
+							<fmt:message key="PhoneNumber"/>: <fmt:message key="Row"/>: ${ticket.purchasedSeat.seat.row} - <fmt:message key="Number"/>:
 							${ticket.purchasedSeat.seat.number}
 						</p>
 						<c:if test="${ticket.purchasedSeat.session.movie.deleted==true}">
-							<span class="canceled">CANCELED</span>
+							<span class="canceled"><fmt:message key="CANCELLED"/></span>
 						</c:if>
 					</div>
 				</c:forEach>
 			</div>
 		</c:if>
         <c:if test="${fn:length(requestScope.sessions)==0}">
-            <p class="session_warning">There are no sessions yet</p>
+            <p class="session_warning"><fmt:message key="NullSessions"/></p>
         </c:if>
 </body>
 </html>

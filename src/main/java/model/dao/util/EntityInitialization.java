@@ -100,7 +100,6 @@ public class EntityInitialization {
     public static Session sessionInitialization(ResultSet resultSet) throws SQLException, IOException {
         Session session = new Session();
         session.setId(resultSet.getLong("id_session"));
-        session.setMovie(movieInitialization(resultSet));
         session.setStartTime(resultSet.getTimestamp("start_time"));
         session.setEndTime(resultSet.getTimestamp("end_time"));
         session.setAvailableSeats(resultSet.getInt("available_seats"));

@@ -3,8 +3,11 @@ package model.dao;
 import exception.DaoOperationException;
 import model.entity.Movie;
 import model.entity.Seat;
+import model.entity.Session;
 
 import java.util.List;
+import java.util.Map;
+
 /**
  * The interface defines methods for implementing different
  * activities with seat
@@ -20,7 +23,7 @@ public interface SeatDao {
      *                      in the database
      * @see Seat
      */
-    public List<Seat> findAllFreeSeatForSession(Long sessionId) throws DaoOperationException;
+    public List<Seat> findFreeSeatsBySession(Long sessionId) throws DaoOperationException;
 
     /**
      * Returns seat by id
@@ -40,15 +43,26 @@ public interface SeatDao {
      *                      in the database
      * @see Seat
      */
-    public List<Seat> findAllBusySeatForSession(Long sessionId) throws DaoOperationException;
+    public List<Seat> findBusySeatsBySession(Long sessionId) throws DaoOperationException;
 
     /**
-     * Returns total number of busy seats.
-     * @param sessionId - id of session
-     * @return total number of busy seats
+     * Returns map of session with number of busy seat.
+     * @param movieId - id of movie
+     * @return ap of session with number of busy seat
      * @throws DaoOperationException if there was an error executing the query
      *                      in the database
      * @see Movie
      */
-   public Long countOccupiedSeatsInTheSession (Long sessionId) throws DaoOperationException;
+    public Map<Session, Integer> getNumberBusySeatsByMovie(Long movieId) throws DaoOperationException;
+
+    /**
+     * Returns true if seat with this id and this sessionId exist.
+     * @param sessionId - id of session
+     * @param seatId - id of seat
+     * @return true if seat with this id and this sessionId exist
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Seat
+     */
+    boolean ifSeatExist(Long seatId, Long sessionId) throws DaoOperationException;
 }

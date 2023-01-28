@@ -12,14 +12,14 @@ import java.io.IOException;
  *
  * @see Filter
  */
-@WebFilter("/*")
+@WebFilter("/cinema")
 public class AccessToJsp implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         if(req.getServletPath()!=null && req.getServletPath().endsWith(".jsp")) {
             HttpServletResponse resp = (HttpServletResponse) servletResponse;
-            resp.sendRedirect("/cinema/error");
+            resp.sendRedirect("/cinema?command=ERROR_PAGE");
             return;
         }
         filterChain.doFilter(servletRequest, servletResponse);

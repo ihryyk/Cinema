@@ -1,5 +1,7 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
+import controller.validator.Validator;
 import exception.DaoOperationException;
 import model.dao.DaoFactory;
 import model.dao.LanguageDao;
@@ -24,5 +26,19 @@ public class LanguageServiceImpl implements LanguageService {
     @Override
     public List<Language> findAll() throws DaoOperationException {
           return languageDao.finaAll();
+    }
+
+    /**
+     * Returns id of language by language name
+     *
+     * @return id of language
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Language
+     */
+    @Override
+    public Long getIdByName(String name) throws DaoOperationException {
+        ArgumentValidator.checkForNullOrEmptyString(name,"An empty or null name value is not allowed");
+        return languageDao.getIdByName(name);
     }
 }

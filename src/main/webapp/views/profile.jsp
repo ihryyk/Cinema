@@ -1,11 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ihorb
-  Date: 11.01.2023
-  Time: 21:11
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.pageLanguage}"/>
+<fmt:setBundle basename="message"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -41,7 +37,7 @@
             <h2 class="profile_header">Contact information</h2>
             <div class="form_section">
                 <form
-                    action="${pageContext.request.contextPath}/cinema/user/profile/email"
+                    action="${pageContext.request.contextPath}/cinema?command=UPDATE_EMAIL"
                     method="post"
                 >
                     <input
@@ -51,20 +47,22 @@
                         value="${sessionScope.user.id}"
                     />
                     <div class="profile_controller">
-                        <label for="email">Email address</label>
+                        <label for="email"><fmt:message key="EmailAddress"/></label>
                         <input
                             type="text"
                             required
                             name="email"
                             id="email"
                             value="${sessionScope.user.emailAddress}"
+                            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            title="<fmt:message key="TitleEmail"/>"
                             class="profile_input"
                         />
                     </div>
-                    <input type="submit" value="Submit" class="profile_btn" />
+                    <input type="submit" value="<fmt:message key="Submit"/>" class="profile_btn" />
                 </form>
                 <form
-                    action="${pageContext.request.contextPath}/cinema/user/profile/phoneNumber"
+                    action="${pageContext.request.contextPath}/cinema?command=UPDATE_PHONE_NUMBER"
                     method="post"
                 >
                     <input
@@ -75,24 +73,26 @@
                         id=""
                     />
                     <div class="profile_controller">
-                        <label for="phoneNumber">Phone number</label>
+                        <label for="phoneNumber"><fmt:message key="PhoneNumber"/></label>
                         <input
                             type="text"
                             required
                             name="phoneNumber"
+                            pattern="^\+?3?8?(0\d{9})$"
+                            title="<fmt:message key="TitlePhoneNumber"/>"
                             id="phoneNumber"
                             value="${sessionScope.user.phoneNumber}"
                             class="profile_input"
                         />
                     </div>
-                    <input type="submit" value="Submit" class="profile_btn" />
+                    <input type="submit" value="<fmt:message key="Submit"/>" class="profile_btn" />
                 </form>
             </div>
         </div>
         <div>
-            <h2 class="profile_header">Personal information</h2>
+            <h2 class="profile_header"><fmt:message key="PersonalInformation"/></h2>
             <form
-                action="${pageContext.request.contextPath}/cinema/user/profile/personalInformation"
+                action="${pageContext.request.contextPath}/cinema?command=UPDATE_PERSONAL_INFORMATION"
                 method="post"
                 class="profile_form"
             >
@@ -103,33 +103,39 @@
                     value="${sessionScope.user.id}"
                 />
                 <div class="profile_controller">
-                    <label for="firstName">First name</label>
+                    <label for="firstName"><fmt:message key="FirstName"/></label>
                     <input
                         type="text"
                         required
                         name="firstName"
+                        pattern="^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ]+$"
+                        title="<fmt:message key="TitleName"/>"
                         id="firstName"
                         value="${sessionScope.user.firstName}"
                         class="profile_input"
                     />
                 </div>
                 <div class="profile_controller">
-                    <label for="lastName">Last name</label>
+                    <label for="lastName"><fmt:message key="LastName"/></label>
                     <input
                         type="text"
                         required
                         name="lastName"
+                        pattern="^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ]+$"
+                        title="<fmt:message key="TitleName"/>"
                         id="lastName"
                         value="${sessionScope.user.lastName}"
                         class="profile_input"
                     />
                 </div>
                 <div class="profile_controller">
-                    <label for="password">Password</label>
+                    <label for="password"><fmt:message key="Password"/></label>
                     <input
                         type="password"
                         required
                         name="password"
+                        pattern="^([a-zA-Z0-9@*#]{4,10})$"
+                        title="<fmt:message key="TitlePassword"/>"
                         id="password"
                         value="${sessionScope.user.password}"
                         class="profile_input"

@@ -1,5 +1,6 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
 import exception.DaoOperationException;
 import model.dao.DaoFactory;
 import model.dao.SessionDao;
@@ -24,7 +25,8 @@ public class SessionServiceImpl implements SessionService {
      */
     @Override
     public void save(Session session) throws DaoOperationException {
-           sessionDao.save(session);
+        ArgumentValidator.checkForNull(session,"An empty session value is not allowed");
+        sessionDao.save(session);
     }
 
     /**
@@ -36,7 +38,8 @@ public class SessionServiceImpl implements SessionService {
      */
     @Override
     public void update(Session session) throws DaoOperationException {
-            sessionDao.update(session);
+        ArgumentValidator.checkForNull(session,"An empty session value is not allowed");
+        sessionDao.update(session);
     }
 
     /**
@@ -49,13 +52,14 @@ public class SessionServiceImpl implements SessionService {
      */
     @Override
     public Session findByIdAndLanguageId(Long id, Long languageId) throws DaoOperationException {
-          return sessionDao.findByIdAndLanguageId(id, languageId);
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return sessionDao.findByIdAndLanguage(id, languageId);
     }
 
     /**
      * Returns list of sorting of sessions by a certain parameter
      * @param sortBy - parameter by which to sort
-     * @param languageId - id of language
      * @param movieId - id of movie
      * @return list of sorting of sessions by a certain parameter
      * @throws DaoOperationException if there was an error executing the query
@@ -63,13 +67,14 @@ public class SessionServiceImpl implements SessionService {
      * @see Session
      */
     @Override
-    public List<Session> sortBy(String sortBy, Long languageId, Long movieId) throws DaoOperationException {
-            return sessionDao.sortBy(sortBy,languageId,movieId);
+    public List<Session> sortBy(String sortBy, Long movieId) throws DaoOperationException {
+        ArgumentValidator.checkForNull(movieId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNullOrEmptyString(sortBy,"An empty or null sortBy value is not allowed");
+        return sessionDao.sortBy(sortBy,movieId);
     }
 
     /**
-     * Returns list of sessions by movie id and language id
-     * @param languageId - id of language
+     * Returns list of sessions by movie id
      * @param movieId - id of movie
      * @return list of session
      * @throws DaoOperationException if there was an error executing the query
@@ -77,7 +82,8 @@ public class SessionServiceImpl implements SessionService {
      * @see Session
      */
     @Override
-    public List<Session> findByMovieId(Long movieId, Long languageId) throws DaoOperationException {
-           return sessionDao.findByMovieId(movieId,languageId);
+    public List<Session> findByMovieId(Long movieId) throws DaoOperationException {
+        ArgumentValidator.checkForNull(movieId,"An empty id value is not allowed");
+        return sessionDao.findByMovie(movieId);
     }
 }

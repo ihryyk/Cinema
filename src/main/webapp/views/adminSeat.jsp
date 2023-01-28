@@ -1,12 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ihorb
-  Date: 13.01.2023
-  Time: 2:27
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<fmt:setLocale value="${sessionScope.pageLanguage}"/>
+<fmt:setBundle basename="message"/>
 <html>
 <head>
     <link rel="stylesheet" href="../styles/index.css" />
@@ -35,19 +31,20 @@
                     <span class="admin-movie_text">${requestScope.session.endTime.getHours()}:${requestScope.session.endTime.getMinutes()}</span>
                 </div>
                 <p class="admin-movie_text">${requestScope.session.startTime.toLocalDateTime().getDayOfMonth()} ${requestScope.session.startTime.toLocalDateTime().getMonth()}</p>
-                <p class="admin-movie_text">Format: ${requestScope.session.format}</p>
-                <p class="admin-movie_text">Available seats: ${requestScope.session.availableSeats}</p>
-                <p class="admin-movie_text">Price: <span class="admin-movie_price">${requestScope.session.price}</span></p>
+                <p class="admin-movie_text"><fmt:message key="Format"/>: ${requestScope.session.format}</p>
+                <p class="admin-movie_text">  <fmt:message key="AvailableSeats"/>: ${requestScope.session.availableSeats}</p>
+                <p class="admin-movie_text">  <fmt:message key="Price"/>: <span class="admin-movie_price">${requestScope.session.price} <fmt:message key="Money"/></span></p>
             </div>
         </div>
 
         <div class="admin-movie_seats">
             <h2 class="admin-movie_header">Seats</h2>
             <div class="seats_list">
-                <jsp:useBean id="busySeats" scope="request" type="java.util.List" />
-                <c:forEach var="seat" items="${busySeats}">
+                <jsp:useBean id="seats" scope="request" type="java.util.Map"/>
+                <c:forEach var="entry" items="${seats.entrySet()}">
+                    <c:if test="${not entry.getValue()}">
                 <div class="admin-movie_seat">
-                    <svg fill="#ad2419" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    <svg fill="#ad2419" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 512 512" xml:space="preserve">
                         <g transform="translate(1 1)">
                             <g>
@@ -86,13 +83,12 @@
                             </g>
                         </g>
                     </svg>
-                    <p class="busy_seat">${seat.row}/${seat.number}</p>
+                    <p class="busy_seat">${entry.getKey().row}/${entry.getKey().number}</p>
                 </div>
-                </c:forEach>
-                <jsp:useBean id="freeSeats" scope="request" type="java.util.List" />
-                <c:forEach var="seat" items="${freeSeats}">
+                    </c:if>
+                    <c:if test="${entry.getValue()}">
                     <div class="admin-movie_seat">
-                        <svg fill="#3B945E" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        <svg fill="#3B945E" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 512 512" xml:space="preserve">
                             <g transform="translate(1 1)">
                                 <g>
@@ -131,8 +127,9 @@
                                 </g>
                             </g>
                         </svg>
-                        <p class="available_seat">${seat.row}/${seat.number}</p>
+                        <p class="available_seat">${entry.getKey().row}/${entry.getKey().number}</p>
                     </div>
+                    </c:if>
                 </c:forEach>
             </div>
         </div>

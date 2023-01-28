@@ -1,10 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ihorb
-  Date: 10.01.2023
-  Time: 17:06
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.pageLanguage}"/>
+<fmt:setBundle basename="message"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,32 +16,32 @@
     <div class="ticket_wrapper">
         <div class="ticket_content">
             <p>
-                Name: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
+                <fmt:message key="Recipient"/>: ${sessionScope.user.firstName} ${sessionScope.user.lastName}
             </p>
-            <p>Phone number: ${sessionScope.user.phoneNumber}</p>
+            <p> <fmt:message key="PhoneNumber"/>: ${sessionScope.user.phoneNumber}</p>
             <p>
-                Movie: ${requestScope.session.movie.movieDescriptionList.get(0).title}
+                <fmt:message key="Movie"/>: ${requestScope.session.movie.movieDescriptionList.get(0).title}
             </p>
             <p>
-                Time:
+                <fmt:message key="Time"/>:
                 ${requestScope.session.startTime.getHours()}:${requestScope.session.startTime.getMinutes()}
                 -
                 ${requestScope.session.endTime.getHours()}:${requestScope.session.endTime.getMinutes()}
             </p>
             <p>
-                Date:
+                <fmt:message key="Date"/>:
                 ${requestScope.session.startTime.toLocalDateTime().getDayOfMonth()}
                 ${requestScope.session.startTime.toLocalDateTime().getMonth()}
             </p>
-            <p>Format: ${requestScope.session.format}</p>
-            <p>Available seats: ${requestScope.session.availableSeats}</p>
-            <p>Price: ${requestScope.session.price}</p>
+            <p> <fmt:message key="Format"/>: ${requestScope.session.format}</p>
+            <p> <fmt:message key="AvailableSeats"/>: ${requestScope.session.availableSeats}</p>
+            <p><fmt:message key="Price"/>: ${requestScope.session.price} <fmt:message key="Money"/></p>
             <p>
-                Place: Row: ${requestScope.seat.row} - Number:
+                <fmt:message key="Place"/>:   <fmt:message key="Row"/>: ${requestScope.seat.row} -   <fmt:message key="Number"/>:
                 ${requestScope.seat.number}
             </p>
             <form
-                action="${pageContext.request.contextPath}/cinema/user/ticket"
+                action="${pageContext.request.contextPath}/cinema?command=ACCEPT_TICKET"
                 method="post"
             >
                 <input
@@ -60,7 +56,7 @@
                     name="sessionId"
                     value="${requestScope.session.id}"
                 />
-                <input type="submit" value="Accept" class="ticket_btn" />
+                <input type="submit" value=" <fmt:message key="Submit"/>" class="ticket_btn" />
             </form>
         </div>
     </div>

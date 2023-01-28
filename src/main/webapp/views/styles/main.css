@@ -5,7 +5,11 @@
     greyText- #808080
     red - #ad2419
  */
-
+.image_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .movies {
     display: flex;
     gap: 15px;
@@ -19,7 +23,6 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     width: 350px;
 }

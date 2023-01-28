@@ -20,5 +20,5 @@ public interface TicketDao {
     *                      in the database
     * @see Ticket
     */
-   public List<Ticket> findByUserId(Long userId, Long languageId) throws DaoOperationException;
+   public List<Ticket> findByUser(Long userId, Long languageId) throws DaoOperationException;
 }

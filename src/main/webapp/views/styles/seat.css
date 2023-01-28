@@ -75,9 +75,16 @@
     height: 30px;
 }
 
-.movie_seat_text {
+.movie_free_seat_text {
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
     color: #3B945E;
+}
+
+.movie_busy_seat_text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ad2419;
 }

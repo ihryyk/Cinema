@@ -1,11 +1,11 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
 import exception.DaoOperationException;
 import model.dao.DaoFactory;
 import model.dao.UserDao;
 import model.entity.User;
 import service.UserService;
-import controller.validator.ArgumentValidator;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -34,7 +34,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findByPasswordAndEmail(String password, String email) throws DaoOperationException {
-            return userDao.findByPasswordAndEmail(password,email);
+        ArgumentValidator.checkForNullOrEmptyString(password,"An empty or null password value is not allowed");
+        ArgumentValidator.checkForNullOrEmptyString(email,"An empty or null email value is not allowed");
+        return userDao.findByPasswordAndEmail(password,email);
     }
 
     /**
@@ -48,7 +50,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findById(long id) throws DaoOperationException {
-            return userDao.findById(id);
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        return userDao.findById(id);
     }
 
     /**
@@ -62,7 +65,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findByEmail(String email) throws DaoOperationException {
-            return userDao.findByEmail(email);
+        ArgumentValidator.checkForNullOrEmptyString(email,"An empty or null email value is not allowed");
+        return userDao.findByEmail(email);
     }
 
     /**
@@ -76,7 +80,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findByPhoneNumber(String phoneNumber) throws DaoOperationException {
-            return userDao.findByPhoneNumber(phoneNumber);
+        ArgumentValidator.checkForNullOrEmptyString(phoneNumber,"An empty or null phone number value is not allowed");
+        return userDao.findByPhoneNumber(phoneNumber);
     }
 
     /**
@@ -90,7 +95,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) throws DaoOperationException {
         ArgumentValidator.checkForNull(user,"Not allow for a null user in add at userService class");
-            userDao.save(user);
+        userDao.save(user);
     }
 
     /**
@@ -104,7 +109,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void updateEmail(String email, Long userId) throws DaoOperationException {
-           userDao.updateEmail(email, userId);
+        ArgumentValidator.checkForNullOrEmptyString(email,"An empty or null email value is not allowed");
+        ArgumentValidator.checkForNull(userId,"An null id value is not allowed");
+        userDao.updateEmail(email, userId);
     }
 
     /**
@@ -118,7 +125,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void updatePhoneNumber(String phoneNumber, Long userId) throws DaoOperationException {
-            userDao.updatePhoneNumber(phoneNumber, userId);
+        ArgumentValidator.checkForNullOrEmptyString(phoneNumber,"An empty or null phone number value is not allowed");
+        ArgumentValidator.checkForNull(userId,"An null id value is not allowed");
+        userDao.updatePhoneNumber(phoneNumber, userId);
     }
 
     /**
@@ -131,16 +140,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void updateContactInformation(User user) throws DaoOperationException {
-            userDao.updateContactInformation(user);
-    }
-
-    public String passwordEncrypting(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        byte[] hash = factory.generateSecret(spec).getEncoded();
-        return Arrays.toString(hash);
+        ArgumentValidator.checkForNull(user,"An null user value is not allowed");
+        userDao.updateContactInformation(user);
     }
 }

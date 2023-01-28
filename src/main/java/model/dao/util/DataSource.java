@@ -1,5 +1,6 @@
 package model.dao.util;
 
+import org.apache.log4j.Logger;
 import org.postgresql.jdbc3.Jdbc3PoolingDataSource;
 
 import java.sql.Connection;
@@ -11,6 +12,8 @@ import java.util.ResourceBundle;
  *
  */
 public class DataSource {
+
+    private final static  Logger logger = Logger.getLogger(DataSource.class);
     private static final String DB_RESOURCE_BUNDLE = "db";
     private static final String URL = "db.url";
     private static DataSource instance = null;
@@ -46,8 +49,10 @@ public class DataSource {
     public Connection getConnection() {
         Connection connection = null;
         try {
+            logger.info("Get connection from connection pool");
             connection = getPooledConnectionDataSource().getConnection();
         } catch (SQLException e) {
+            logger.error("Error getting connection from connection pool", e);
             e.printStackTrace();
         }
         return connection;

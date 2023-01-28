@@ -9,6 +9,7 @@ import model.dao.util.EntityInitialization;
 import model.entity.Movie;
 import model.entity.MovieDescription;
 import model.entity.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -22,13 +23,7 @@ public class UserDaoImpl implements UserDao {
     private static final String SELECT_USER_BY_EMAIL_AND_PASSWORD = "SELECT * FROM USERS WHERE password = ? AND email_address = ?;";
     private static final String SELECT_USER_BY_EMAIL = "SELECT * FROM USERS WHERE email_address = ?;";
     private static final String SELECT_USER_BY_ID = "SELECT * FROM USERS WHERE id_user = ?;";
-    private static final String SELECT_USER_BY_EMAIL_AND_ID = "SELECT * FROM USERS WHERE email_address = ? AND id_user!=?;";
     private static final String SELECT_USER_BY_PHONE_NUMBER = "SELECT * FROM USERS WHERE phone_number = ?;";
-    private static final String SELECT_USER_BY_PHONE_NUMBER_AND_ID = "SELECT * FROM USERS WHERE phone_number = ? AND id_user!=?;";
-
-    private static final String UPDATE_USER = "UPDATE users " +
-            "SET first_name=?, last_name=?, phone_number=?, email_address=?, update_date=?, password=? " +
-            "WHERE id_user=?;";
     private static final String UPDATE_CONTACT_INFORMATION = "UPDATE users " +
             "SET first_name=?, last_name=?, update_date=?, password=? " +
             "WHERE id_user=?;";
@@ -41,6 +36,8 @@ public class UserDaoImpl implements UserDao {
     private static final  String INSERT_USER = "INSERT INTO  users (" +
             " first_name, last_name, phone_number, email_address, create_date, update_date, password)" +
             " VALUES (?, ?, ?, ?, ?, ?, ?);";
+
+    private final static Logger logger = Logger.getLogger(UserDaoImpl.class);
 
     /**
      * Returns information about user by email and password
@@ -62,8 +59,10 @@ public class UserDaoImpl implements UserDao {
             pr.setString(1,password);
             pr.setString(2,email);
             rs = pr.executeQuery();
+            logger.info(String.format("Fin user by password = %s and email = %s",password,email));
             return checkIfUserIsFound(rs);
         } catch (SQLException e) {
+            logger.error(String.format("Error getting user by email = %s and password = %s", email, password),e);
             throw new DaoOperationException(String.format("Error getting user by email = %s and password = %s", email, password),e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -86,8 +85,10 @@ public class UserDaoImpl implements UserDao {
             PreparedStatement pr = connection.prepareStatement(SELECT_USER_BY_ID)){
             pr.setLong(1,id);
             rs = pr.executeQuery();
+            logger.info(String.format("Find user by id = %d", id));
             return checkIfUserIsFound(rs);
         }catch (SQLException e){
+            logger.error(String.format("Error getting user by id = %d", id),e);
             throw new DaoOperationException(String.format("Error getting user by id = %d", id),e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -111,8 +112,10 @@ public class UserDaoImpl implements UserDao {
             PreparedStatement pr = connection.prepareStatement(SELECT_USER_BY_EMAIL)){
             pr.setString(1,email);
             rs = pr.executeQuery();
+            logger.info(String.format("Find user by email = %s", email));
             return checkIfUserIsFound(rs);
         }catch (SQLException e){
+            logger.error(String.format("Error getting user by email = %s", email),e);
             throw new DaoOperationException(String.format("Error getting user by email = %s", email),e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -135,8 +138,10 @@ public class UserDaoImpl implements UserDao {
             PreparedStatement pr = connection.prepareStatement(SELECT_USER_BY_PHONE_NUMBER)){
             pr.setString(1,phoneNumber);
             rs = pr.executeQuery();
+            logger.info(String.format("Error getting user by phone number = %s",phoneNumber));
             return checkIfUserIsFound(rs);
         }catch (SQLException e){
+            logger.error(String.format("Error getting user by phone number = %s",phoneNumber),e);
             throw new DaoOperationException(String.format("Error getting user by phone number = %s",phoneNumber),e);
         }finally{
             DataSourceUtil.closeResultSet(rs);
@@ -193,7 +198,9 @@ public class UserDaoImpl implements UserDao {
             pr.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
             pr.setLong(3,userId);
             DaoUtil.checkRowAffected(pr);
+            logger.info(String.format("Update user's email address: %s", email));
         }catch (SQLException e){
+            logger.error(String.format("Error updating user's email address: %s", email), e);
             throw new DaoOperationException(String.format("Error updating user's email address: %s", email), e);
         }
     }
@@ -215,8 +222,10 @@ public class UserDaoImpl implements UserDao {
             pr.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
             pr.setLong(3,userId);
             DaoUtil.checkRowAffected(pr);
+            logger.info(String.format("Update user's phone number: %s", phoneNumber));
         }catch (SQLException e){
-            throw new DaoOperationException(String.format("Error updating user's phoneNumber address: %s", phoneNumber), e);
+            logger.error(String.format("Error updating user's phone number: %s", phoneNumber), e);
+            throw new DaoOperationException(String.format("Error updating user's phone number: %s", phoneNumber), e);
         }
     }
 
@@ -239,7 +248,9 @@ public class UserDaoImpl implements UserDao {
             pr.setString(4,user.getPassword());
             pr.setLong(5,user.getId());
             DaoUtil.checkRowAffected(pr);
+            logger.info(String.format("Error updating user contact information: %s", user));
         }catch (SQLException e){
+            logger.error(String.format("Error updating user contact information: %s", user), e);
             throw new DaoOperationException(String.format("Error updating user contact information: %s", user), e);
         }
     }

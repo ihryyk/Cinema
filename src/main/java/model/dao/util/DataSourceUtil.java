@@ -2,6 +2,7 @@ package model.dao.util;
 
 import exception.DaoOperationException;
 import exception.TransactionException;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +14,9 @@ import java.sql.Statement;
  *
  */
 public class DataSourceUtil {
+
+    private final static Logger logger = Logger.getLogger(DataSource.class);
+
     /**
      * Close ResultSet.
      *
@@ -29,7 +33,7 @@ public class DataSourceUtil {
                 resultSet.close();
             }
         } catch (SQLException e) {
-//            logger.error(e.getMessage());
+            logger.error("ResultSet closure failed", e);
             throw new  DaoOperationException("ResultSet closure failed", e);
         }
     }
@@ -47,7 +51,7 @@ public class DataSourceUtil {
             con.rollback();
             con.setAutoCommit(true);
         } catch (SQLException e) {
-//            logger.error(e.getMessage());
+            logger.error("Rolling back failed.", e);
             throw new TransactionException("Rolling back failed.", e);
         }
     }
@@ -66,7 +70,7 @@ public class DataSourceUtil {
                 con.setAutoCommit(true);
             }
         } catch (SQLException e) {
-//            logger.error(e.getMessage());
+            logger.error("Close transaction failed.", e);
             throw new TransactionException("Close transaction failed.", e);
         }
 
@@ -76,9 +80,9 @@ public class DataSourceUtil {
      *
      * @param con - Сonnection.
      *
-//     * @throws DAOException  if there was connection return error.
+     * @throws DaoOperationException  if there was connection return error.
      *
-//     * @see ConnectionPool
+     * @see DaoUtil
      */
     public static void closeConnection(Connection con) throws DaoOperationException  {
         try {
@@ -86,7 +90,7 @@ public class DataSourceUtil {
                 con.close();
             }
         } catch (SQLException e) {
-//            logger.error(e.getMessage());
+            logger.error("Close connection failed.", e);
             throw new DaoOperationException("Close connection failed.", e);
         }
     }
@@ -96,7 +100,7 @@ public class DataSourceUtil {
      *
      * @param statement - Statement.
      *
-//     * @throws DAOException  if there was an error in the closing of
+    * @throws DaoOperationException  if there was an error in the closing of
      * the Statement.
      *
      */
@@ -106,6 +110,7 @@ public class DataSourceUtil {
                 statement.close();
             }
         } catch (SQLException e) {
+            logger.error("Close transaction failed.", e);
             throw new DaoOperationException("Close transaction failed.", e);
         }
     }
@@ -116,7 +121,8 @@ public class DataSourceUtil {
                 connection.setAutoCommit(false);
                 connection.setTransactionIsolation( Connection.TRANSACTION_READ_COMMITTED);
             } catch (SQLException e) {
-                throw new DaoOperationException("open transaction failed.", e);
+                logger.error("Open transaction failed.", e);
+                throw new DaoOperationException("Open transaction failed.", e);
             }
 
         }

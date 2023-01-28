@@ -5,18 +5,18 @@ darkBlue - #123C69
 red - #AC3B61
  */
 
-    /* dark - #17252A
-    darkgreen - #2B7A78
-    green - #3AAFA9
-    gray - #DEF2F1
-    white - #FEFFFF */
+/* dark - #17252A
+darkgreen - #2B7A78
+green - #3AAFA9
+gray - #DEF2F1
+white - #FEFFFF */
 
-   /*  v2
-    bg - #0f0f0f
-    seconadry - #161616
-    secondaryV2 -  #525252
-    greyText- #808080
- */
+/*  v2
+ bg - #0f0f0f
+ seconadry - #161616
+ secondaryV2 -  #525252
+ greyText- #808080
+*/
 
 
 html {
@@ -36,6 +36,23 @@ body {
     background-color: #0f0f0f;
     position: relative;
     height: 100%;
+}
+
+.todays_btn {
+    width: fit-content;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    transition: 0.3s;
+}
+.todays_btn:hover,
+.todays_btn:focus {
+    box-shadow: inset 250px 0 0 0 #ad2419;
+    color: #FEFFFF;
 }
 
 .index_main {
@@ -77,10 +94,11 @@ body {
 }
 
 .header_user {
-  font-size: 18px;
-  color: #FEFFFF;
-  margin-left: 15px;
+    font-size: 18px;
+    color: #FEFFFF;
+    margin-left: 15px;
 }
+
 .search_wrapper {
     margin-left: auto;
 }
@@ -121,8 +139,8 @@ body {
 
 .search_btn:hover,
 .search_btn:focus {
-  box-shadow: inset 100px 0 0 0 #ad2419;
-  color: #FEFFFF;
+    box-shadow: inset 100px 0 0 0 #ad2419;
+    color: #FEFFFF;
 }
 
 .header_lang {
@@ -159,8 +177,8 @@ body {
 
 .index_btn:hover,
 .index_btn:focus {
-  box-shadow: inset 130px 0 0 0 #ad2419;
-  color: #FEFFFF;
+    box-shadow: inset 130px 0 0 0 #ad2419;
+    color: #FEFFFF;
 }
 
 .index_paggination {
@@ -198,4 +216,13 @@ body {
 .descr {
     width: 240px;
     margin-top: 20px;
+}
+
+.movie_warning {
+    color: #FEFFFF;
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

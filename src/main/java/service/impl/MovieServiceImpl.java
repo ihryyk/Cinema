@@ -1,5 +1,6 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
 import exception.DaoOperationException;
 import exception.TransactionException;
 import model.dao.DaoFactory;
@@ -8,6 +9,7 @@ import model.dao.MovieDescriptionDao;
 import model.entity.Movie;
 import service.MovieService;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 /**
@@ -30,7 +32,8 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public void save(Movie movie) throws DaoOperationException, TransactionException {
-            movieDao.save(movie);
+        ArgumentValidator.checkForNull(movie,"An empty movie value is not allowed");
+        movieDao.save(movie);
     }
 
     /**
@@ -43,8 +46,12 @@ public class MovieServiceImpl implements MovieService {
      * @see Movie
      */
     @Override
-    public void update(Movie movie) throws DaoOperationException, TransactionException {
-            movieDao.update(movie);
+    public void update(Movie movie) throws DaoOperationException, TransactionException, IOException {
+        ArgumentValidator.checkForNull(movie,"An empty movie value is not allowed");
+        if (movie.getPoster().available()==0){
+            movie.setPoster(movieDao.getPosterByMovieId(movie.getId()));
+        }
+        movieDao.update(movie);
     }
 
     /**
@@ -56,7 +63,8 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public void delete(Long id) throws DaoOperationException {
-            movieDao.delete(id);
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        movieDao.delete(id);
     }
 
     /**
@@ -69,7 +77,8 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public List<Movie> findAllByLanguage(Long languageId) throws DaoOperationException {
-            return movieDao.findAllByLanguage(languageId);
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return movieDao.findByLanguage(languageId);
     }
 
     /**
@@ -83,7 +92,9 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public List<Movie> findByLanguageAndTitle(Long languageId, String title) throws DaoOperationException {
-            return movieDao.findByLanguageAndTitle(languageId,title);
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNullOrEmptyString(title,"An empty or null title value is not allowed");
+        return movieDao.findByLanguageAndTitle(languageId,title);
     }
 
     /**
@@ -96,10 +107,12 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public Movie findById(Long id) throws DaoOperationException {
-            Movie movie =movieDao.findById(id);
-            movie.setMovieDescriptionList(movieDescriptionDao.findByMovieId(id));
-            return movie;
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        Movie movie =movieDao.findById(id);
+        movie.setMovieDescriptionList(movieDescriptionDao.findByMovie(id));
+        return movie;
     }
+
 
     /**
      * Returns movie's poster by id.
@@ -111,7 +124,8 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public InputStream getPosterByMovieId(Long id) throws DaoOperationException {
-            return movieDao.getPosterByMovieId(id);
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        return movieDao.getPosterByMovieId(id);
     }
 
     /**
@@ -126,7 +140,8 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public List<Movie> findAllWhichHaveSessionInTheFutureByLanguage(Long languageId, int start, int total) throws DaoOperationException {
-            return movieDao.findAllWhichHaveSessionInTheFutureByLanguage(languageId,start,total);
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return movieDao.findAllExistByLanguage(languageId,start,total);
     }
 
     /**
@@ -142,7 +157,9 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public List<Movie> findAllWhichHaveSessionInTheFutureByLanguageAndTitle(Long languageId, String title, int start, int total) throws DaoOperationException {
-            return movieDao.findAllWhichHaveSessionInTheFutureByLanguageAndTitle(languageId,title,start,total);
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNullOrEmptyString(title,"An empty or null title value is not allowed");
+        return movieDao.findExistByLanguageAndTitle(languageId,title,start,total);
     }
 
     /**
@@ -154,7 +171,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public int getCountMovieWhichHaveSessionInTheFuture() throws DaoOperationException {
-            return movieDao.getCountMovieWhichHaveSessionInTheFuture();
+        return movieDao.getCountExist();
     }
 
     /**
@@ -168,6 +185,52 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public int getCountMovieWhichHaveSessionInTheFutureByTitleAndLanguageId(String title, Long languageId) throws DaoOperationException {
-            return movieDao.getCountMovieWhichHaveSessionInTheFutureByTitleAndLanguageId(title,languageId);
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNullOrEmptyString(title,"An empty or null title value is not allowed");
+        return movieDao.getCountExistByTitleAndLanguageId(title,languageId);
+    }
+
+    /**
+     * Returns list of films that have in the today session.
+     * @param start    - position for retrieving data from a database
+     * @param total    -  count of movies displayed on one page
+     * @param languageId - id of language
+     * @return list of movie.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    @Override
+    public List<Movie> findAllWhichHaveSessionToday(Long languageId, int start, int total) throws DaoOperationException {
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return movieDao.findExistTodayByLanguage(languageId,start,total);
+    }
+
+    /**
+     * Returns total number of movies which have session today in database.
+     * @return total number of movies in database
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    @Override
+    public int getCountMovieWhichHaveSessionToday() throws DaoOperationException {
+        return movieDao.getExistToday();
+    }
+
+    /**
+     * Returns movie from database by id and languageId
+     * @param id - id of movie
+     * @param languageId - id of language
+     * @return movie.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    @Override
+    public Movie findByIdAndLanguageId(Long id, Long languageId) throws DaoOperationException {
+        ArgumentValidator.checkForNull(id,"An empty id value is not allowed");
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return movieDao.findByIdAndLanguage(id,languageId);
     }
 }

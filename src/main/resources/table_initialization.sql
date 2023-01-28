@@ -1,5 +1,5 @@
 CREATE TYPE ROLE AS ENUM ('USER', 'ADMIN');
-
+CREATE TYPE FORMAT AS ENUM ('LUX', 'D3', 'D2');
 
 CREATE TABLE IF NOT EXISTS users
 (
@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS movies
     original_name TEXT                  NOT NULL,
     release_DATE  TIMESTAMP             NOT NULL,
     available_age TEXT                  NOT NULL,
+    poster        bytea                 NOT NULL,
     deleted       BOOLEAN DEFAULT false NOT NULL,
     CONSTRAINT PK_movie PRIMARY KEY (id_movie)
 );
@@ -40,8 +41,6 @@ CREATE TABLE IF NOT EXISTS sessions
     CONSTRAINT FK_session_movie FOREIGN KEY (movie_id) REFERENCES movies
 );
 
-CREATE TYPE FORMAT AS ENUM ('LUX', 'D3', 'D2');
-
 
 
 CREATE TABLE IF NOT EXISTS languages
@@ -56,7 +55,6 @@ CREATE TABLE IF NOT EXISTS movie_descriptions
     movie_id    BIGSERIAL,
     title       TEXT    NOT NULL,
     director    TEXT    NOT NULL,
-    poster      bytea   NOT NULL,
     language_id INTEGER NOT NULL,
     CONSTRAINT PK_movie_description_language PRIMARY KEY (movie_id, language_id),
     CONSTRAINT fK_movie_description_movie FOREIGN KEY (movie_id) REFERENCES movies,

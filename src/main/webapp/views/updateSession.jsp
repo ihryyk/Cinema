@@ -1,11 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ihorb
-  Date: 12.01.2023
-  Time: 20:48
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.pageLanguage}"/>
+<fmt:setBundle basename="message"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,15 +16,15 @@
 <body>
     <main class="index_main">
         <div class="add_form_wrapper">
-            <h1 class="add_form_header">Update Session</h1>
+            <h1 class="add_form_header"><fmt:message key="UpdateSession"/></h1>
             <form
-                action="/cinema/admin/updateSession"
+                action="${pageContext.request.contextPath}/cinema?command=UPDATE_SESSION"
                 method="post"
                 class="add_form"
             >
                 <div class="add_form_controllers">
                     <div class="add_form_controller">
-                        <label for="startTime" class="add_form_label">Start time</label>
+                        <label for="startTime" class="add_form_label"><fmt:message key="StartTime"/></label>
                         <input
                             type="datetime-local"
                             required
@@ -39,7 +35,7 @@
                         />
                     </div>
                     <div class="add_form_controller">
-                        <label for="endTime" class="add_form_label">End time</label>
+                        <label for="endTime" class="add_form_label"><fmt:message key="EndTime"/></label>
                         <input
                             type="datetime-local"
                             required
@@ -50,21 +46,7 @@
                         />
                     </div>
                     <div class="add_form_controller">
-                        <label for="availableSeats" class="add_form_label"
-                            >Available seats</label
-                        >
-                        <input
-                            type="number"
-                            required
-                            name="availableSeats"
-                            id="availableSeats"
-                            value="${requestScope.session.availableSeats}"
-                            class="add_form_input"
-                            placeholder="Available Seats"
-                        />
-                    </div>
-                    <div class="add_form_controller">
-                        <label for="format" class="add_form_label">Format</label>
+                        <label for="format" class="add_form_label"><fmt:message key="Format"/></label>
                         <select name="format" id="format" class="add_form_input">
                             <jsp:useBean
                                 id="formats"
@@ -82,7 +64,7 @@
                         </select>
                     </div>
                     <div class="add_form_controller">
-                        <label for="price" class="add_form_label">Price</label>
+                        <label for="price" class="add_form_label"><fmt:message key="Price"/></label>
                         <input
                             type="number"
                             required
@@ -99,7 +81,7 @@
                     name="sessionId"
                     value="${requestScope.session.id}"
                 />
-                <input type="submit" value="Submit" class="add_form_submit" />
+                <input type="submit" value="<fmt:message key="Submit"/>" class="add_form_submit" />
             </form>
         </div>
     </main>

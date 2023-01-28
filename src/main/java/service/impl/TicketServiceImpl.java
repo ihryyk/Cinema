@@ -1,5 +1,6 @@
 package service.impl;
 
+import controller.validator.ArgumentValidator;
 import exception.DaoOperationException;
 import model.dao.DaoFactory;
 import model.dao.TicketDao;
@@ -26,6 +27,8 @@ public class TicketServiceImpl implements TicketService {
      */
     @Override
     public List<Ticket> findByUserId(Long userId, Long languageId) throws DaoOperationException {
-            return ticketDao.findByUserId(userId, languageId);
+        ArgumentValidator.checkForNull(userId,"An empty id value is not allowed");
+        ArgumentValidator.checkForNull(languageId,"An empty id value is not allowed");
+        return ticketDao.findByUser(userId, languageId);
     }
 }

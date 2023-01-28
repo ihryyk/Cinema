@@ -19,5 +19,5 @@ public interface MovieDescriptionDao {
      *                      in the database
      * @see MovieDescription
      */
-    public List<MovieDescription> findByMovieId(long id) throws DaoOperationException;
+    public List<MovieDescription> findByMovie(long id) throws DaoOperationException;
 }

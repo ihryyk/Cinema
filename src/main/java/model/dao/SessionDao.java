@@ -46,28 +46,26 @@ public interface SessionDao {
      *                      in the database
      * @see Session
      */
-    public Session findByIdAndLanguageId(Long id, Long languageId) throws DaoOperationException;
+    public Session findByIdAndLanguage(Long id, long languageId) throws DaoOperationException;
 
     /**
      * Returns list of sorting of sessions by a certain parameter
      * @param sortBy - parameter by which to sort
-     * @param languageId - id of language
      * @param movieId - id of movie
      * @return list of sorting of sessions by a certain parameter
      * @throws DaoOperationException if there was an error executing the query
      *                      in the database
      * @see Session
      */
-    public List<Session> sortBy(String sortBy,Long languageId,Long movieId) throws DaoOperationException;
+    public List<Session> sortBy(String sortBy,Long movieId) throws DaoOperationException;
 
     /**
-     * Returns list of sessions by movie id and language id
-     * @param languageId - id of language
+     * Returns list of sessions by movie id
      * @param movieId - id of movie
      * @return list of session
      * @throws DaoOperationException if there was an error executing the query
      *                      in the database
      * @see Session
      */
-    public List<Session> findByMovieId (Long movieId, Long languageId) throws DaoOperationException;
+    public List<Session> findByMovie(Long movieId) throws DaoOperationException;
 }

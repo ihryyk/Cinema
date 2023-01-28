@@ -53,7 +53,7 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    public List<Movie> findAllByLanguage(Long languageId) throws DaoOperationException;
+    public List<Movie> findByLanguage(Long languageId) throws DaoOperationException;
 
     /**
      * Returns list of movie from database by language id and movie title
@@ -77,6 +77,17 @@ public interface MovieDao {
     public Movie findById (Long id) throws DaoOperationException;
 
     /**
+     * Returns movie from database by id and languageId
+     * @param id - id of movie
+     * @param languageId - id of language
+     * @return movie.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    Movie findByIdAndLanguage(Long id, Long languageId) throws DaoOperationException;
+
+    /**
      * Returns list of films that have in the upcoming session by language id.
      * @param start    - position for retrieving data from a database
      * @param total    -  count of movies displayed on one page
@@ -86,7 +97,19 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    List<Movie> findAllWhichHaveSessionInTheFutureByLanguage(Long languageId, int start, int total) throws DaoOperationException;
+    List<Movie> findAllExistByLanguage(Long languageId, int start, int total) throws DaoOperationException;
+
+    /**
+     * Returns list of films that have in the active session today by language id.
+     * @param start    - position for retrieving data from a database
+     * @param total    -  count of movies displayed on one page
+     * @param languageId - id of language
+     * @return list of movie.
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    List<Movie> findExistTodayByLanguage(Long languageId, int start, int total) throws DaoOperationException;
 
     /**
      * Returns list of films that have in the upcoming session by title and language id.
@@ -99,7 +122,7 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    List<Movie> findAllWhichHaveSessionInTheFutureByLanguageAndTitle(Long languageId, String title, int start, int total) throws DaoOperationException;
+    List<Movie> findExistByLanguageAndTitle(Long languageId, String title, int start, int total) throws DaoOperationException;
 
     /**
      * Returns movie's poster by id.
@@ -118,7 +141,16 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    int getCountMovieWhichHaveSessionInTheFuture() throws DaoOperationException;
+    int getCountExist() throws DaoOperationException;
+
+    /**
+     * Returns total number of movies which have active session today in database.
+     * @return total number of movies in database
+     * @throws DaoOperationException if there was an error executing the query
+     *                      in the database
+     * @see Movie
+     */
+    int getExistToday() throws DaoOperationException;
 
     /**
      * Returns total number of movies which have active session in database by title and language id.
@@ -129,6 +161,6 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    int getCountMovieWhichHaveSessionInTheFutureByTitleAndLanguageId(String title, Long languageId) throws DaoOperationException;
+    int getCountExistByTitleAndLanguageId(String title, Long languageId) throws DaoOperationException;
 
 }
