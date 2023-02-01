@@ -41,7 +41,17 @@
                 ${requestScope.session.startTime.toLocalDateTime().getDayOfMonth()}
                 ${requestScope.session.startTime.toLocalDateTime().getMonth()}
             </p>
-            <p class="movie_text"><fmt:message key="Format"/>: ${requestScope.session.format}</p>
+            <c:choose>
+                <c:when test="${requestScope.session.format == 'D3'}">
+                    <p class="movie_text"><fmt:message key="Format"/>: 3D</p>
+                </c:when>
+                <c:when test="${requestScope.session.format == 'D2'}">
+                    <p class="movie_text"><fmt:message key="Format"/>: 2D</p>
+                </c:when>
+                <c:otherwise>
+                    <p class="movie_text"><fmt:message key="Format"/>: LUX</p>
+                </c:otherwise>
+            </c:choose>
             <p class="movie_text">
                 <fmt:message key="AvailableSeats"/>: ${requestScope.session.availableSeats}
             </p>

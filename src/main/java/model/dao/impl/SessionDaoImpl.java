@@ -19,7 +19,7 @@ import java.util.List;
  * Implement an interface that defines different activities with session in database.
  *
  */
-public class SessionDaoImpl implements SessionDao {
+public class  SessionDaoImpl implements SessionDao {
 
     private static final String INSERT_SESSION = "INSERT INTO sessions(movie_id, start_time, end_time, format, price, available_seats) VALUES (?, ?, ?, ? , ?, (SELECT COUNT(id_seat) FROM  seats));";
     private static final String UPDATE_SESSION = "UPDATE sessions SET movie_id=?, start_time=?, end_time=?, format=?, price=? WHERE id_session = ?;";
@@ -88,26 +88,6 @@ public class SessionDaoImpl implements SessionDao {
     }
 
     /**
-     * Delete session from database.
-     * @param id - id of session
-     * @throws DaoOperationException if there was an error executing the query
-     *                      in the database
-     * @see Session
-     */
-    @Override
-    public void delete(Long id) throws DaoOperationException {
-        try(Connection connection = DataSource.getInstance().getConnection();
-            PreparedStatement pr = connection.prepareStatement(DELETE_SESSION)){
-            pr.setLong(1,id);
-            logger.info(String.format("Delete session with id = %d", id));
-            DaoUtil.checkRowAffected(pr);
-        }catch (SQLException | DaoOperationException e){
-            logger.error(String.format("Error updating session with id = %d",id), e);
-            throw new DaoOperationException(String.format("Error updating session with id = %d",id), e);
-        }
-    }
-
-    /**
      * Returns information about session by id
      * @param id - id of session
      * @throws DaoOperationException if there was an error executing the query
@@ -154,7 +134,7 @@ public class SessionDaoImpl implements SessionDao {
     public List<Session> sortBy(String sortBy, Long movieId) throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
-            PreparedStatement pr = connection.prepareStatement(ORDER_SESSION_BY + sortBy)){
+            PreparedStatement pr = connection.prepareStatement(ORDER_SESSION_BY + sortBy + " DESC")){
             pr.setLong(1,movieId);
             rs = pr.executeQuery();
             logger.info(String.format("Sort sessions by %s which have movie with id = %d", sortBy, movieId));

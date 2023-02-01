@@ -33,7 +33,7 @@ public class AddMovieCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException, TransactionException {
         movieService.save(getMovieFromJsp(request));
-        request.getSession().setAttribute("popUpsSuccess", "Movie successfully added");
+        request.getSession().setAttribute("popUpsSuccess", "AddedMovie");
         logger.info("Add movie command");
         return "cinema?command=ADMIN_PAGE";
     }

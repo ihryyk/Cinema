@@ -150,7 +150,7 @@ public interface MovieDao {
      *                      in the database
      * @see Movie
      */
-    int getExistToday() throws DaoOperationException;
+    int getCountOfExistToday() throws DaoOperationException;
 
     /**
      * Returns total number of movies which have active session in database by title and language id.

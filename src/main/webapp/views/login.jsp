@@ -24,8 +24,8 @@
     <script>
         Swal.fire({
             icon: 'error',
-            title: "Exception",
-            text: '${sessionScope.popUpsError}'
+            title: "<fmt:message key="Exception"/>",
+            text: '<fmt:message key="${sessionScope.popUpsError}"/>'
         })
     </script>
     ${sessionScope.remove("popUpsError")}

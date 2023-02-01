@@ -26,9 +26,6 @@ import java.util.Map;
  */
 public class SeatDaoImpl implements SeatDao {
 
-    private static final String INSERT_SEAT = "INSERT INTO seats(row, number) VALUES (?, ?);";
-    private static final String DELETE_SEAT = "DELETE FROM seats WHERE id_seat=?;";
-
     private static final String SELECT_ALL_FREE_SEATS_FOR_SESSION = "select * from seats where id_seat not in (select seat_id from purchased_seats where session_id = ?)";
     private static final String SELECT_ALL_BUSY_SEATS_FOR_SESSION = "SELECT * FROM seats left join  purchased_seats ps on seats.id_seat = ps.seat_id where session_id= ? ORDER BY row;";
     private static final String SELECT_SEAT_BY_ID = "SELECT * FROM seats WHERE id_seat=?;";

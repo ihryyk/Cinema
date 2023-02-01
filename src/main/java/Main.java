@@ -45,6 +45,5 @@ public class Main {
 ////        System.out.println( us.passwordEncrypting("greng2016"));
 //        UserDaoImpl userDao = new UserDaoImpl();
 //       System.out.println(userDao.findByEmail("ihor@gmail.com"));
-
     }
 }

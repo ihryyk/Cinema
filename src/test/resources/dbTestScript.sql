@@ -1,6 +1,9 @@
+DROP TYPE IF EXISTS ROLE CASCADE;
 CREATE TYPE ROLE AS ENUM ('USER', 'ADMIN');
+DROP TYPE IF EXISTS FORMAT CASCADE;
 CREATE TYPE FORMAT AS ENUM ('LUX', 'D3', 'D2');
 
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE IF NOT EXISTS users
 (
     id_user       BIGSERIAL,
@@ -16,18 +19,26 @@ CREATE TABLE IF NOT EXISTS users
     CONSTRAINT UQ_user_email_address UNIQUE (email_address),
     CONSTRAINT UQ_phone_number UNIQUE (phone_number)
 );
+INSERT INTO public.users(
+    id_user, first_name, last_name, phone_number, email_address, create_date, update_date, role, password)
+VALUES (2, 'first_name', 'last_name', 'phone_number', 'email_address', now(), now(), 'USER', 'password');
 
+DROP TABLE IF EXISTS movies CASCADE;
 CREATE TABLE IF NOT EXISTS movies
 (
     id_movie      BIGSERIAL,
     original_name TEXT                  NOT NULL,
     release_DATE  TIMESTAMP             NOT NULL,
     available_age TEXT                  NOT NULL,
-    poster        bytea                 NOT NULL,
+    poster        bytea,
     deleted       BOOLEAN DEFAULT false NOT NULL,
     CONSTRAINT PK_movie PRIMARY KEY (id_movie)
 );
+INSERT INTO public.movies(id_movie, original_name, release_date, available_age, deleted, poster)
+VALUES (2, 'originalName', now(), 18, false, null);
 
+
+DROP TABLE IF EXISTS sessions CASCADE;
 CREATE TABLE IF NOT EXISTS sessions
 (
     id_session      BIGSERIAL,
@@ -41,8 +52,13 @@ CREATE TABLE IF NOT EXISTS sessions
     CONSTRAINT FK_session_movie FOREIGN KEY (movie_id) REFERENCES movies
 );
 
+INSERT INTO public.sessions(
+    id_session, movie_id, start_time, end_time, available_seats, price, format)
+VALUES (2, 2, now(), now(), 2, 120, 'LUX'),
+       (3, 2, now() + INTERVAL '1 day', now(), 2, 120, 'LUX');
 
 
+DROP TABLE IF EXISTS languages CASCADE;
 CREATE TABLE IF NOT EXISTS languages
 (
     id_language   BIGSERIAL,
@@ -50,6 +66,11 @@ CREATE TABLE IF NOT EXISTS languages
     CONSTRAINT PK_language PRIMARY KEY (id_language)
 );
 
+INSERT INTO public.languages(id_language, language_name)
+VALUES (1, 'eng'),
+       (2, 'ua');
+
+DROP TABLE IF EXISTS movie_descriptions CASCADE;
 CREATE TABLE IF NOT EXISTS movie_descriptions
 (
     movie_id    BIGSERIAL,
@@ -60,8 +81,12 @@ CREATE TABLE IF NOT EXISTS movie_descriptions
     CONSTRAINT fK_movie_description_movie FOREIGN KEY (movie_id) REFERENCES movies,
     CONSTRAINT fK_movie_description_language FOREIGN KEY (language_id) REFERENCES languages
 );
+INSERT INTO public.movie_descriptions(movie_id, title, director, language_id)
+VALUES (2, 'title1', 'director1', 1),
+       (2, 'назва1', 'режисер1', 2);
 
 
+DROP TABLE IF EXISTS seats CASCADE;
 CREATE TABLE IF NOT EXISTS seats
 (
     id_seat BIGSERIAL,
@@ -69,8 +94,11 @@ CREATE TABLE IF NOT EXISTS seats
     number  INTEGER NOT NULL,
     CONSTRAINT PK_seat PRIMARY KEY (id_seat)
 );
+INSERT INTO public.seats(
+    id_seat, "row", "number")
+VALUES (1, 1, 1);
 
-
+DROP TABLE IF EXISTS purchased_seats CASCADE;
 CREATE TABLE IF NOT EXISTS purchased_seats
 (
     id_purchased_seat BIGSERIAL,
@@ -81,7 +109,11 @@ CREATE TABLE IF NOT EXISTS purchased_seats
     CONSTRAINT FK_seat_session_seat FOREIGN KEY (seat_id) REFERENCES seats,
     CONSTRAINT UQ_seat_id_session_id UNIQUE (seat_id, session_id)
 );
+INSERT INTO public.purchased_seats(
+    id_purchased_seat, session_id, seat_id)
+VALUES (2, 2, 1);
 
+DROP TABLE IF EXISTS tickets CASCADE;
 CREATE TABLE IF NOT EXISTS tickets
 (
     id_ticket         BIGSERIAL,
@@ -92,8 +124,9 @@ CREATE TABLE IF NOT EXISTS tickets
     CONSTRAINT FK_ticket_user FOREIGN KEY (user_id) REFERENCES users,
     CONSTRAINT FK_ticket_purchased_seat FOREIGN KEY (purchased_seat_id) REFERENCES purchased_seats
 );
+
 INSERT INTO public.tickets(
     id_ticket, user_id, purchased_seat_id, purchase_date)
-VALUES (1, 1, 1, now());
+VALUES (2, 2, 2, now());
 
 

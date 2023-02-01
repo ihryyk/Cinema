@@ -37,10 +37,10 @@ public class UpdatePersonalInformationCommand implements ICommand {
         if (Validator.isValidPassword(user.getPassword()) && Validator.isValidName(user.getFirstName()) && Validator.isValidName(user.getLastName())){
             userService.updateContactInformation(user);
             request.getSession().setAttribute("user", userService.findById(id));
-            request.getSession().setAttribute("popUpsSuccess", "Your profile has been updated");
+            request.getSession().setAttribute("popUpsSuccess", "UpdateProfile");
             return "cinema?command=INDEX_PAGE";
         }else {
-            request.getSession().setAttribute("popUpsError", "You have entered personal information phone number");
+            request.getSession().setAttribute("popUpsError", "InvalidPersonalInformation");
             return "cinema?command=PROFILE_PAGE";
         }
     }

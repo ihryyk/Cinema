@@ -34,12 +34,12 @@ public class LogInCommand implements ICommand {
                     return "cinema?command=ADMIN_PAGE";
                 }
             }else {
-                request.getSession().setAttribute("popUpsError", "User with this email and password does not exist");
-                return "cinema?command=LOGIN_PAGE";
+                request.getSession().setAttribute("popUpsError", "InvalidEmailOrPassword");
+                return "cinema?command=LOG_IN_PAGE";
             }
         }else {
-            request.getSession().setAttribute("popUpsError", "You have entered invalid data");
-            return "cinema?command=LOGIN_PAGE";
+            request.getSession().setAttribute("popUpsError", "InvalidData");
+            return "cinema?command=LOG_IN_PAGE";
         }
     }
 }

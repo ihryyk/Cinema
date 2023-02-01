@@ -33,7 +33,7 @@ public class UpdateMovieCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException, TransactionException {
         Movie movie = getMovieFromJsp(request);
         movie.setId(Long.valueOf(request.getParameter("movieId")));
-        request.getSession().setAttribute("popUpsSuccess", "Movie successfully updated");
+        request.getSession().setAttribute("popUpsSuccess", "UpdatedMovie");
         movieService.update(movie);
         logger.info("Update movie command");
         return "cinema?command=ADMIN_PAGE";

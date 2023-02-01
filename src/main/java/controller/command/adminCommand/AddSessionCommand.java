@@ -28,7 +28,7 @@ public class AddSessionCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException, TransactionException {
         Session session = getSessionFromJsp(request);
         sessionService.save(session);
-        request.getSession().setAttribute("popUpsSuccess", "Session successfully added");
+        request.getSession().setAttribute("popUpsSuccess", "AddedSession");
         logger.info("Add session command");
         return "cinema?command=ADMIN_PAGE";
     }

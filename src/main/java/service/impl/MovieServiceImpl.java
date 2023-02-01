@@ -215,7 +215,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public int getCountMovieWhichHaveSessionToday() throws DaoOperationException {
-        return movieDao.getExistToday();
+        return movieDao.getCountOfExistToday();
     }
 
     /**

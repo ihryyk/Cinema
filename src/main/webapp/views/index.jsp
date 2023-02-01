@@ -27,8 +27,8 @@
     <script>
         Swal.fire({
             icon: 'success',
-            title: "Success",
-            text: '${sessionScope.popUpsSuccess}'
+            title: "<fmt:message key="Success"/>",
+            text: '<fmt:message key="${sessionScope.popUpsSuccess}"/>'
         })
     </script>
     ${sessionScope.remove("popUpsSuccess")}
@@ -37,8 +37,8 @@
     <script>
         Swal.fire({
             icon: 'error',
-            title: "Exception",
-            text: '${sessionScope.popUpsError}'
+            title: "<fmt:message key="Exception"/>",
+            text: '<fmt:message key="${sessionScope.popUpsError}"/>'
         })
     </script>
     ${sessionScope.remove("popUpsError")}
@@ -53,12 +53,13 @@
         </c:if>
         <c:if test="${not empty sessionScope.user and sessionScope.user.role=='USER'}">
             <li class="header__list_item">
-                <a href=${pageContext.request.contextPath}/cinema?command=LOG_OUT class="header__list_link">
-                    <fmt:message key="Logout"/></a>
-            </li>
-            <li class="header__list_item">
                 <span class="header_user">${sessionScope.user.firstName} ${sessionScope.user.lastName}</span>
             </li>
+            <form method="post" action="${pageContext.request.contextPath}/cinema?command=LOG_OUT" class="header__list_item">
+                <button type="submit" name="submit_param" value="submit_value" class="link-button">
+                        <fmt:message key="Logout"/>
+                </button>
+            </form>
             <li class="header__list_item">
                 <a href=${pageContext.request.contextPath}/cinema?command=TICKETS_PAGE
                    class="header__list_link"> <fmt:message key="Tickets"/> </a>
@@ -70,10 +71,10 @@
         </c:if>
     </ul>
     <div class="search_wrapper">
-        <form action = "${pageContext.request.contextPath}/cinema" method = "get" class="search_form">
-            <input type = "text" name = "movieName" placeholder="<fmt:message key="MovieName"/>" class="search_input">
+        <form action="${pageContext.request.contextPath}/cinema" method="get" class="search_form">
+            <input type="text" name="movieName" placeholder="<fmt:message key="MovieName"/>" class="search_input">
             <input type="hidden" value="INDEX_PAGE" name="command"/>
-            <input type = "submit" value = "<fmt:message key="Search"/>" class="search_btn"/>
+            <input type="submit" value="<fmt:message key="Search"/>" class="search_btn"/>
         </form>
     </div>
     <c:if test="${sessionScope.pageLanguage == 'ua'}">
@@ -148,31 +149,59 @@
             </c:forEach>
         </c:if>
     </div>
-    <div class="index_paggination">
-        <c:forEach var="i" begin="0" end="${requestScope.count/requestScope.movieOnPage}">
-            <c:if test="${not empty requestScope.movieName}">
-                <a href=${pageContext.request.contextPath}/cinema?page=${i}&movieName=${requestScope.movieName}&command=INDEX_PAGE
-                   class="index_paggination_link">
-                    <c:out value="${i+1}"/>
-                </a>
-            </c:if>
-            <c:if test="${not empty requestScope.todayMovies}">
-                <a href=${pageContext.request.contextPath}/cinema?page=${i}&todayMovies=${requestScope.todayMovies}&command=INDEX_PAGE
-                   class="index_paggination_link">
-                    <c:out value="${i+1}"/>
-                </a>
-            </c:if>
-            <c:if test="${empty requestScope.movieName and empty requestScope.todayMovies}">
-                <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
-                   class="index_paggination_link">
-                    <c:out value="${i+1}"/>
-                </a>
-            </c:if>
-        </c:forEach>
-    </div>
     <c:if test="${fn:length(requestScope.movies)==0}">
         <p class="movie_warning"><fmt:message key="NullMovie"/></p>
     </c:if>
+    <div class="index_paggination">
+        <c:forEach var="i" begin="0" end="${requestScope.count/requestScope.movieOnPage}">
+            <c:if test="${not empty requestScope.movieName}">
+            <c:if test="${i!=requestScope.currentPage}">
+            <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+               class="index_paggination_link">
+                    <c:out value="${i+1}"/>
+                </c:if>
+
+                <c:if test="${i==requestScope.currentPage}">
+                <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+                   class="index_current_page_paggination_link">
+                    <c:out value="${i+1}"/>
+
+                </a>
+                </c:if>
+        </c:if>
+        <c:if test="${not empty requestScope.todayMovies}">
+            <c:if test="${i!=requestScope.currentPage}">
+            <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+               class="index_paggination_link">
+                    <c:out value="${i+1}"/>
+                </c:if>
+
+                <c:if test="${i==requestScope.currentPage}">
+                <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+                   class="index_current_page_paggination_link">
+                    <c:out value="${i+1}"/>
+
+                </a>
+                </c:if>
+        </c:if>
+        <c:if test="${empty requestScope.movieName and empty requestScope.todayMovies}">
+        <c:if test="${i!=requestScope.currentPage}">
+        <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+           class="index_paggination_link">
+                <c:out value="${i+1}"/>
+            </c:if>
+
+            <c:if test="${i==requestScope.currentPage}">
+            <a href=${pageContext.request.contextPath}/cinema?page=${i}&command=INDEX_PAGE
+               class="index_current_page_paggination_link">
+                <c:out value="${i+1}"/>
+
+            </a>
+            </c:if>
+            </c:if>
+            </c:forEach>
+    </div>
+
 </main>
 </body>
 </html>

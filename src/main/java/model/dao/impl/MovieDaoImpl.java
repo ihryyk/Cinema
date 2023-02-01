@@ -54,12 +54,12 @@ public class MovieDaoImpl implements MovieDao {
     private static final String SELECT_MOVIES_WHICH_HAVE_SESSIONS_TODAY = "SELECT t.*, md.* FROM (\n" +
             "                                                                 SELECT movies.*, count(sessions.id_session) AS number_session\n" +
             "                                                                  FROM movies\n" +
-            "                                                                          JOIN sessions ON sessions.movie_id = movies.id_movie WHERE date(start_time)= date(now())\n" +
+            "                                                                          JOIN sessions ON sessions.movie_id = movies.id_movie WHERE date(start_time)= date(now())\n AND start_time::time >= now()::time" +
             "                                                              GROUP BY movies.id_movie\n" +
             "                                                           HAVING count(sessions.id_session) > 0\n" +
             "                                                     ) t\n" +
             "                                                               inner join movie_descriptions md on t.id_movie = md.movie_id WHERE language_id= ? AND t.deleted IS NOT TRUE LIMIT ";
-    private static final String SELECT_COUNT_MOVIES_WHICH_HAVE_SESSIONS_TODAY = "SELECT COUNT(id_movie) FROM (SELECT movies.* FROM movies JOIN sessions ON sessions.movie_id = movies.id_movie WHERE date(start_time)= date(now()) GROUP BY movies.id_movie HAVING count(sessions.id_session) > 0) t WHERE t.deleted IS NOT TRUE;";
+    private static final String SELECT_COUNT_MOVIES_WHICH_HAVE_SESSIONS_TODAY = "SELECT COUNT(id_movie) FROM (SELECT movies.* FROM movies JOIN sessions ON sessions.movie_id = movies.id_movie WHERE date(start_time)= date(now()) AND start_time::time >= now()::time GROUP BY movies.id_movie HAVING count(sessions.id_session) > 0) t WHERE t.deleted IS NOT TRUE;";
     private static final String SELECT_COUNT_MOVIES_WHICH_HAVE_SESSIONS_IN_THE_FUTURE = "SELECT COUNT(id_movie) FROM (SELECT movies.* FROM movies JOIN sessions ON sessions.movie_id = movies.id_movie WHERE start_time> now() GROUP BY movies.id_movie HAVING count(sessions.id_session) > 0) t WHERE t.deleted IS NOT TRUE;";
     private static final String SELECT_COUNT_MOVIES_WHICH_HAVE_SESSIONS_IN_THE_FUTURE_BY_LANGUAGE_AND_TITLE = "SELECT COUNT(id_movie) FROM (SELECT movies.* FROM movies JOIN sessions ON sessions.movie_id = movies.id_movie WHERE start_time> now() GROUP BY movies.id_movie HAVING count(sessions.id_session) > 0) t INNER JOIN movie_descriptions md on t.id_movie = md.movie_id WHERE t.deleted IS NOT TRUE AND md.title = ? AND  md.language_id = ?;";
 
@@ -534,7 +534,7 @@ public class MovieDaoImpl implements MovieDao {
      * @see Movie
      */
     @Override
-    public int getExistToday() throws DaoOperationException {
+    public int getCountOfExistToday() throws DaoOperationException {
         ResultSet rs = null;
         try(Connection connection = DataSource.getInstance().getConnection();
             PreparedStatement pr = connection.prepareStatement(SELECT_COUNT_MOVIES_WHICH_HAVE_SESSIONS_TODAY)){

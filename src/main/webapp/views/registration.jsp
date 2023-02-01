@@ -21,16 +21,16 @@
 </head>
 
 <body>
-    <c:if test="${not empty sessionScope.popUpsError}">
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: "Exception",
-                text: '${sessionScope.popUpsError}'
-            })
-        </script>
-        ${sessionScope.remove("popUpsError")}
-    </c:if>
+<c:if test="${not empty sessionScope.popUpsError}">
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: "<fmt:message key="Exception"/>",
+            text: '<fmt:message key="${sessionScope.popUpsError}"/>'
+        })
+    </script>
+    ${sessionScope.remove("popUpsError")}
+</c:if>
     <div class="auth-wrapper_reg">
         <h1 class="auth-wrapper_header"><fmt:message key="Registration"/></h1>
         <form

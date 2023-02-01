@@ -25,6 +25,7 @@ public class CancelMovieCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException, TransactionException {
         Long movieId = Long.valueOf(request.getParameter("movieId"));
         movieService.delete(movieId);
+        request.getSession().setAttribute("popUpsSuccess", "CanceledMovie");
         logger.info("Cancel movie command");
         return "cinema?command=ADMIN_PAGE";
     }

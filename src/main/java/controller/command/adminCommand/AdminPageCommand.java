@@ -20,9 +20,9 @@ public class AdminPageCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException {
         Localization.addLocalization(request);
         if (request.getParameter("movieName")!=null){
-            request.setAttribute("movies", movieService.findByLanguageAndTitle(1L,request.getParameter("movieName")));
+            request.setAttribute("movies", movieService.findByLanguageAndTitle((Long) request.getSession().getAttribute("dbLanguage"),request.getParameter("movieName")));
         }else
-            request.setAttribute("movies", movieService.findAllByLanguage(1L));
+            request.setAttribute("movies", movieService.findAllByLanguage((Long) request.getSession().getAttribute("dbLanguage")));
         logger.info("Admin page page command");
         return "adminIndex";
     }

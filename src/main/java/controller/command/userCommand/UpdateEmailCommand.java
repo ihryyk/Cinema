@@ -30,14 +30,14 @@ public class UpdateEmailCommand implements ICommand {
             if (userService.findByEmail(email)==null){
                 userService.updateEmail(email,id);
                 request.getSession().setAttribute("user", userService.findById(id));
-                request.getSession().setAttribute("popUpsSuccess", "Your profile has been updated");
+                request.getSession().setAttribute("popUpsSuccess", "UpdateProfile");
                 return "cinema?command=INDEX_PAGE";
             }else {
-                request.getSession().setAttribute("popUpsError", "A user with this email address already exists");
+                request.getSession().setAttribute("popUpsError", "UserAlreadyExist");
                 return "cinema?command=PROFILE_PAGE";
             }
         }else {
-            request.getSession().setAttribute("popUpsError", "You have entered invalid email");
+            request.getSession().setAttribute("popUpsError", "InvalidEmail");
             return "cinema?command=PROFILE_PAGE";
         }
     }

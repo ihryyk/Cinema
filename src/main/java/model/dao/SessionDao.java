@@ -30,15 +30,6 @@ public interface SessionDao {
     public void update(Session session) throws DaoOperationException;
 
     /**
-     * Delete session from database.
-     * @param id - id of session
-     * @throws DaoOperationException if there was an error executing the query
-     *                      in the database
-     * @see Session
-     */
-    public void delete(Long id) throws DaoOperationException;
-
-    /**
      * Returns information about session by id and language
      * @param id - id of session
      * @param languageId - id of language

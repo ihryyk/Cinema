@@ -16,6 +16,8 @@ public class DataSource {
     private final static  Logger logger = Logger.getLogger(DataSource.class);
     private static final String DB_RESOURCE_BUNDLE = "db";
     private static final String URL = "db.url";
+
+//    private static final String URL = "db.testUrl";
     private static DataSource instance = null;
 
     private DataSource() {

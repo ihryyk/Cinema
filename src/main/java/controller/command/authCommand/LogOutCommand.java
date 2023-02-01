@@ -18,7 +18,6 @@ public class LogOutCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("LogOut command");
         request.getSession().invalidate();
-        response.sendRedirect("/cinema?command=INDEX_PAGE");
-        return null;
+       return "cinema?command=INDEX_PAGE";
     }
 }

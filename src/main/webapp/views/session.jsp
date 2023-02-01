@@ -61,7 +61,17 @@
                             <p class="session_text">${session.startTime.getHours()}:${session.startTime.getMinutes()}
                                 - ${session.endTime.getHours()}:${session.endTime.getMinutes()}</p>
                             <p class="session_text">${session.startTime.toLocalDateTime().getDayOfMonth()} ${session.startTime.toLocalDateTime().getMonth()}</p>
-                            <p class="session_text"><fmt:message key="Format"/>: ${session.format}</p>
+                            <c:choose>
+                                <c:when test="${session.format == 'D3'}">
+                                    <p class="session_text"><fmt:message key="Format"/>: 3D</p>
+                                </c:when>
+                                <c:when test="${session.format == 'D2'}">
+                                    <p class="session_text"><fmt:message key="Format"/>: 2D</p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p class="session_text"><fmt:message key="Format"/>: LUX</p>
+                                </c:otherwise>
+                            </c:choose>
                             <p class="session_text"><fmt:message key="AvailableSeats"/>: ${session.availableSeats}</p>
                             <p class="session_text"><fmt:message key="Price"/>: ${session.price} <fmt:message
                                     key="Money"/></p>

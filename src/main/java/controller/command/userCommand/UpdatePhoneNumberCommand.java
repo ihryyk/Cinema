@@ -30,14 +30,14 @@ public class UpdatePhoneNumberCommand implements ICommand {
             if (userService.findByPhoneNumber(phoneNumber)==null){
                 userService.updatePhoneNumber(phoneNumber,id);
                 request.getSession().setAttribute("user", userService.findById(id));
-                request.getSession().setAttribute("popUpsSuccess", "Your profile has been updated");
+                request.getSession().setAttribute("popUpsSuccess", "UpdateProfile");
                 return "cinema?command=INDEX_PAGE";
             }else {
-                request.getSession().setAttribute("popUpsError", "A user with this phone number already exists");
+                request.getSession().setAttribute("popUpsError", "UserAlreadyExistWithTisNumber");
                 return "cinema?command=PROFILE_PAGE";
             }
         }else {
-            request.getSession().setAttribute("popUpsError", "You have entered invalid phone number");
+            request.getSession().setAttribute("popUpsError", "InvalidPhoneNumber");
             return "cinema?command=PROFILE_PAGE";
         }
     }

@@ -27,8 +27,8 @@
     <script>
         Swal.fire({
             icon: 'success',
-            title: 'Success',
-            text: '${sessionScope.popUpsSuccess}',
+            title: ' <fmt:message key="Success"/>',
+            text: '<fmt:message key="${sessionScope.popUpsSuccess}"/>',
         });
     </script>
     ${sessionScope.remove("popUpsSuccess")}
@@ -41,9 +41,11 @@
             </a>
         </li>
         <li class="header__list_item">
-            <a href=${pageContext.request.contextPath}/cinema?command=LOG_OUT class="header__list_link">
-                <fmt:message key="Logout"/>
-            </a>
+            <form method="post" action="${pageContext.request.contextPath}/cinema?command=LOG_OUT" class="header__list_item">
+                <button type="submit" name="submit_param" value="submit_value" class="link-button">
+                    <fmt:message key="Logout"/>
+                </button>
+            </form>
         </li>
     </ul>
     <div class="search_wrapper">

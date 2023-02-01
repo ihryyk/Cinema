@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
  *  Class that has a methods to get the position with the pagination
  */
 public class StartPosition {
-    public static final int AMOUNT_MOVIE_ON_A_PAGE = 3;
+    public static final int AMOUNT_MOVIE_ON_A_PAGE = 2;
     public final static String PAGE_NUMBER = "page";
     /**
      * @param req {@link HttpServletRequest}.
@@ -18,6 +18,9 @@ public class StartPosition {
         if ((req.getParameter(PAGE_NUMBER) != null)) {
             page = Integer.parseInt(req.getParameter(PAGE_NUMBER));
         }
+        req.setAttribute("currentPage",page);
+
         return page * AMOUNT_MOVIE_ON_A_PAGE;
+
     }
 }

@@ -27,20 +27,20 @@ public class RegisterCommand implements ICommand {
         if (Validator.isValidEmail(user.getEmailAddress()) && Validator.isValidPhoneNumber(user.getPhoneNumber())
                 && Validator.isValidPassword(user.getPassword()) && Validator.isValidName(user.getFirstName()) && Validator.isValidName(user.getLastName())){
                 if (userService.findByEmail(user.getEmailAddress())!=null){
-                    request.getSession().setAttribute("popUpsError", "A user with this email already exists");
+                    request.getSession().setAttribute("popUpsError", "UserAlreadyExist");
                     return "cinema?command=REGISTER_PAGE";
                 }else if (userService.findByPhoneNumber(user.getPhoneNumber())!=null){
-                    request.getSession().setAttribute("popUpsError", "A user with this phone number already exists");
+                    request.getSession().setAttribute("popUpsError", "UserAlreadyExistWithTisNumber");
                     return "cinema?command=REGISTER_PAGE";
                 }else {
                     userService.save(user);
                     request.getSession().setAttribute("user", userService.findByPasswordAndEmail(user.getPassword(),user.getEmailAddress()));
-                    request.getSession().setAttribute("popUpsSuccess", "You are registered");
+                    request.getSession().setAttribute("popUpsSuccess", "UserRegister");
                     return "cinema?command=INDEX_PAGE";
                 }
 
         }else {
-            request.getSession().setAttribute("popUpsError", "You have entered invalid data");
+            request.getSession().setAttribute("popUpsError", "InvalidData");
             return "cinema?command=REGISTER_PAGE";
         }
     }

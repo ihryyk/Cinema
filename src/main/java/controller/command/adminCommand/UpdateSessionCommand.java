@@ -31,7 +31,7 @@ public class UpdateSessionCommand implements ICommand {
         Session session = getSessionFromJsp(request);
         session.setId(Long.valueOf(request.getParameter("sessionId")));
         sessionService.update(session);
-        request.getSession().setAttribute("popUpsSuccess", "Session successfully updated");
+        request.getSession().setAttribute("popUpsSuccess", "UpdatedSession");
         logger.info("Update session command");
         return "cinema?command=ADMIN_PAGE";
     }

@@ -196,7 +196,31 @@ body {
     transition: 0.3s;
 }
 
+.index_current_page_paggination_link {
+    font-size: 18px;
+    display: block;
+    color: #ad2419;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 .index_paggination_link:hover {
+    color: #ad2419;
+    text-decoration: underline;
+}
+
+.inline {
+    display: inline;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.link-button:hover{
     color: #ad2419;
     text-decoration: underline;
 }

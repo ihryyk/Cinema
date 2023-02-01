@@ -31,7 +31,17 @@
                     <span class="admin-movie_text">${requestScope.session.endTime.getHours()}:${requestScope.session.endTime.getMinutes()}</span>
                 </div>
                 <p class="admin-movie_text">${requestScope.session.startTime.toLocalDateTime().getDayOfMonth()} ${requestScope.session.startTime.toLocalDateTime().getMonth()}</p>
-                <p class="admin-movie_text"><fmt:message key="Format"/>: ${requestScope.session.format}</p>
+                <c:choose>
+                    <c:when test="${requestScope.session.format == 'D3'}">
+                        <p class="admin-movie_text"><fmt:message key="Format"/>: 3D</p>
+                    </c:when>
+                    <c:when test="${requestScope.session.format == 'D2'}">
+                        <p class="admin-movie_text"><fmt:message key="Format"/>: 2D</p>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="admin-movie_text"><fmt:message key="Format"/>: LUX</p>
+                    </c:otherwise>
+                </c:choose>
                 <p class="admin-movie_text">  <fmt:message key="AvailableSeats"/>: ${requestScope.session.availableSeats}</p>
                 <p class="admin-movie_text">  <fmt:message key="Price"/>: <span class="admin-movie_price">${requestScope.session.price} <fmt:message key="Money"/></span></p>
             </div>

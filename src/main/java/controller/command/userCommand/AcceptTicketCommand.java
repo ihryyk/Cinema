@@ -32,9 +32,9 @@ public class AcceptTicketCommand implements ICommand {
         if (seatService.ifSeatExist(seatId,sessionId)) {
             User user = (User) request.getSession().getAttribute("user");
             purchasedSeatService.save(seatId,sessionId,user.getId());
-            request.getSession().setAttribute("popUpsSuccess","The ticket is accepted");
+            request.getSession().setAttribute("popUpsSuccess","AcceptTicket");
         }else {
-            request.getSession().setAttribute("popUpsError","sorry, but this seat is already taken");
+            request.getSession().setAttribute("popUpsError","BusySeat");
         }
         return "cinema?command=INDEX_PAGE";
     }
