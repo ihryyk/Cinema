@@ -1,7 +1,7 @@
 <h1 align="center">Cinema</h1>
 
 ## Description
-
+![image](readmeAsserts/cinema.gif)
 The system is an Internet showcase of a cinema with one hall. The system has a schedule of films for the week from 
 9:00 to 22:00 (starts of the last film) hours.
 - **An unregistered user** can see the schedule, free seats in the hall and has the opportunity to register.
@@ -12,7 +12,7 @@ sort the schedule entries by number of available seats, session date, and filter
 view the attendance of the hall.
 
 ## About the project
-
+g
 
 - **Database:** PostgreSQL
 - **Tools:** Maven, IntelliJ, pgAdmin 4, Apache Tomcat
