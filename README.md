@@ -12,7 +12,6 @@ sort the schedule entries by number of available seats, session date, and filter
 view the attendance of the hall.
 
 ## About the project
-g
 
 - **Database:** PostgreSQL
 - **Tools:** Maven, IntelliJ, pgAdmin 4, Apache Tomcat
@@ -37,3 +36,10 @@ g
 - All input fields use data validation.
 - The application respond correctly to errors and exceptions of various kinds (final user should not see the stack trace on the client side).
 - Used HTML, CSS.
+
+## User interface
+![image](readmeAsserts/cinema_buy_ticket.gif)
+
+## Admin interface
+![image](readmeAsserts/cinema_admin.gif)
+
