@@ -20,7 +20,16 @@ import java.util.Arrays;
  *
  */
 public class UserServiceImpl implements UserService {
-    private final UserDao userDao = DaoFactory.getUserDao();
+
+    private final UserDao userDao;
+
+    public UserServiceImpl (){
+        userDao = DaoFactory.getUserDao();
+    }
+
+    public UserServiceImpl (UserDao userDao){
+        this.userDao = userDao;
+    }
 
     /**
      * Returns information about user by email and password

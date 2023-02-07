@@ -24,7 +24,7 @@ public interface SeatService {
      */
     public List<Seat> findAllFreeSeatForSession(Long sessionId) throws DaoOperationException;
 
-    Map<Seat,Boolean> findSeatsSession(Long sessionId) throws DaoOperationException;
+    Map<Seat,Boolean> findAllBySession(Long sessionId) throws DaoOperationException;
 
     /**
      * Returns seat by id

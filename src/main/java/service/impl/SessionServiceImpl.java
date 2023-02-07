@@ -14,7 +14,15 @@ import java.util.List;
  *
  */
 public class SessionServiceImpl implements SessionService {
-    private final SessionDao sessionDao = DaoFactory.getSessionDao();
+    private final SessionDao sessionDao;
+
+    public SessionServiceImpl (){
+        sessionDao = DaoFactory.getSessionDao();
+    }
+
+    public SessionServiceImpl (SessionDao sessionDao){
+        this.sessionDao = sessionDao;
+    }
 
     /**
      * Saves new session in database.

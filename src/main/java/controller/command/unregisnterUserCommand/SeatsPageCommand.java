@@ -25,7 +25,7 @@ public class SeatsPageCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException, ServletException, IOException, TransactionException {
         Long sessionId = Long.valueOf(request.getParameter("sessionId"));
-        request.setAttribute("seats", seatService.findSeatsSession(sessionId));
+        request.setAttribute("seats", seatService.findAllBySession(sessionId));
         request.setAttribute("session",sessionService.findByIdAndLanguageId(sessionId,(Long) request.getSession().getAttribute("dbLanguage")));
         logger.info("Seats page command");
         return "seat";

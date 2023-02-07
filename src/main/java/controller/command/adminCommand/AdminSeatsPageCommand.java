@@ -21,7 +21,7 @@ public class AdminSeatsPageCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws DaoOperationException {
         Long sessionId = Long.valueOf(request.getParameter("sessionId"));
-        request.setAttribute("seats", seatService.findSeatsSession(sessionId));
+        request.setAttribute("seats", seatService.findAllBySession(sessionId));
         request.setAttribute("session",sessionService.findByIdAndLanguageId(sessionId,(Long) request.getSession().getAttribute("dbLanguage")));
         logger.info("Admin seats page command");
         return  "adminSeat";

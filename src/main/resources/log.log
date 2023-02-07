@@ -6112,3 +6112,1136 @@ org.postgresql.util.PSQLException: ПОМИЛКА: синтаксична пом
 2023-02-01 21:26:21 INFO  IndexPageCommand:43 - Index page command
 2023-02-01 21:26:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
 2023-02-01 21:26:23 INFO  ErrorPageCommand:21 - Error page command
+2023-02-01 21:32:44 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-01 21:32:44 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-01 21:32:44 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:26:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:07 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:10 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:43 INFO  SeatDaoImpl:124 - Find busy seat by session id = 2
+2023-02-02 01:26:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:44 INFO  SeatDaoImpl:95 - Find seat by id = 1
+2023-02-02 01:26:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:45 INFO  SeatDaoImpl:193 - Check if seat is exist by seat id = 1 and session id = 2 
+2023-02-02 01:26:45 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:45 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 2
+2023-02-02 01:26:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:46 INFO  SeatDaoImpl:53 - Find seats by session id = 3
+2023-02-02 01:26:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:47 INFO  PurchasedSeatDaoImpl:83 - Save ticket with purchased id =  2 for user with id = 2
+2023-02-02 01:26:47 INFO  PurchasedSeatDaoImpl:105 - Update available seat for session with id =  3
+2023-02-02 01:26:47 INFO  PurchasedSeatDaoImpl:53 - Save purchased seat with session id =  3, seatId = 1 for user with id = 2
+2023-02-02 01:26:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:47 INFO  TicketDaoImpl:46 - Find tickets by user id = 2 and language id = 1
+2023-02-02 01:26:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:48 INFO  TicketDaoImpl:46 - Find tickets by user id = 2 and language id = 2
+2023-02-02 01:26:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:48 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:26:49 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:49 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-02 01:26:50 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:50 INFO  UserDaoImpl:141 - Error getting user by phone number = phone_number
+2023-02-02 01:26:50 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:50 INFO  UserDaoImpl:88 - Find user by id = 2
+2023-02-02 01:26:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:51 INFO  UserDaoImpl:201 - Update user's email address: email
+2023-02-02 01:26:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:51 INFO  UserDaoImpl:115 - Find user by email = email
+2023-02-02 01:26:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:52 INFO  UserDaoImpl:141 - Error getting user by phone number = phone2
+2023-02-02 01:26:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:53 INFO  UserDaoImpl:62 - Fin user by password = password and email = email_address
+2023-02-02 01:26:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:53 INFO  UserDaoImpl:115 - Find user by email = email_address
+2023-02-02 01:26:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:54 INFO  UserDaoImpl:251 - Error updating user contact information: User(id=2, firstName=First, lastName=Last, password=password2, phoneNumber=phone2, emailAddress=email2, createDate=2023-02-02 01:26:54.3111384, updateDate=2023-02-02 01:26:54.3111384, role=USER)
+2023-02-02 01:26:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:54 INFO  UserDaoImpl:141 - Error getting user by phone number = phone_number
+2023-02-02 01:26:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:55 INFO  UserDaoImpl:225 - Update user's phone number: phone
+2023-02-02 01:26:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:55 INFO  UserDaoImpl:141 - Error getting user by phone number = phone
+2023-02-02 01:26:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:56 INFO  SessionDaoImpl:110 - Find session by id = 2 and language id = 1
+2023-02-02 01:26:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:56 INFO  SessionDaoImpl:140 - Sort sessions by available_seats which have movie with id = 2
+2023-02-02 01:26:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:57 INFO  SessionDaoImpl:67 - Update session
+2023-02-02 01:26:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:57 INFO  SessionDaoImpl:110 - Find session by id = 2 and language id = 1
+2023-02-02 01:26:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:58 INFO  SessionDaoImpl:46 - Save new session
+2023-02-02 01:26:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:58 INFO  SessionDaoImpl:165 - Find session by movie id = 2
+2023-02-02 01:26:59 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:26:59 INFO  SessionDaoImpl:165 - Find session by movie id = 2
+2023-02-02 01:26:59 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:00 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 1
+2023-02-02 01:27:00 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-02 01:27:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:00 INFO  LanguageDaoImpl:293 - Find movie by language id = 2 and title = title
+2023-02-02 01:27:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:00 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:27:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:01 INFO  LanguageDaoImpl:353 - Find movie by id = 2 and language id= 1
+2023-02-02 01:27:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:02 INFO  LanguageDaoImpl:440 - Find movie which exist today by language id = 1 and title = title1
+2023-02-02 01:27:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:02 INFO  LanguageDaoImpl:293 - Find movie by language id = 1 and title = title1
+2023-02-02 01:27:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:03 INFO  LanguageDaoImpl:182 - Update movie description for movie with id = 2
+2023-02-02 01:27:03 INFO  LanguageDaoImpl:147 - Update movie
+2023-02-02 01:27:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:03 INFO  LanguageDaoImpl:293 - Find movie by language id = 2 and title = title
+2023-02-02 01:27:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:04 INFO  LanguageDaoImpl:266 - Find all movie by language id - 1
+2023-02-02 01:27:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:04 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:27:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:05 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:27:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:06 INFO  LanguageDaoImpl:487 - Get poster by movie id = 2 
+2023-02-02 01:27:07 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:07 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-02 01:27:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:08 INFO  LanguageDaoImpl:319 - Find movie by id = 2
+2023-02-02 01:27:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:09 INFO  LanguageDaoImpl:244 - Delete movie with id = 2
+2023-02-02 01:27:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:09 INFO  LanguageDaoImpl:319 - Find movie by id = 2
+2023-02-02 01:27:10 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:27:10 INFO  LanguageDaoImpl:575 - Get count of exist movies which have sessions today by title = title1 and language = 1
+2023-02-02 01:28:49 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:28:50 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:29:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:27 INFO  SessionDaoImpl:165 - Find session by movie id = 20
+2023-02-02 01:29:30 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:29:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:30 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:29:30 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 1
+2023-02-02 01:29:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:31 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:29:31 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:31 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:29:31 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:32 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:29:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:40 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:29:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:40 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:29:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:40 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:29:40 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:40 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:40 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:29:40 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:40 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:43 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:29:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:43 INFO  ErrorPageCommand:21 - Error page command
+2023-02-02 01:29:43 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-02 01:29:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:43 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:29:43 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:43 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:44 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:29:44 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:44 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-02 01:29:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:29:47 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:47 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-02 01:29:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:29:47 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:47 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-02 01:29:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:29:47 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-02 01:29:47 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:29:47 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:29:50 INFO  ErrorPageCommand:21 - Error page command
+2023-02-02 01:29:51 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 1
+2023-02-02 01:29:51 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:29:51 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:30:09 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:30:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:09 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:30:09 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:30:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:09 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:10 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:10 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:10 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:30:14 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:14 INFO  SessionDaoImpl:165 - Find session by movie id = 19
+2023-02-02 01:30:14 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:14 INFO  LanguageDaoImpl:353 - Find movie by id = 19 and language id= 2
+2023-02-02 01:30:14 INFO  SessionsPageCommand:36 - Session page command
+2023-02-02 01:30:14 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:16 INFO  SeatDaoImpl:124 - Find busy seat by session id = 17
+2023-02-02 01:30:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:16 INFO  SeatDaoImpl:53 - Find seats by session id = 17
+2023-02-02 01:30:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:16 INFO  SessionDaoImpl:110 - Find session by id = 17 and language id = 2
+2023-02-02 01:30:16 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-02 01:30:16 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:18 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:30:18 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:23 INFO  LogInCommand:24 - LogIn command
+2023-02-02 01:30:23 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:23 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:30:23 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:23 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:30:23 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:30:23 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:23 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:23 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:23 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:23 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:23 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:24 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:30:24 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:28 INFO  SeatDaoImpl:124 - Find busy seat by session id = 17
+2023-02-02 01:30:28 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:28 INFO  SeatDaoImpl:53 - Find seats by session id = 17
+2023-02-02 01:30:28 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:28 INFO  SessionDaoImpl:110 - Find session by id = 17 and language id = 2
+2023-02-02 01:30:28 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-02 01:30:28 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:29 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:29 INFO  SessionDaoImpl:165 - Find session by movie id = 19
+2023-02-02 01:30:29 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:29 INFO  LanguageDaoImpl:353 - Find movie by id = 19 and language id= 2
+2023-02-02 01:30:29 INFO  SessionsPageCommand:36 - Session page command
+2023-02-02 01:30:29 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:30 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:31 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:31 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:31 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:32 INFO  LogOutCommand:19 - LogOut command
+2023-02-02 01:30:32 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:30:32 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:30:32 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:30:32 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:30:32 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:30:32 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:32 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:30:32 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:30:32 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:32 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:32 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:32 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:32 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:32 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:30:35 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:30:35 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:37 INFO  RegisterPageCommand:17 - Register page command
+2023-02-02 01:30:38 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:39 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:30:39 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:40 INFO  LogInCommand:24 - LogIn command
+2023-02-02 01:30:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:40 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:30:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:41 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:30:41 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:30:41 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:41 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:41 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:41 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:41 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:41 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:44 INFO  SessionDaoImpl:165 - Find session by movie id = 19
+2023-02-02 01:30:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:44 INFO  LanguageDaoImpl:353 - Find movie by id = 19 and language id= 2
+2023-02-02 01:30:44 INFO  SessionsPageCommand:36 - Session page command
+2023-02-02 01:30:44 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:45 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:45 INFO  SeatDaoImpl:124 - Find busy seat by session id = 17
+2023-02-02 01:30:45 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:45 INFO  SeatDaoImpl:53 - Find seats by session id = 17
+2023-02-02 01:30:45 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:45 INFO  SessionDaoImpl:110 - Find session by id = 17 and language id = 2
+2023-02-02 01:30:45 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-02 01:30:45 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:46 INFO  TicketFormationCommand:27 - Ticket formation command
+2023-02-02 01:30:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:46 INFO  SeatDaoImpl:193 - Check if seat is exist by seat id = 1 and session id = 17 
+2023-02-02 01:30:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:47 INFO  SessionDaoImpl:110 - Find session by id = 17 and language id = 2
+2023-02-02 01:30:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:47 INFO  SeatDaoImpl:95 - Find seat by id = 1
+2023-02-02 01:30:47 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:48 INFO  AcceptTicketCommand:29 - AcceptTickets Command
+2023-02-02 01:30:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:48 INFO  SeatDaoImpl:193 - Check if seat is exist by seat id = 1 and session id = 17 
+2023-02-02 01:30:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:48 INFO  PurchasedSeatDaoImpl:83 - Save ticket with purchased id =  4 for user with id = 4
+2023-02-02 01:30:48 INFO  PurchasedSeatDaoImpl:105 - Update available seat for session with id =  17
+2023-02-02 01:30:48 INFO  PurchasedSeatDaoImpl:53 - Save purchased seat with session id =  17, seatId = 1 for user with id = 4
+2023-02-02 01:30:48 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AcceptTicket
+2023-02-02 01:30:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:48 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:48 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:48 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:48 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:48 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AcceptTicket
+2023-02-02 01:30:50 INFO  TicketsPageCommand:26 - Tickets page command
+2023-02-02 01:30:50 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:50 INFO  TicketDaoImpl:46 - Find tickets by user id = 4 and language id = 2
+2023-02-02 01:30:51 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:52 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:52 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:52 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:52 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:53 INFO  SessionDaoImpl:165 - Find session by movie id = 19
+2023-02-02 01:30:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:53 INFO  LanguageDaoImpl:353 - Find movie by id = 19 and language id= 2
+2023-02-02 01:30:53 INFO  SessionsPageCommand:36 - Session page command
+2023-02-02 01:30:53 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:30:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:55 INFO  SeatDaoImpl:124 - Find busy seat by session id = 17
+2023-02-02 01:30:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:55 INFO  SeatDaoImpl:53 - Find seats by session id = 17
+2023-02-02 01:30:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:55 INFO  SessionDaoImpl:110 - Find session by id = 17 and language id = 2
+2023-02-02 01:30:55 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-02 01:30:55 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:57 INFO  SessionDaoImpl:165 - Find session by movie id = 19
+2023-02-02 01:30:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:57 INFO  LanguageDaoImpl:353 - Find movie by id = 19 and language id= 2
+2023-02-02 01:30:57 INFO  SessionsPageCommand:36 - Session page command
+2023-02-02 01:30:57 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:30:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:58 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:30:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:30:58 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:30:58 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:30:58 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:03 INFO  LanguageDaoImpl:575 - Get count of exist movies which have sessions today by title = Batham and language = 1
+2023-02-02 01:31:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:03 INFO  LanguageDaoImpl:440 - Find movie which exist today by language id = 2 and title = Batham
+2023-02-02 01:31:03 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:04 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:eng
+2023-02-02 01:31:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:04 INFO  LanguageDaoImpl:71 - Get language id by language name = ua
+2023-02-02 01:31:04 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:2
+2023-02-02 01:31:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:05 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:05 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-02 01:31:05 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:05 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:05 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:08 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:ua
+2023-02-02 01:31:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:08 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:31:08 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:1
+2023-02-02 01:31:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:08 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:08 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:08 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:08 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:09 INFO  LogOutCommand:19 - LogOut command
+2023-02-02 01:31:09 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:31:09 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:31:09 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:31:09 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:31:09 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:31:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:09 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:31:09 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:31:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:09 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:09 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:09 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:09 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:09 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:31:10 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:31:10 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:11 INFO  LogInCommand:24 - LogIn command
+2023-02-02 01:31:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:11 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:31:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:11 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezovskiy@gmail.com
+2023-02-02 01:31:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:31:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:11 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:12 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:12 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:12 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:12 INFO  ProfilePageCommand:22 - Profile page command
+2023-02-02 01:31:13 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:17 INFO  UpdatePersonalInformationCommand:27 - Update personal information command
+2023-02-02 01:31:17 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:17 INFO  UserDaoImpl:251 - Error updating user contact information: User(id=4, firstName=Ihorse, lastName=Berezovskyi, password=GRENG2016, phoneNumber=null, emailAddress=null, createDate=null, updateDate=null, role=null)
+2023-02-02 01:31:17 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:17 INFO  UserDaoImpl:88 - Find user by id = 4
+2023-02-02 01:31:17 INFO  NotificationListener:42 - :HttpSessionBindingEvent:user:User(id=4, firstName=Ihors, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-01-27 02:49:16.321077, role=USER)
+2023-02-02 01:31:17 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : UpdateProfile
+2023-02-02 01:31:17 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:17 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:17 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:18 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:18 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:18 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:18 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : UpdateProfile
+2023-02-02 01:31:20 INFO  ProfilePageCommand:22 - Profile page command
+2023-02-02 01:31:20 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:24 INFO  UpdatePersonalInformationCommand:27 - Update personal information command
+2023-02-02 01:31:24 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:24 INFO  UserDaoImpl:251 - Error updating user contact information: User(id=4, firstName=Ihorse, lastName=Berezovskyi, password=GRENG2016, phoneNumber=null, emailAddress=null, createDate=null, updateDate=null, role=null)
+2023-02-02 01:31:24 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:24 INFO  UserDaoImpl:88 - Find user by id = 4
+2023-02-02 01:31:24 INFO  NotificationListener:42 - :HttpSessionBindingEvent:user:User(id=4, firstName=Ihorse, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-02-02 01:31:17.821283, role=USER)
+2023-02-02 01:31:24 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : UpdateProfile
+2023-02-02 01:31:24 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:24 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:24 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:24 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:24 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:24 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:24 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : UpdateProfile
+2023-02-02 01:31:26 INFO  ProfilePageCommand:22 - Profile page command
+2023-02-02 01:31:26 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:29 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:29 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:29 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:29 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:29 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:29 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:30 INFO  ProfilePageCommand:22 - Profile page command
+2023-02-02 01:31:30 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:30 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:31 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:31 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:31 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:34 INFO  LogOutCommand:19 - LogOut command
+2023-02-02 01:31:34 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:31:34 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:31:34 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=4, firstName=Ihorse, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380934156876, emailAddress=ihor.berezovskiy@gmail.com, createDate=2023-01-05 21:20:47.164919, updateDate=2023-02-02 01:31:24.315248, role=USER)
+2023-02-02 01:31:34 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:31:34 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-02 01:31:34 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:34 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-02 01:31:34 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 01:31:34 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:34 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-02 01:31:34 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:34 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-02 01:31:34 INFO  IndexPageCommand:43 - Index page command
+2023-02-02 01:31:34 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-02 01:31:35 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-02 01:31:35 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-02 01:31:39 INFO  LogInCommand:24 - LogIn command
+2023-02-02 01:31:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:39 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-02 01:31:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:39 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-02 01:31:39 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-02 01:31:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:39 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-02 01:31:39 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-02 01:31:39 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:42 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-02 01:31:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:43 INFO  LanguageDaoImpl:319 - Find movie by id = 20
+2023-02-02 01:31:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:43 INFO  MovieDescriptionDaoImpl:41 - Find movie descriptions by movie id = 20
+2023-02-02 01:31:43 INFO  UpdateMoviePageCommand:28 - Update movie page command
+2023-02-02 01:31:43 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:47 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-02 01:31:47 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : UpdatedMovie
+2023-02-02 01:31:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:47 INFO  LanguageDaoImpl:487 - Get poster by movie id = 20 
+2023-02-02 01:31:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:47 INFO  LanguageDaoImpl:182 - Update movie description for movie with id = 20
+2023-02-02 01:31:47 INFO  LanguageDaoImpl:147 - Update movie
+2023-02-02 01:31:47 INFO  UpdateMovieCommand:38 - Update movie command
+2023-02-02 01:31:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:48 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-02 01:31:48 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-02 01:31:48 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:48 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : UpdatedMovie
+2023-02-02 01:31:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:51 INFO  LanguageDaoImpl:244 - Delete movie with id = 18
+2023-02-02 01:31:51 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : CanceledMovie
+2023-02-02 01:31:51 INFO  CancelMovieCommand:29 - Cancel movie command
+2023-02-02 01:31:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:51 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-02 01:31:51 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-02 01:31:51 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:31:51 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : CanceledMovie
+2023-02-02 01:31:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:56 INFO  SessionDaoImpl:165 - Find session by movie id = 18
+2023-02-02 01:31:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:56 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 18
+2023-02-02 01:31:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:31:57 INFO  LanguageDaoImpl:353 - Find movie by id = 18 and language id= 2
+2023-02-02 01:31:57 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-02 01:31:57 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:00 INFO  SeatDaoImpl:124 - Find busy seat by session id = 16
+2023-02-02 01:32:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:00 INFO  SeatDaoImpl:53 - Find seats by session id = 16
+2023-02-02 01:32:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:00 INFO  SessionDaoImpl:110 - Find session by id = 16 and language id = 2
+2023-02-02 01:32:00 INFO  AdminSeatsPageCommand:26 - Admin seats page command
+2023-02-02 01:32:00 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:02 INFO  SessionDaoImpl:165 - Find session by movie id = 18
+2023-02-02 01:32:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:02 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 18
+2023-02-02 01:32:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:02 INFO  LanguageDaoImpl:353 - Find movie by id = 18 and language id= 2
+2023-02-02 01:32:02 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-02 01:32:02 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:03 INFO  SessionDaoImpl:110 - Find session by id = 16 and language id = 2
+2023-02-02 01:32:03 INFO  UpdateSessionPageCommand:28 - Update session page command
+2023-02-02 01:32:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:06 INFO  SessionDaoImpl:67 - Update session
+2023-02-02 01:32:06 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : UpdatedSession
+2023-02-02 01:32:06 INFO  UpdateSessionCommand:35 - Update session command
+2023-02-02 01:32:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:06 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-02 01:32:06 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-02 01:32:06 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:06 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : UpdatedSession
+2023-02-02 01:32:14 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:15 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-02 01:32:15 INFO  AddMoviePageCommand:21 - Add movie page command
+2023-02-02 01:32:15 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:26 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:26 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-02 01:32:26 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:26 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 21
+2023-02-02 01:32:26 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-02 01:32:26 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-02 01:32:26 INFO  AddMovieCommand:37 - Add movie command
+2023-02-02 01:32:26 INFO  DataSource:54 - Get connection from connection pool
+2023-02-02 01:32:26 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-02 01:32:26 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-02 01:32:26 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-02 01:32:26 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-02 02:16:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-02 02:16:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-02 02:16:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-02 02:16:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-05 19:53:23 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 19:54:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 19:54:08 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 19:59:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 19:59:58 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:01:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:01:27 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:02:38 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:02:39 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:02:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:02:55 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:03:49 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:03:49 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:04:13 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:04:13 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:04:30 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:04:35 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:05:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:05:05 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:05:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:05:53 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:07:17 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:07:24 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:07:59 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:07:59 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:08:26 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:08:27 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:09:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:09:43 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:09:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:09:58 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:10:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:10:01 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:10:13 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:10:17 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:13:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:13:13 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:13:14 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:13:28 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:13:28 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:14:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:14:17 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 20:23:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-05 20:23:15 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-05 21:30:26 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:36 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:36 INFO  PurchasedSeatDaoImpl:83 - Save ticket with purchased id =  2 for user with id = 2
+2023-02-06 20:25:36 INFO  PurchasedSeatDaoImpl:105 - Update available seat for session with id =  3
+2023-02-06 20:25:36 INFO  PurchasedSeatDaoImpl:53 - Save purchased seat with session id =  3, seatId = 1 for user with id = 2
+2023-02-06 20:25:36 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:36 INFO  TicketDaoImpl:46 - Find tickets by user id = 2 and language id = 1
+2023-02-06 20:25:37 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:37 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-06 20:25:37 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:38 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-06 20:25:38 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:38 INFO  UserDaoImpl:141 - Error getting user by phone number = phone_number
+2023-02-06 20:25:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:39 INFO  UserDaoImpl:88 - Find user by id = 2
+2023-02-06 20:25:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:40 INFO  UserDaoImpl:201 - Update user's email address: email
+2023-02-06 20:25:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:40 INFO  UserDaoImpl:115 - Find user by email = email
+2023-02-06 20:25:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:40 INFO  UserDaoImpl:141 - Error getting user by phone number = phone2
+2023-02-06 20:25:41 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:41 INFO  UserDaoImpl:62 - Fin user by password = password and email = email_address
+2023-02-06 20:25:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:42 INFO  UserDaoImpl:115 - Find user by email = email_address
+2023-02-06 20:25:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:42 INFO  UserDaoImpl:251 - Error updating user contact information: User(id=2, firstName=First, lastName=Last, password=password2, phoneNumber=phone2, emailAddress=email2, createDate=2023-02-06 20:25:42.8966333, updateDate=2023-02-06 20:25:42.8976451, role=USER)
+2023-02-06 20:25:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:43 INFO  UserDaoImpl:141 - Error getting user by phone number = phone_number
+2023-02-06 20:25:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:43 INFO  UserDaoImpl:225 - Update user's phone number: phone
+2023-02-06 20:25:43 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:43 INFO  UserDaoImpl:141 - Error getting user by phone number = phone
+2023-02-06 20:25:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:46 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 1
+2023-02-06 20:25:46 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-06 20:25:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:46 INFO  LanguageDaoImpl:293 - Find movie by language id = 2 and title = title
+2023-02-06 20:25:46 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:46 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-06 20:25:47 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:47 INFO  LanguageDaoImpl:353 - Find movie by id = 2 and language id= 1
+2023-02-06 20:25:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:48 INFO  LanguageDaoImpl:440 - Find movie which exist today by language id = 1 and title = title1
+2023-02-06 20:25:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:48 INFO  LanguageDaoImpl:293 - Find movie by language id = 1 and title = title1
+2023-02-06 20:25:49 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:49 INFO  LanguageDaoImpl:182 - Update movie description for movie with id = 2
+2023-02-06 20:25:49 INFO  LanguageDaoImpl:147 - Update movie
+2023-02-06 20:25:49 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:49 INFO  LanguageDaoImpl:293 - Find movie by language id = 2 and title = title
+2023-02-06 20:25:50 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:50 INFO  LanguageDaoImpl:266 - Find all movie by language id - 1
+2023-02-06 20:25:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:51 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-06 20:25:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:51 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 1
+2023-02-06 20:25:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:52 INFO  LanguageDaoImpl:487 - Get poster by movie id = 2 
+2023-02-06 20:25:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:53 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-06 20:25:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:53 INFO  LanguageDaoImpl:319 - Find movie by id = 2
+2023-02-06 20:25:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:54 INFO  LanguageDaoImpl:244 - Delete movie with id = 2
+2023-02-06 20:25:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:54 INFO  LanguageDaoImpl:319 - Find movie by id = 2
+2023-02-06 20:25:55 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:55 INFO  LanguageDaoImpl:575 - Get count of exist movies which have sessions today by title = title1 and language = 1
+2023-02-06 20:25:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:56 INFO  SeatDaoImpl:124 - Find busy seat by session id = 2
+2023-02-06 20:25:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:56 INFO  SeatDaoImpl:95 - Find seat by id = 1
+2023-02-06 20:25:57 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:57 INFO  SeatDaoImpl:193 - Check if seat is exist by seat id = 1 and session id = 2 
+2023-02-06 20:25:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:58 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 2
+2023-02-06 20:25:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:58 INFO  SeatDaoImpl:53 - Find seats by session id = 3
+2023-02-06 20:25:59 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:25:59 INFO  TicketDaoImpl:46 - Find tickets by user id = 2 and language id = 2
+2023-02-06 20:26:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:00 INFO  SessionDaoImpl:110 - Find session by id = 2 and language id = 1
+2023-02-06 20:26:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:01 INFO  SessionDaoImpl:140 - Sort sessions by available_seats which have movie with id = 2
+2023-02-06 20:26:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:01 INFO  SessionDaoImpl:67 - Update session
+2023-02-06 20:26:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:01 INFO  SessionDaoImpl:110 - Find session by id = 2 and language id = 1
+2023-02-06 20:26:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:02 INFO  SessionDaoImpl:46 - Save new session
+2023-02-06 20:26:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:02 INFO  SessionDaoImpl:165 - Find session by movie id = 2
+2023-02-06 20:26:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-06 20:26:03 INFO  SessionDaoImpl:165 - Find session by movie id = 2
+2023-02-07 17:59:27 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 17:59:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 17:59:27 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 17:59:27 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 17:59:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 17:59:27 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 17:59:27 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 17:59:28 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 17:59:28 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 17:59:28 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 18:01:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:03 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:01:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:03 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:01:03 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:01:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:01:05 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 18:01:05 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:01:07 INFO  LogInCommand:24 - LogIn command
+2023-02-07 18:01:07 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:08 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:01:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:08 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:01:08 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:01:08 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:08 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:01:08 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:01:08 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:01:10 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:01:10 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:01:10 INFO  AddMoviePageCommand:21 - Add movie page command
+2023-02-07 18:01:10 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:04:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:04:39 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:04:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:04:39 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 22
+2023-02-07 18:04:39 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-07 18:04:39 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:04:39 INFO  AddMovieCommand:37 - Add movie command
+2023-02-07 18:04:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:04:39 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:04:39 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:04:39 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:04:39 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:05:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:05:06 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:05:06 INFO  AddMoviePageCommand:21 - Add movie page command
+2023-02-07 18:05:06 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:02 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:08:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:02 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 23
+2023-02-07 18:08:02 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-07 18:08:02 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:08:02 INFO  AddMovieCommand:37 - Add movie command
+2023-02-07 18:08:02 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:02 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:08:03 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:08:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:03 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:08:11 INFO  LogOutCommand:19 - LogOut command
+2023-02-07 18:08:11 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:08:11 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 18:08:11 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:08:11 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:08:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:08:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:11 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 18:08:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:08:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:11 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:08:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:12 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:08:12 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:08:12 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 18:08:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:15 INFO  LanguageDaoImpl:543 - Get count of exist movies which have sessions today
+2023-02-07 18:08:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:15 INFO  LanguageDaoImpl:411 - Find movie which exist today by language id = 2
+2023-02-07 18:08:15 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:08:15 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:08:16 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 18:08:16 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:08:18 INFO  LogInCommand:24 - LogIn command
+2023-02-07 18:08:18 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:18 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:08:18 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:18 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:08:18 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:08:18 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:19 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:08:19 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:08:19 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:21 INFO  SessionDaoImpl:165 - Find session by movie id = 22
+2023-02-07 18:08:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:21 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 22
+2023-02-07 18:08:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:21 INFO  LanguageDaoImpl:353 - Find movie by id = 22 and language id= 2
+2023-02-07 18:08:21 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-07 18:08:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:22 INFO  AddSessionPageCommand:24 - Add session page command
+2023-02-07 18:08:23 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:48 INFO  SessionDaoImpl:46 - Save new session
+2023-02-07 18:08:48 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:08:48 INFO  AddSessionCommand:32 - Add session command
+2023-02-07 18:08:48 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:48 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:08:48 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:08:48 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:48 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:08:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:51 INFO  SessionDaoImpl:165 - Find session by movie id = 22
+2023-02-07 18:08:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:51 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 22
+2023-02-07 18:08:51 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:51 INFO  LanguageDaoImpl:353 - Find movie by id = 22 and language id= 2
+2023-02-07 18:08:51 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-07 18:08:51 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:53 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:08:53 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:08:53 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:56 INFO  SessionDaoImpl:165 - Find session by movie id = 23
+2023-02-07 18:08:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:56 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 23
+2023-02-07 18:08:56 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:08:56 INFO  LanguageDaoImpl:353 - Find movie by id = 23 and language id= 2
+2023-02-07 18:08:56 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-07 18:08:56 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:08:57 INFO  AddSessionPageCommand:24 - Add session page command
+2023-02-07 18:08:57 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:09:34 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:34 INFO  SessionDaoImpl:46 - Save new session
+2023-02-07 18:09:34 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:09:34 INFO  AddSessionCommand:32 - Add session command
+2023-02-07 18:09:34 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:34 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:09:34 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:09:34 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:09:34 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:09:40 INFO  LogOutCommand:19 - LogOut command
+2023-02-07 18:09:40 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:09:40 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 18:09:40 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:09:40 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:09:40 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:09:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:40 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 18:09:40 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:09:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:40 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:09:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:40 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:09:40 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:09:40 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 18:09:45 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 18:09:45 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:09:52 INFO  LogInCommand:24 - LogIn command
+2023-02-07 18:09:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:52 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:09:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:52 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:09:52 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:09:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:52 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:09:52 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:09:52 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:09:53 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:09:53 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:09:53 INFO  AddMoviePageCommand:21 - Add movie page command
+2023-02-07 18:09:53 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:12:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:01 INFO  LanguageDaoImpl:45 - Find all languages
+2023-02-07 18:12:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:01 INFO  LanguageDaoImpl:122 - Save movie description for movie with id = 24
+2023-02-07 18:12:01 INFO  LanguageDaoImpl:92 - Save new movie
+2023-02-07 18:12:01 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:12:01 INFO  AddMovieCommand:37 - Add movie command
+2023-02-07 18:12:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:02 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:12:02 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:12:02 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:12:02 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedMovie
+2023-02-07 18:12:10 INFO  LogOutCommand:19 - LogOut command
+2023-02-07 18:12:10 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:12:10 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 18:12:10 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:12:10 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:12:10 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:12:10 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:11 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 18:12:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:12:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:11 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:12:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:11 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:12:11 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:12:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 18:12:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:15 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:12:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:15 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:12:15 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:12:15 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:12:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:16 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:12:16 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:16 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:12:16 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:12:16 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:12:17 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 18:12:17 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:12:25 INFO  LogInCommand:24 - LogIn command
+2023-02-07 18:12:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:25 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:12:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:25 INFO  UserDaoImpl:62 - Fin user by password = GRENG2016 and email = ihor.berezivskiy@gmail.com
+2023-02-07 18:12:25 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:12:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:25 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:12:25 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:12:25 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:12:31 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:31 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 18:12:31 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:31 INFO  SeatDaoImpl:149 - Get number of busy seats by movie id = 24
+2023-02-07 18:12:31 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:12:31 INFO  LanguageDaoImpl:353 - Find movie by id = 24 and language id= 2
+2023-02-07 18:12:31 INFO  AdminSessionsPageCommand:29 - Admin session page command
+2023-02-07 18:12:31 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:12:32 INFO  AddSessionPageCommand:24 - Add session page command
+2023-02-07 18:12:32 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:13:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:13:11 INFO  SessionDaoImpl:46 - Save new session
+2023-02-07 18:13:11 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:13:11 INFO  AddSessionCommand:32 - Add session command
+2023-02-07 18:13:11 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:13:11 INFO  LanguageDaoImpl:266 - Find all movie by language id - 2
+2023-02-07 18:13:11 INFO  AdminPageCommand:26 - Admin page page command
+2023-02-07 18:13:11 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:13:11 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : popUpsSuccess : AddedSession
+2023-02-07 18:13:15 INFO  LogOutCommand:19 - LogOut command
+2023-02-07 18:13:15 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:13:15 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 18:13:15 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : user : User(id=5, firstName=Ihor, lastName=Berezovskyi, password=GRENG2016, phoneNumber=+380933166876, emailAddress=ihor.berezivskiy@gmail.com, createDate=2023-01-12 19:14:28.0, updateDate=2023-01-12 19:14:35.0, role=ADMIN)
+2023-02-07 18:13:15 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:13:15 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 18:13:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:13:15 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 18:13:15 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:13:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:13:15 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 18:13:15 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:13:15 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 18:13:15 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 18:13:15 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 18:14:37 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:14:37 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 18:14:37 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:14:37 INFO  LanguageDaoImpl:353 - Find movie by id = 24 and language id= 2
+2023-02-07 18:14:37 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 18:14:37 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 18:14:38 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:14:39 INFO  SeatDaoImpl:124 - Find busy seat by session id = 25
+2023-02-07 18:14:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:14:39 INFO  SeatDaoImpl:53 - Find seats by session id = 25
+2023-02-07 18:14:39 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 18:14:39 INFO  SessionDaoImpl:110 - Find session by id = 25 and language id = 2
+2023-02-07 18:14:39 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 18:14:39 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 18:45:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 18:45:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 18:45:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 19:34:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:34:40 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 19:34:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : pageLanguage : eng
+2023-02-07 19:34:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:34:42 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 19:34:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : dbLanguage : 2
+2023-02-07 19:34:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:34:42 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:34:42 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:34:42 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:34:42 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:34:42 INFO  NotificationListener:27 - Session attribute added: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : utf-8
+2023-02-07 19:35:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:01 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:35:01 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:01 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:35:01 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:35:01 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:35:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:03 INFO  SessionDaoImpl:165 - Find session by movie id = 22
+2023-02-07 19:35:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:03 INFO  LanguageDaoImpl:353 - Find movie by id = 22 and language id= 2
+2023-02-07 19:35:03 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 19:35:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:35:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:05 INFO  SeatDaoImpl:124 - Find busy seat by session id = 23
+2023-02-07 19:35:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:05 INFO  SeatDaoImpl:53 - Find seats by session id = 23
+2023-02-07 19:35:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:35:05 INFO  SessionDaoImpl:110 - Find session by id = 23 and language id = 2
+2023-02-07 19:35:05 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 19:35:05 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:35:06 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 19:35:06 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:36:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:03 INFO  SeatDaoImpl:124 - Find busy seat by session id = 23
+2023-02-07 19:36:03 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:04 INFO  SeatDaoImpl:53 - Find seats by session id = 23
+2023-02-07 19:36:04 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:04 INFO  SessionDaoImpl:110 - Find session by id = 23 and language id = 2
+2023-02-07 19:36:04 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 19:36:04 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:36:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:05 INFO  SessionDaoImpl:165 - Find session by movie id = 22
+2023-02-07 19:36:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:05 INFO  LanguageDaoImpl:353 - Find movie by id = 22 and language id= 2
+2023-02-07 19:36:05 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 19:36:05 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:36:05 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:06 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:06 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:06 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:36:06 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:06 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:36:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:21 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:21 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:36:21 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:25 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:eng
+2023-02-07 19:36:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:25 INFO  LanguageDaoImpl:71 - Get language id by language name = ua
+2023-02-07 19:36:25 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:2
+2023-02-07 19:36:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:25 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:25 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:25 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-07 19:36:25 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:25 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:25 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:28 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:28 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:28 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:28 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-07 19:36:28 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:28 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:28 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:52 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:52 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:52 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-07 19:36:52 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:52 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:52 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:54 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:ua
+2023-02-07 19:36:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:54 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 19:36:54 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:1
+2023-02-07 19:36:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:54 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:36:54 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:54 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:36:54 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:36:54 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:36:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:58 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 19:36:58 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:36:58 INFO  LanguageDaoImpl:353 - Find movie by id = 24 and language id= 2
+2023-02-07 19:36:58 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 19:36:58 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:37:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:00 INFO  SeatDaoImpl:124 - Find busy seat by session id = 25
+2023-02-07 19:37:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:00 INFO  SeatDaoImpl:53 - Find seats by session id = 25
+2023-02-07 19:37:00 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:00 INFO  SessionDaoImpl:110 - Find session by id = 25 and language id = 2
+2023-02-07 19:37:00 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 19:37:00 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:03 INFO  LogInPageCommand:18 - LogIn page command
+2023-02-07 19:37:03 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:19 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:19 INFO  SeatDaoImpl:124 - Find busy seat by session id = 25
+2023-02-07 19:37:19 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:19 INFO  SeatDaoImpl:53 - Find seats by session id = 25
+2023-02-07 19:37:19 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:19 INFO  SessionDaoImpl:110 - Find session by id = 25 and language id = 2
+2023-02-07 19:37:19 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 19:37:19 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:20 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:20 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 19:37:20 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:20 INFO  LanguageDaoImpl:353 - Find movie by id = 24 and language id= 2
+2023-02-07 19:37:20 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 19:37:20 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:eng
+2023-02-07 19:37:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:21 INFO  LanguageDaoImpl:71 - Get language id by language name = eng
+2023-02-07 19:37:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:2
+2023-02-07 19:37:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:21 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:37:21 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:21 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 2
+2023-02-07 19:37:21 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:37:21 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:36 INFO  NotificationListener:42 - :HttpSessionBindingEvent:pageLanguage:eng
+2023-02-07 19:37:36 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:36 INFO  LanguageDaoImpl:71 - Get language id by language name = ua
+2023-02-07 19:37:36 INFO  NotificationListener:42 - :HttpSessionBindingEvent:dbLanguage:2
+2023-02-07 19:37:36 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:36 INFO  LanguageDaoImpl:515 - Get count of exist movies
+2023-02-07 19:37:36 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:36 INFO  LanguageDaoImpl:384 - Find exist movie by language id = 1
+2023-02-07 19:37:36 INFO  IndexPageCommand:43 - Index page command
+2023-02-07 19:37:36 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:37:36 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:37:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:40 INFO  SessionDaoImpl:165 - Find session by movie id = 24
+2023-02-07 19:37:40 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:40 INFO  LanguageDaoImpl:353 - Find movie by id = 24 and language id= 1
+2023-02-07 19:37:40 INFO  SessionsPageCommand:36 - Session page command
+2023-02-07 19:37:40 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:utf-8
+2023-02-07 19:37:40 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:44 INFO  SeatDaoImpl:124 - Find busy seat by session id = 25
+2023-02-07 19:37:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:44 INFO  SeatDaoImpl:53 - Find seats by session id = 25
+2023-02-07 19:37:44 INFO  DataSource:54 - Get connection from connection pool
+2023-02-07 19:37:44 INFO  SessionDaoImpl:110 - Find session by id = 25 and language id = 1
+2023-02-07 19:37:44 INFO  SeatsPageCommand:30 - Seats page command
+2023-02-07 19:37:44 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:37:44 INFO  NotificationListener:42 - :HttpSessionBindingEvent:jakarta.servlet.jsp.jstl.fmt.request.charset:UTF-8
+2023-02-07 19:47:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : dbLanguage : 1
+2023-02-07 19:47:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : jakarta.servlet.jsp.jstl.fmt.request.charset : UTF-8
+2023-02-07 19:47:22 INFO  NotificationListener:58 - Session attribute removed: HttpSessionBindingEvent : pageLanguage : ua

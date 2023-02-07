@@ -17,8 +17,18 @@ import java.util.List;
  *
  */
 public class MovieServiceImpl implements MovieService {
-    private final MovieDao movieDao = DaoFactory.getMovieDao();
-    private final MovieDescriptionDao movieDescriptionDao = DaoFactory.getMovieDescriptionDao();
+    private final MovieDao movieDao;
+    private final MovieDescriptionDao movieDescriptionDao;
+
+    public MovieServiceImpl() {
+       movieDao = DaoFactory.getMovieDao();
+       movieDescriptionDao = DaoFactory.getMovieDescriptionDao();
+    }
+
+    public MovieServiceImpl(MovieDao movieDao, MovieDescriptionDao movieDescriptionDao){
+        this.movieDescriptionDao = movieDescriptionDao;
+        this.movieDao = movieDao;
+    }
 
     /**
      * Save new movie in database

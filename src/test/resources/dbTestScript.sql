@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS sessions
 
 INSERT INTO public.sessions(
     id_session, movie_id, start_time, end_time, available_seats, price, format)
-VALUES (2, 2, now(), now(), 2, 120, 'LUX'),
+VALUES (2, 2, now() + INTERVAL '1 hour', now(), 2, 120, 'LUX'),
        (3, 2, now() + INTERVAL '1 day', now(), 2, 120, 'LUX');
 
 

@@ -14,7 +14,15 @@ import java.util.List;
  *
  */
 public class TicketServiceImpl implements TicketService {
-    private final TicketDao ticketDao = DaoFactory.getTicketDao();
+    private final TicketDao ticketDao;
+
+    public TicketServiceImpl(){
+        ticketDao = DaoFactory.getTicketDao();
+    }
+
+    public TicketServiceImpl(TicketDao ticketDao){
+        this.ticketDao = ticketDao;
+    }
 
     /**
      * Returns list os user's tickets.

@@ -10,6 +10,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.DatabaseBuildScript;
+import util.GetEntity;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -26,6 +27,8 @@ class SessionDaoImplTest {
 
     private final static SessionDao sessionDao = DaoFactory.getSessionDao();
 
+
+
     @BeforeEach
     public void runScript() {
         try {
@@ -37,7 +40,7 @@ class SessionDaoImplTest {
 
     @Test
     void save() throws DaoOperationException {
-        Session session = getSession();
+        Session session = GetEntity.getSession();
         sessionDao.save(session);
         List<Session> actual = sessionDao.findByMovie(2L);
         assertEquals(3, actual.size());
@@ -46,7 +49,7 @@ class SessionDaoImplTest {
 
     @Test
     void update() throws DaoOperationException {
-        Session session = getSession();
+        Session session = GetEntity.getSession();
         session.setId(2L);
         session.setFormat(MovieFormat.LUX);
         sessionDao.update(session);
@@ -78,17 +81,5 @@ class SessionDaoImplTest {
         assertEquals(2, actual.size());
     }
 
-    private static Session getSession() {
-        Session session = new Session();
-        Movie movie = new Movie();
-        movie.setId(2L);
 
-        session.setMovie(movie);
-        session.setStartTime(Timestamp.valueOf(LocalDateTime.now()));
-        session.setEndTime(Timestamp.valueOf(LocalDateTime.now()));
-        session.setPrice(BigDecimal.valueOf(100));
-        session.setAvailableSeats(2);
-        session.setFormat(MovieFormat.D2);
-        return session;
-    }
 }

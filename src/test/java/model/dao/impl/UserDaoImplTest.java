@@ -11,6 +11,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.DatabaseBuildScript;
+import util.GetEntity;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -90,7 +91,7 @@ class UserDaoImplTest {
 
     @Test
     void updateContactInformation() throws DaoOperationException {
-        User user = getUser();
+        User user = GetEntity.getUser();
         user.setId(2L);
         userDao.updateContactInformation(user);
         User actual = userDao.findByPhoneNumber("phone_number");
@@ -101,7 +102,7 @@ class UserDaoImplTest {
 
     @Test
     void save() throws DaoOperationException {
-        User user = getUser();
+        User user = GetEntity.getUser();
         userDao.save(user);
         User actual = userDao.findByPhoneNumber("phone2");
         assertThat(
@@ -109,16 +110,5 @@ class UserDaoImplTest {
                 allOf(hasProperty("firstName", CoreMatchers.equalTo(actual.getFirstName()))));
     }
 
-    private static User getUser (){
-        User user = new User();
-        user.setCreateDate(Timestamp.valueOf(LocalDateTime.now()));
-        user.setRole(UserRole.USER);
-        user.setFirstName("First");
-        user.setLastName("Last");
-        user.setEmailAddress("email2");
-        user.setPhoneNumber("phone2");
-        user.setUpdateDate(Timestamp.valueOf(LocalDateTime.now()));
-        user.setPassword("password2");
-        return user;
-    }
+
 }

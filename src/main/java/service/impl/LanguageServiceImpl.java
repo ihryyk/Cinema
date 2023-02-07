@@ -5,6 +5,7 @@ import controller.validator.Validator;
 import exception.DaoOperationException;
 import model.dao.DaoFactory;
 import model.dao.LanguageDao;
+import model.dao.impl.LanguageDaoImpl;
 import model.entity.Language;
 import service.LanguageService;
 
@@ -14,7 +15,16 @@ import java.util.List;
  *
  */
 public class LanguageServiceImpl implements LanguageService {
-    private final LanguageDao languageDao = DaoFactory.getLanguageDao();
+
+    private final LanguageDao languageDao;
+
+    public LanguageServiceImpl(){
+        languageDao = DaoFactory.getLanguageDao();
+    }
+
+    public LanguageServiceImpl(LanguageDao languageDao){
+        this.languageDao = languageDao;
+    }
     /**
      * Returns list of language from database
      *

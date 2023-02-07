@@ -16,7 +16,15 @@ import java.util.*;
  *
  */
 public class SeatServiceImpl implements SeatService {
-   SeatDao seatDao = DaoFactory.getSeatDao();
+  private final SeatDao seatDao;
+
+  public SeatServiceImpl (){
+      seatDao = DaoFactory.getSeatDao();
+  }
+
+  public SeatServiceImpl(SeatDao seatDao){
+      this.seatDao = seatDao;
+  }
 
     /**
      * Returns list of free seat in the session from database
@@ -33,7 +41,7 @@ public class SeatServiceImpl implements SeatService {
     }
 
     @Override
-    public Map<Seat,Boolean> findSeatsSession(Long sessionId) throws DaoOperationException {
+    public Map<Seat,Boolean> findAllBySession(Long sessionId) throws DaoOperationException {
         ArgumentValidator.checkForNull(sessionId,"An empty id value is not allowed");
         List<Seat> busySeat = seatDao.findBusySeatsBySession(sessionId);
         List<Seat> freeSeat = seatDao.findFreeSeatsBySession(sessionId);

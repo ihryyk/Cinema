@@ -11,6 +11,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.DatabaseBuildScript;
+import util.GetEntity;
 
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -39,7 +40,7 @@ class MovieDaoImplTest {
 
     @Test
     void saveTest() throws DaoOperationException, TransactionException {
-        Movie expected = getMovie();
+        Movie expected = GetEntity.getMovie();
         movieDao.save(expected);
         Movie actual = movieDao.findByLanguageAndTitle(2L, "title").get(0);
         assertThat(
@@ -51,7 +52,7 @@ class MovieDaoImplTest {
 
     @Test
     void updateTest() throws DaoOperationException, TransactionException {
-        Movie expected = getMovie();
+        Movie expected = GetEntity.getMovie();
         expected.setId(2L);
         movieDao.update(expected);
         Movie actual = movieDao.findByLanguageAndTitle(2L, "title").get(0);
@@ -141,33 +142,5 @@ class MovieDaoImplTest {
         assertEquals(expected, actual);
     }
 
-    private Movie getMovie() {
-        Movie movie = new Movie();
-        Language uaLanguage = new Language();
-        uaLanguage.setId(1L);
-        Language engLanguage = new Language();
-        engLanguage.setId(2L);
 
-        List<MovieDescription> movieDescriptionList = new ArrayList<>();
-
-        MovieDescription engMovieDescription = new MovieDescription();
-        engMovieDescription.setLanguage(engLanguage);
-        engMovieDescription.setDirector("director");
-        engMovieDescription.setTitle("title");
-        movieDescriptionList.add(engMovieDescription);
-
-        MovieDescription uaMovieDescription = new MovieDescription();
-        uaMovieDescription.setLanguage(uaLanguage);
-        uaMovieDescription.setDirector("режисер");
-        uaMovieDescription.setTitle("назва");
-        movieDescriptionList.add(uaMovieDescription);
-
-        movie.setAvailableAge((short) 10);
-        movie.setReleaseDate(Timestamp.valueOf(LocalDateTime.now()));
-        movie.setOriginalName("movie");
-        movie.setPoster(InputStream.nullInputStream());
-        movie.setDeleted(false);
-        movie.setMovieDescriptionList(movieDescriptionList);
-        return movie;
-    }
 }
